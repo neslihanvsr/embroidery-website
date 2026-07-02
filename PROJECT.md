@@ -1,4 +1,4 @@
-# PROJECT.md — Handmade Embroidery Business Website
+# PROJECT.md — HoyThreads Embroidery Business Website
 
 ## 1. Overview
 
