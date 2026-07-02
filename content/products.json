@@ -1,0 +1,47 @@
+[
+  {
+    "id": "flower-001",
+    "name": "Wildflower Hoop Art",
+    "category": "flowers",
+    "price": "250 TRY",
+    "image": "assets/images/products/flower-001.jpg",
+    "shopierUrl": "https://www.shopier.com/your-store/wildflower-hoop-art",
+    "featured": true
+  },
+  {
+    "id": "movie-tv-001",
+    "name": "Studio Ghibli Inspired Hoop",
+    "category": "movie-tv",
+    "price": "300 TRY",
+    "image": "assets/images/products/movie-tv-001.jpg",
+    "shopierUrl": "https://www.shopier.com/your-store/ghibli-inspired-hoop",
+    "featured": true
+  },
+  {
+    "id": "anime-001",
+    "name": "Anime Character Portrait Hoop",
+    "category": "anime",
+    "price": "350 TRY",
+    "image": "assets/images/products/anime-001.jpg",
+    "shopierUrl": "https://www.shopier.com/your-store/anime-character-portrait-hoop",
+    "featured": false
+  },
+  {
+    "id": "custom-001",
+    "name": "Custom Pet Portrait Embroidery",
+    "category": "custom",
+    "price": "400 TRY",
+    "image": "assets/images/products/custom-001.jpg",
+    "shopierUrl": "https://www.shopier.com/your-store/custom-pet-portrait",
+    "featured": true
+  },
+  {
+    "id": "seasonal-001",
+    "name": "Autumn Leaves Hoop Art",
+    "category": "seasonal",
+    "price": "275 TRY",
+    "image": "assets/images/products/seasonal-001.jpg",
+    "shopierUrl": "https://www.shopier.com/your-store/autumn-leaves-hoop-art",
+    "featured": false
+  }
+]

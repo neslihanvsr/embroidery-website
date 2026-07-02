@@ -1,0 +1,32 @@
+[
+  {
+    "id": "flowers",
+    "label": "Flowers",
+    "accentColor": "#8FA68E",
+    "description": "Botanical hoop art and floral embroidery pieces."
+  },
+  {
+    "id": "movie-tv",
+    "label": "Movie & TV",
+    "accentColor": "#7C97A8",
+    "description": "Embroidered designs inspired by favorite movies and TV shows."
+  },
+  {
+    "id": "anime",
+    "label": "Anime",
+    "accentColor": "#D9A441",
+    "description": "Anime-inspired character embroidery and portraits."
+  },
+  {
+    "id": "custom",
+    "label": "Custom",
+    "accentColor": "#9B7E96",
+    "description": "One-of-a-kind custom embroidery commissions, including pet portraits and personalized designs."
+  },
+  {
+    "id": "seasonal",
+    "label": "Seasonal",
+    "accentColor": "#D97757",
+    "description": "Limited-time seasonal and holiday-themed embroidery pieces."
+  }
+]
