@@ -1,4 +1,4 @@
-# Handmade Embroidery Website
+# HoyThreads Embroidery Website
 
 A modern, minimalist static website (HTML, CSS, JavaScript only) showcasing a handmade embroidery business. The site functions as a portfolio and brand presence, linking out to an existing **Shopier** store for actual purchases.
 
