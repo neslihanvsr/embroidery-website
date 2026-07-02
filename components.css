@@ -1,0 +1,235 @@
+/*
+ * components.css
+ *
+ * Defines base styles for reusable UI components like buttons, cards, and tags.
+ */
+
+/* --- 1. Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4); /* 16px vertical, 32px horizontal */
+  border: 2px solid transparent;
+  border-radius: 4px;
+  font-family: var(--font-family-body);
+  font-size: var(--fs-body);
+  font-weight: 600; /* Semibold */
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition-ease);
+  text-decoration: none; /* Ensure no underline */
+}
+
+.btn--primary {
+  background-color: var(--color-accent-terracotta);
+  color: var(--color-white);
+  border-color: var(--color-accent-terracotta);
+}
+
+.btn--primary:hover,
+.btn--primary:focus {
+  background-color: #C26A4D; /* Slightly darker terracotta */
+  border-color: #C26A4D;
+}
+
+.btn--secondary {
+  background-color: var(--color-light-gray);
+  color: var(--color-charcoal);
+  border-color: var(--color-light-gray);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus {
+  background-color: var(--color-soft-gray);
+  border-color: var(--color-soft-gray);
+}
+
+/* --- 2. Category Tags --- */
+.tag, .category-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--border-radius-pill); /* Pill shape */
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--color-white); /* Default tag text color */
+  letter-spacing: 0.05em;
+  white-space: nowrap; /* Prevent wrapping */
+  margin-right: var(--space-1); /* For multiple tags */
+  margin-bottom: var(--space-1); /* For multiple tags */
+}
+
+/* Specific category badge colors */
+.category-badge--flowers {
+  background-color: var(--color-accent-sage);
+}
+.category-badge--movie-tv {
+  background-color: var(--color-accent-dusty-blue);
+}
+.category-badge--anime {
+  background-color: var(--color-accent-mustard);
+}
+.category-badge--custom,
+.category-badge--seasonal {
+  background-color: var(--color-accent-plum);
+}
+
+/* --- 3. Product Card --- */
+.product-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--border-radius-md);
+  overflow: hidden; /* Ensures image corners are rounded */
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-ease);
+  text-align: left; /* Align text within the card */
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.product-card__image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistent card appearance */
+  object-fit: cover; /* Cover the area, crop if necessary */
+  display: block; /* Remove extra space below image */
+}
+
+.product-card__content {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows content to push price/button to bottom */
+}
+
+.product-card__category {
+  margin-bottom: var(--space-1);
+}
+
+.product-card__title {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-1);
+  color: var(--color-charcoal);
+}
+
+.product-card__price {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--color-accent-terracotta);
+  margin-top: auto; /* Pushes price and button to the bottom */
+  margin-bottom: var(--space-2);
+}
+
+.product-card__button {
+  width: 100%; /* Make button full width of card content */
+}
+
+/* --- 4. Navigation Styles --- */
+.nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-4); /* Spacing between nav items */
+}
+
+.nav__item a {
+  font-family: var(--font-family-body);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  padding: var(--space-1) 0;
+  position: relative;
+  transition: var(--transition-ease);
+}
+
+.nav__item a:hover,
+.nav__item a:focus {
+  color: var(--color-accent-terracotta);
+}
+
+.nav__item a::after { /* Underline effect on hover/active */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent-terracotta);
+  transition: width 0.2s ease;
+}
+
+.nav__item a:hover::after,
+.nav__item a.active::after { /* .active class for current page */
+  width: 100%;
+}
+
+/* Mobile navigation specific styles (will be toggled by JS) */
+/* These styles assume a mobile menu that expands vertically */
+@media (max-width: 899px) { /* Applies to mobile and tablet screens */
+  .nav--desktop {
+    display: none; /* Hide desktop nav on smaller screens */
+  }
+
+  .nav--mobile {
+    display: none; /* Hidden by default, JS will toggle 'is-open' class */
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-light-gray);
+    box-shadow: var(--shadow-md);
+    z-index: 100; /* Ensure it's above other content */
+  }
+
+  .nav--mobile.is-open {
+    display: block; /* Show when JS adds 'is-open' class */
+  }
+
+  .nav--mobile .nav__list {
+    flex-direction: column;
+    padding: var(--space-3);
+    gap: var(--space-2);
+  }
+
+  .nav--mobile .nav__item a {
+    display: block;
+    padding: var(--space-2) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-light-gray);
+  }
+
+  .nav--mobile .nav__item:last-child a {
+    border-bottom: none; /* No border on the last item */
+  }
+}
+
+/* --- 5. Footer Styles --- */
+.footer__social-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.footer__social-links a {
+  font-size: 1.5rem; /* Example size for social icons */
+  color: var(--color-light-gray);
+  transition: var(--transition-ease);
+}
+
+.footer__social-links a:hover {
+  color: var(--color-white);
+}
+
+.footer__copyright {
+  font-size: var(--fs-small);
+  color: var(--color-soft-gray);
+}

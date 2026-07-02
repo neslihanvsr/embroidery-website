@@ -1,0 +1,61 @@
+/*
+ * layout.css
+ *
+ * Defines global layout structures like containers, grid systems, and responsive breakpoints.
+ */
+
+/* --- 1. Breakpoints (Mobile-First) --- */
+/* Small devices (mobile, <600px) - default styles */
+
+/* Medium devices (tablet, 600px and up) */
+@media (min-width: 600px) {
+  :root {
+    /* Adjust display font size for larger screens */
+    --fs-display: 3.5rem;
+  }
+}
+
+/* Large devices (desktop, 900px and up) */
+@media (min-width: 900px) {
+  :root {
+    /* Further adjust display font size for larger screens */
+    --fs-display: 4.5rem;
+  }
+}
+
+/* --- 2. Global Containers / Wrappers --- */
+.container {
+  max-width: 1200px; /* Max width for content */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-2); /* 16px padding on sides */
+  padding-right: var(--space-2);
+}
+
+/* --- 3. Basic Grid System --- */
+.grid {
+  display: grid;
+  gap: var(--space-3); /* Default gap between grid items */
+}
+
+/* Mobile: 1 column */
+.grid--1-col {
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 600px) {
+  .grid--2-col-tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 or 4 columns */
+@media (min-width: 900px) {
+  .grid--3-col-desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid--4-col-desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

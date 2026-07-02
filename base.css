@@ -1,0 +1,104 @@
+/*
+ * base.css
+ *
+ * Contains CSS reset, global variables for design tokens (colors, typography scale, spacing),
+ * and base typography styles.
+ */
+
+/* --- 1. CSS Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15; /* Default line height */
+  -webkit-text-size-adjust: 100%; /* Prevent font size adjustment on mobile */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  background-color: transparent; /* Remove the gray background on active links in IE 10 */
+  text-decoration: none;
+  color: inherit; /* Inherit color by default, will be overridden for specific links */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --- 2. Design Tokens (CSS Variables) --- */
+:root {
+  /* Colors - Base / Neutral */
+  --color-white: #FFFFFF;
+  --color-cream: #FAF6F0;
+  --color-light-gray: #E8E4DE;
+  --color-charcoal: #2B2B2B;
+  --color-soft-gray: #6E6A65;
+
+  /* Colors - Thread-Inspired Accents */
+  --color-accent-terracotta: #D97757; /* Primary accent / CTA buttons */
+  --color-accent-sage: #8FA68E;       /* Flowers category tag */
+  --color-accent-dusty-blue: #7C97A8; /* Movie/TV category tag */
+  --color-accent-mustard: #D9A441;    /* Anime category tag */
+  --color-accent-plum: #9B7E96;       /* Custom/Seasonal category tag */
+
+  /* Typography - Font Families */
+  --font-family-heading: 'Fraunces', serif; /* Or 'Playfair Display' */
+  --font-family-body: 'Inter', sans-serif;   /* Or 'Work Sans' */
+
+  /* Typography - Type Scale (mobile-first) */
+  --fs-display: 2.5rem; /* Hero headline */
+  --fs-h1: 2rem;        /* Page titles */
+  --fs-h2: 1.5rem;      /* Section titles */
+  --fs-h3: 1.25rem;     /* Card/product titles */
+  --fs-body: 1rem;      /* Paragraph text */
+  --fs-small: 0.875rem; /* Captions, meta info */
+
+  /* Spacing Scale (8px base unit) */
+  --space-1: 0.5rem;  /* 8px */
+  --space-2: 1rem;    /* 16px */
+  --space-3: 1.5rem;  /* 24px */
+  --space-4: 2rem;    /* 32px */
+  --space-5: 2.5rem;  /* 40px */
+  --space-6: 3rem;    /* 48px */
+  --space-7: 3.5rem;  /* 56px */
+  --space-8: 4rem;    /* 64px */
+}
+
+/* --- 3. Base Body Styles --- */
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- 4. Heading Styles --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  line-height: 1.2;
+  font-weight: 500; /* Medium/Semibold */
+  color: var(--color-charcoal);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-body); } /* Using body size for h4, h5, h6 for now, can be adjusted */
+h5 { font-size: var(--fs-body); }
+h6 { font-size: var(--fs-body); }
