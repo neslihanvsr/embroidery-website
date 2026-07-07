@@ -5,6 +5,7 @@
     "category": "flowers",
     "price": "250 TRY",
     "image": "assets/images/products/flower-001.jpg",
+    "description": "A delicate hand-embroidered hoop featuring a vibrant array of wildflowers. Perfect for adding a touch of nature to any room.",
     "shopierUrl": "https://www.shopier.com/your-store/wildflower-hoop-art",
     "featured": true
   },
@@ -13,6 +14,7 @@
     "name": "Studio Ghibli Inspired Hoop",
     "category": "movie-tv",
     "price": "300 TRY",
+    "description": "Hand-stitched art capturing the whimsical charm of Studio Ghibli films. A must-have for fans of magical worlds.",
     "image": "assets/images/products/movie-tv-001.jpg",
     "shopierUrl": "https://www.shopier.com/your-store/ghibli-inspired-hoop",
     "featured": true
@@ -22,6 +24,7 @@
     "name": "Anime Character Portrait Hoop",
     "category": "anime",
     "price": "350 TRY",
+    "description": "Customizable portrait of your favorite anime character. Bring your beloved heroes to life with thread.",
     "image": "assets/images/products/anime-001.jpg",
     "shopierUrl": "https://www.shopier.com/your-store/anime-character-portrait-hoop",
     "featured": false
@@ -31,6 +34,7 @@
     "name": "Custom Pet Portrait Embroidery",
     "category": "custom",
     "price": "400 TRY",
+    "description": "Immortalize your beloved pet with a custom hand-embroidered portrait. A cherished keepsake for any pet owner.",
     "image": "assets/images/products/custom-001.jpg",
     "shopierUrl": "https://www.shopier.com/your-store/custom-pet-portrait",
     "featured": true
@@ -40,8 +44,80 @@
     "name": "Autumn Leaves Hoop Art",
     "category": "seasonal",
     "price": "275 TRY",
+    "description": "Celebrate the beauty of fall with this vibrant autumn leaves embroidery. Perfect for seasonal home decor.",
     "image": "assets/images/products/seasonal-001.jpg",
     "shopierUrl": "https://www.shopier.com/your-store/autumn-leaves-hoop-art",
+    "featured": false
+  }
+,
+  {
+    "id": "flower-002",
+    "name": "Botanical Monogram Hoop",
+    "category": "flowers",
+    "price": "280 TRY",
+    "description": "Personalized monogram surrounded by intricate botanical embroidery. A thoughtful gift for weddings or anniversaries.",
+    "image": "assets/images/products/flower-002.jpg",
+    "shopierUrl": "https://www.shopier.com/hoythreads/botanical-monogram-hoop",
+    "featured": false
+  },
+  {
+    "id": "movie-tv-002",
+    "name": "Westeros Map Embroidery",
+    "category": "movie-tv",
+    "price": "380 TRY",
+    "description": "Detailed embroidery of the iconic map of Westeros. A unique piece for any fantasy enthusiast's collection.",
+    "image": "assets/images/products/movie-tv-002.jpg",
+    "shopierUrl": "https://www.shopier.com/hoythreads/westeros-map-embroidery",
+    "featured": false
+  },
+  {
+    "id": "anime-002",
+    "name": "Pokémon Starter Trio Hoop",
+    "category": "anime",
+    "price": "320 TRY",
+    "description": "A nostalgic hoop featuring the classic Kanto starter Pokémon. Perfect for any Pokémon trainer.",
+    "image": "assets/images/products/anime-002.jpg",
+    "shopierUrl": "https://www.shopier.com/hoythreads/pokemon-starter-trio",
+    "featured": false
+  },
+  {
+    "id": "custom-002",
+    "name": "Custom Family Portrait Hoop",
+    "category": "custom",
+    "price": "450 TRY",
+    "description": "A unique and heartwarming embroidered family portrait. Capture your family's essence in stitches.",
+    "image": "assets/images/products/custom-002.jpg",
+    "shopierUrl": "https://www.shopier.com/hoythreads/custom-family-portrait",
+    "featured": false
+  },
+  {
+    "id": "children-001",
+    "name": "Child's Drawing Embroidery Replica",
+    "category": "childrens-drawings",
+    "price": "370 TRY",
+    "description": "Transform your child's artwork into a beautiful, lasting embroidery piece. A truly personal and sentimental gift.",
+    "image": "assets/images/products/children-001.jpg",
+    "shopierUrl": "https://www.shopier.com/hoythreads/childs-drawing-replica",
+    "featured": false
+  },
+  {
+    "id": "children-002",
+    "name": "First Masterpiece Keepsake Hoop",
+    "category": "childrens-drawings",
+    "price": "360 TRY",
+    "description": "Preserve their early creativity with an embroidered version of their first drawing. A unique memory to display.",
+    "image": "assets/images/products/children-002.jpg",
+    "shopierUrl": "https://www.shopier.com/hoythreads/first-masterpiece-keepsake",
+    "featured": false
+  },
+  {
+    "id": "seasonal-002",
+    "name": "Winter Wonderland Scene Hoop",
+    "category": "seasonal",
+    "price": "290 TRY",
+    "description": "A serene embroidered winter landscape, bringing festive cheer to your home. Ideal for holiday gifting.",
+    "image": "assets/images/products/seasonal-002.jpg",
+    "shopierUrl": "https://www.shopier.com/hoythreads/winter-wonderland-scene",
     "featured": false
   }
 ]

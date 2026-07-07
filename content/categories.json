@@ -29,4 +29,11 @@
     "accentColor": "#D97757",
     "description": "Limited-time seasonal and holiday-themed embroidery pieces."
   }
+,
+  {
+    "id": "childrens-drawings",
+    "label": "Children's Drawings",
+    "accentColor": "#D9A441",
+    "description": "Embroidered replicas of cherished children's artwork."
+  }
 ]
