@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoyThreads Embroidery - Gallery & Portfolio</title>
+    <meta name="description" content="Explore the artistic portfolio of HoyThreads Embroidery. View unique handmade pieces, filterable by category.">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.hoythreads.com/gallery.html"> <!-- Placeholder URL -->
+    <meta property="og:title" content="HoyThreads Embroidery - Gallery & Portfolio">
+    <meta property="og:description" content="Explore a curated collection of our handmade embroidery art, showcasing craftsmanship and diverse designs.">
+    <meta property="og:image" content="assets/images/branding/og-image.jpg"> <!-- Placeholder OG Image -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.hoythreads.com/gallery.html"> <!-- Placeholder URL -->
+    <meta property="twitter:title" content="HoyThreads Embroidery - Gallery & Portfolio">
+    <meta property="twitter:description" content="Explore a curated collection of our handmade embroidery art, showcasing craftsmanship and diverse designs.">
+    <meta property="twitter:image" content="assets/images/branding/twitter-image.jpg"> <!-- Placeholder Twitter Image -->
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/icons/site.webmanifest">
+    <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <!-- Google Fonts for Fraunces and Inter (placeholder, will be self-hosted later if needed) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="site-logo">
+                    <img src="https://via.placeholder.com/150x40?text=HoyThreads" alt="HoyThreads Embroidery Logo" width="150" height="40">
+                </a>
+                <!-- Desktop Navigation -->
+                <nav class="nav--desktop">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html">Home</a></li>
+                        <li class="nav__item"><a href="products.html">Products</a></li>
+                        <li class="nav__item"><a href="gallery.html" class="active">Gallery</a></li>
+                        <li class="nav__item"><a href="about.html">About</a></li>
+                        <li class="nav__item"><a href="custom-orders.html">Custom Orders</a></li>
+                        <li class="nav__item"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <!-- Mobile Navigation Toggle (Hamburger) -->
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger-icon"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Navigation (hidden by default, toggled by JS) -->
+        <nav class="nav--mobile" aria-label="Mobile navigation">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="index.html">Home</a></li>
+                <li class="nav__item"><a href="products.html">Products</a></li>
+                <li class="nav__item"><a href="gallery.html" class="active">Gallery</a></li>
+                <li class="nav__item"><a href="about.html">About</a></li>
+                <li class="nav__item"><a href="custom-orders.html">Custom Orders</a></li>
+                <li class="nav__item"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section class="gallery-section">
+            <div class="container">
+                <h1 class="section-title">Our Artistic Portfolio</h1>
+                <p class="text-center" style="margin-bottom: var(--space-5);">
+                    Explore a curated collection of our handmade embroidery art, showcasing craftsmanship and diverse designs.
+                </p>
+                <!-- Gallery items will be dynamically loaded here by gallery.js -->
+                <div id="gallery-grid" class="grid grid--2-col-tablet grid--3-col-desktop">
+                    <p class="text-center" style="grid-column: 1 / -1;">Loading gallery items...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer__social-links">
+                    <a href="#" aria-label="Instagram"><img src="assets/images/icons/instagram.svg" alt="Instagram" width="24" height="24"></a>
+                    <a href="#" aria-label="Pinterest"><img src="assets/images/icons/pinterest.svg" alt="Pinterest" width="24" height="24"></a>
+                    <a href="#" aria-label="Etsy"><img src="assets/images/icons/etsy.svg" alt="Etsy" width="24" height="24"></a>
+                </div>
+                <p class="footer__copyright">&copy; 2023 HoyThreads Embroidery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/gallery.js"></script> <!-- This script will load and render gallery items -->
+</body>
+</html>
