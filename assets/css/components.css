@@ -328,3 +328,140 @@
   margin-top: var(--space-1);
   flex-grow: 1; /* Allows description to push content down if needed */
 }
+
+/* --- 7. Lightbox (New) --- */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of everything */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease;
+}
+
+.lightbox.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.lightbox__content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next {
+  position: absolute;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  padding: var(--space-2);
+  z-index: 1010;
+  transition: color 0.2s ease;
+}
+
+.lightbox__close:hover,
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  color: var(--color-accent-terracotta);
+}
+
+.lightbox__close {
+  top: var(--space-2);
+  right: var(--space-2);
+}
+
+.lightbox__prev {
+  left: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox__next {
+  right: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox__close svg,
+.lightbox__prev svg,
+.lightbox__next svg {
+    width: 32px; /* Larger icons for better usability */
+    height: 32px;
+    stroke-width: 2.5; /* Thicker stroke for visibility */
+}
+
+.lightbox__caption {
+    position: absolute;
+    bottom: var(--space-2);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--color-white);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--fs-body);
+    max-width: 80%;
+    text-align: center;
+    opacity: 0; /* Hidden by default, shown when image is loaded */
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.is-open .lightbox__caption {
+    opacity: 1;
+}
+
+.lightbox__caption-title {
+    font-size: var(--fs-h3);
+    margin-bottom: var(--space-1);
+}
+
+.lightbox__caption-description {
+    font-size: var(--fs-small);
+    color: var(--color-light-gray);
+}
+
+/* Hide navigation buttons if only one image or at ends */
+.lightbox__prev.is-hidden,
+.lightbox__next.is-hidden {
+    display: none;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .lightbox__close, .lightbox__prev, .lightbox__next {
+        padding: var(--space-1);
+    }
+    .lightbox__close svg, .lightbox__prev svg, .lightbox__next svg {
+        width: 24px;
+        height: 24px;
+        stroke-width: 2;
+    }
+    .lightbox__caption {
+        font-size: var(--fs-small);
+        padding: var(--space-1);
+    }
+    .lightbox__caption-title {
+        font-size: var(--fs-body);
+    }
+}

@@ -51,7 +51,7 @@ Build Phase 5 – Interactivity (Completed):
   - Solution: Added default display:none rule for .nav--mobile in assets/css/components.css.
   - Verified desktop header and mobile navigation behavior.
 - ✅ Gallery filtering
-- ⬜ Gallery lightbox
+- ✅ Gallery lightbox
 - ✅ Shared utility functions
 - ✅ UI interactions
 
