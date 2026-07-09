@@ -23,7 +23,8 @@
 
 /* Focus-visible styles for interactive elements */
 .btn:focus-visible,
-.filter-button:focus-visible {
+.filter-button:focus-visible,
+.nav-toggle:focus-visible { /* Added nav-toggle */
   outline: 2px solid var(--color-accent-terracotta);
   outline-offset: 2px;
 }
@@ -161,11 +162,6 @@
 .nav__item a:hover,
 .nav__item a:focus {
   color: var(--color-accent-terracotta);
-}
-
-.nav__item a:focus-visible {
-  outline: 2px solid var(--color-accent-terracotta);
-  outline-offset: 2px;
 }
 
 .nav__item a::after { /* Underline effect on hover/active */
@@ -310,11 +306,6 @@
   transform: translateY(-2px);
 }
 
-.gallery-card:focus-visible {
-  outline: 2px solid var(--color-accent-terracotta);
-  outline-offset: 2px;
-  box-shadow: var(--shadow-md); /* Enhance existing hover effect */
-}
 .gallery-card__image {
   width: 100%;
   height: 200px; /* Consistent height */
@@ -397,12 +388,6 @@
   transition: color 0.2s ease;
 }
 
-.lightbox__close:focus-visible,
-.lightbox__prev:focus-visible,
-.lightbox__next:focus-visible {
-  outline: 2px solid var(--color-accent-terracotta);
-  outline-offset: 2px;
-}
 .lightbox__close:hover,
 .lightbox__prev:hover,
 .lightbox__next:hover {
@@ -487,27 +472,4 @@
     .lightbox__caption-title {
         font-size: var(--fs-body);
     }
-}
-
-/* --- 8. Accessibility Utilities --- */
-.skip-link {
-  position: absolute;
-  left: -9999px; /* Off-screen */
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  z-index: -999; /* Ensure it's not clickable when hidden */
-}
-
-.skip-link:focus {
-  position: static; /* Bring into view when focused */
-  width: auto;
-  height: auto;
-  padding: var(--space-2);
-  background-color: var(--color-accent-terracotta);
-  color: var(--color-white);
-  text-decoration: none;
-  z-index: 9999; /* Ensure it's on top */
-  left: 0; /* Reset left position */
 }

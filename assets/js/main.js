@@ -86,5 +86,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Global Escape key listener for mobile nav
+    document.addEventListener('keydown', (event) => {
+        const mobileNav = document.querySelector('.nav--mobile');
+        const navToggle = document.querySelector('.nav-toggle');
+        if (event.key === 'Escape' && mobileNav && mobileNav.classList.contains('is-open')) {
+            navToggle.setAttribute('aria-expanded', 'false');
+            mobileNav.classList.remove('is-open');
+            navToggle.focus(); // Return focus to the toggle button
+        }
+    });
+
     renderHeader(); // Call renderHeader on DOMContentLoaded
 });
+           

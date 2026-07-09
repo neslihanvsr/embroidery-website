@@ -64,6 +64,12 @@ Build Phase 6 – Responsive Polish & Accessibility (Milestone 6.1 – Accessibi
 - ✅ Review and improve semantic HTML where needed.
 - ✅ Review and improve image alt text where needed.
 
+## Current Task
+
+Build Phase 6 – Responsive Polish & Accessibility (Milestone 6.2 – Keyboard Accessibility):
+- ✅ Improve keyboard navigation for the gallery lightbox.
+- ✅ Improve keyboard behavior for the mobile navigation menu.
+
 ---
 
 ## Upcoming Tasks

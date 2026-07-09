@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     let currentFilteredItems = []; // Store items currently displayed in the grid
     let currentLightboxIndex = 0;  // Index of the currently viewed image in the lightbox
 
+    let previouslyFocusedElement = null; // To store the element that opened the lightbox
+    let focusableElementsInLightbox = []; // To store focusable elements within the lightbox
+
     if (!galleryGrid || !galleryFiltersContainer) {
         console.warn('Gallery grid or filters container not found. Skipping gallery script.');
         return;
@@ -137,6 +140,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             return; // Invalid index
         }
 
+        // Store the element that was focused before opening the lightbox
+        previouslyFocusedElement = document.activeElement;
+
+        // Update current image and caption
         currentLightboxIndex = index;
         const item = currentFilteredItems[currentLightboxIndex];
         const imagePath = `assets/images/gallery/${item.category}/${item.image}`;
@@ -147,8 +154,42 @@ document.addEventListener('DOMContentLoaded', async () => {
         lightboxCaptionDescription.textContent = item.description || '';
 
         lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden', 'false');
+        lightbox.setAttribute('aria-hidden', 'false'); // Make lightbox visible to AT
+
+        // Find all focusable elements within the lightbox
+        focusableElementsInLightbox = Array.from(
+            lightbox.querySelectorAll(
+                'button:not([disabled]), [href]:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
+            )
+        ).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0); // Filter out hidden elements
+
+        // Set initial focus to the close button
+        if (lightboxClose) {
+            lightboxClose.focus();
+        }
+
+        // Add event listener for focus trapping
+        lightbox.addEventListener('keydown', trapLightboxFocus);
         updateLightboxNavButtons();
+    }
+
+    /**
+     * Traps keyboard focus within the lightbox.
+     * @param {KeyboardEvent} event - The keyboard event.
+     */
+    function trapLightboxFocus(event) {
+        if (event.key === 'Tab' && focusableElementsInLightbox.length > 0) {
+            const firstFocusable = focusableElementsInLightbox[0];
+            const lastFocusable = focusableElementsInLightbox[focusableElementsInLightbox.length - 1];
+
+            if (event.shiftKey && document.activeElement === firstFocusable) {
+                lastFocusable.focus();
+                event.preventDefault();
+            } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+                firstFocusable.focus();
+                event.preventDefault();
+            }
+        }
     }
 
     /**
@@ -156,12 +197,18 @@ document.addEventListener('DOMContentLoaded', async () => {
      */
     function closeLightbox() {
         lightbox.classList.remove('is-open');
-        lightbox.setAttribute('aria-hidden', 'true');
+        lightbox.setAttribute('aria-hidden', 'true'); // Hide lightbox from AT
+
         // Clear image src to prevent loading in background
         lightboxImage.src = '';
         lightboxImage.alt = '';
         lightboxCaptionTitle.textContent = '';
         lightboxCaptionDescription.textContent = '';
+
+        // Remove focus trap listener
+        lightbox.removeEventListener('keydown', trapLightboxFocus);
+        // Return focus to the element that opened the lightbox
+        if (previouslyFocusedElement) previouslyFocusedElement.focus();
     }
 
     /**
