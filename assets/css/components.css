@@ -169,6 +169,11 @@
   width: 100%;
 }
 
+/* Hide mobile navigation by default */
+.nav--mobile {
+  display: none;
+}
+
 /* Mobile navigation specific styles (will be toggled by JS) */
 /* These styles assume a mobile menu that expands vertically */
 @media (max-width: 899px) { /* Applies to mobile and tablet screens */
