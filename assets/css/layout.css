@@ -164,3 +164,13 @@
 .about-preview-section {
   padding: var(--space-6) 0; /* Consistent vertical padding with other sections */
 }
+
+/* --- 11. Gallery Section --- */
+.gallery-section {
+  padding: var(--space-6) 0;
+}
+
+/* --- 12. Products Section --- */
+.products-listing-section {
+  padding: var(--space-6) 0;
+}

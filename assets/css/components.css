@@ -74,6 +74,9 @@
 .category-badge--seasonal {
   background-color: var(--color-accent-plum);
 }
+.category-badge--childrens-drawings {
+  background-color: var(--color-accent-mustard); /* Same as anime, as per categories.json */
+}
 
 /* --- 3. Product Card --- */
 .product-card {
@@ -237,4 +240,91 @@
 .footer__copyright {
   font-size: var(--fs-small);
   color: var(--color-soft-gray);
+}
+
+/* --- 6. Gallery Filtering & Cards (New) --- */
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2); /* Spacing between filter buttons */
+  margin-bottom: var(--space-5); /* Space below filters, above gallery grid */
+}
+
+.filter-button {
+  /* Inherits .tag styles */
+  cursor: pointer;
+  border: 1px solid var(--color-light-gray); /* Subtle border */
+  background-color: var(--color-white); /* Default background */
+  color: var(--color-charcoal); /* Default text color */
+  transition: var(--transition-ease);
+  /* Ensure padding is consistent with .tag */
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--border-radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.filter-button:hover:not(.active) {
+  background-color: var(--color-light-gray);
+  border-color: var(--color-soft-gray);
+}
+
+.filter-button.active {
+  background-color: var(--color-accent-terracotta); /* Active state accent */
+  border-color: var(--color-accent-terracotta);
+  color: var(--color-white);
+  font-weight: 600; /* Make active button stand out */
+}
+
+/* Gallery Card - similar to product card but without price/button */
+.gallery-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-ease);
+  text-align: left;
+}
+
+.gallery-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.gallery-card__image {
+  width: 100%;
+  height: 200px; /* Consistent height */
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-card__content {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.gallery-card__category {
+  margin-bottom: var(--space-1);
+}
+
+.gallery-card__title {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-1);
+  color: var(--color-charcoal);
+}
+
+.gallery-card__description {
+  font-size: var(--fs-body);
+  color: var(--color-soft-gray);
+  margin-top: var(--space-1);
+  flex-grow: 1; /* Allows description to push content down if needed */
 }

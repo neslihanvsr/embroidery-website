@@ -50,7 +50,7 @@ Build Phase 5 – Interactivity (Completed):
   - Root cause: .nav--mobile was not hidden by default on desktop.
   - Solution: Added default display:none rule for .nav--mobile in assets/css/components.css.
   - Verified desktop header and mobile navigation behavior.
-- ⬜ Gallery filtering
+- ✅ Gallery filtering
 - ⬜ Gallery lightbox
 - ✅ Shared utility functions
 - ✅ UI interactions

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "gallery-flower-001",
+    "name": "Spring Bloom Hoop",
+    "category": "flowers",
+    "image": "spring-bloom.jpg",
+    "description": "A vibrant hoop art piece capturing the essence of spring with various floral stitches."
+  },
+  {
+    "id": "gallery-flower-002",
+    "name": "Rose Garden Embroidery",
+    "category": "flowers",
+    "image": "rose-garden.jpg",
+    "description": "Intricate rose patterns hand-stitched, perfect for a classic touch."
+  },
+  {
+    "id": "gallery-movie-tv-001",
+    "name": "Wizarding World Crest",
+    "category": "movie-tv",
+    "image": "wizarding-crest.jpg",
+    "description": "An embroidered crest inspired by a famous magical school."
+  },
+  {
+    "id": "gallery-movie-tv-002",
+    "name": "Galactic Scoundrel Portrait",
+    "category": "movie-tv",
+    "image": "galactic-scoundrel.jpg",
+    "description": "A detailed portrait of a beloved space rogue from a classic saga."
+  },
+  {
+    "id": "gallery-anime-001",
+    "name": "Forest Spirit Hoop",
+    "category": "anime",
+    "image": "forest-spirit.jpg",
+    "description": "Inspired by the mystical forest spirits from Japanese animation."
+  },
+  {
+    "id": "gallery-anime-002",
+    "name": "Magical Girl Wand",
+    "category": "anime",
+    "image": "magical-girl-wand.jpg",
+    "description": "A sparkling embroidery of a magical girl's iconic wand."
+  },
+  {
+    "id": "gallery-custom-001",
+    "name": "Personalized Wedding Date",
+    "category": "custom",
+    "image": "wedding-date.jpg",
+    "description": "A custom piece commemorating a special wedding date with floral accents."
+  },
+  {
+    "id": "gallery-custom-002",
+    "name": "Family Tree Sampler",
+    "category": "custom",
+    "image": "family-tree.jpg",
+    "description": "A bespoke family tree embroidery, a cherished heirloom."
+  },
+  {
+    "id": "gallery-seasonal-001",
+    "name": "Winter Snowflake Design",
+    "category": "seasonal",
+    "image": "snowflake.jpg",
+    "description": "Delicate snowflake patterns, perfect for winter decor."
+  },
+  {
+    "id": "gallery-seasonal-002",
+    "name": "Halloween Pumpkin Patch",
+    "category": "seasonal",
+    "image": "pumpkin-patch.jpg",
+    "description": "A fun and spooky pumpkin patch scene for Halloween."
+  },
+  {
+    "id": "gallery-childrens-drawings-001",
+    "name": "My First Robot",
+    "category": "childrens-drawings",
+    "image": "first-robot.jpg",
+    "description": "An embroidered replica of a child's drawing of a friendly robot."
+  },
+  {
+    "id": "gallery-childrens-drawings-002",
+    "name": "Dinosaur Adventure",
+    "category": "childrens-drawings",
+    "image": "dinosaur-adventure.jpg",
+    "description": "Bringing a child's dinosaur adventure drawing to life with stitches."
+  }
+]
