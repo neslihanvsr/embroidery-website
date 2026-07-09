@@ -55,6 +55,15 @@ Build Phase 5 – Interactivity (Completed):
 - ✅ Shared utility functions
 - ✅ UI interactions
 
+## Current Task
+
+Build Phase 6 – Responsive Polish & Accessibility (Milestone 6.1 – Accessibility Foundation):
+- ✅ Add a "Skip to main content" link to every page.
+- ✅ Add aria-current="page" to the active navigation link.
+- ✅ Add clear :focus-visible styles for all interactive elements.
+- ✅ Review and improve semantic HTML where needed.
+- ✅ Review and improve image alt text where needed.
+
 ---
 
 ## Upcoming Tasks

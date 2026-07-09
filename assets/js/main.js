@@ -53,11 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('.nav__list a');
 
         navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === currentPath) {
+            const linkPath = link.getAttribute('href').split('/').pop(); // Get filename from href
+            if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) { // Handle index.html for root path
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
             } else {
                 link.classList.remove('active'); // Ensure only one is active
+                link.removeAttribute('aria-current');
             }
         });
     }
