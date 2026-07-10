@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return `
             <div class="product-card"> 
-                <img src="https://via.placeholder.com/200x200?text=${encodeURIComponent(product.name)}" alt="${product.name}" class="product-card__image" loading="lazy">
+                <img src="${product.image}" alt="${product.name}" class="product-card__image" loading="lazy">
                 <div class="product-card__content">
                     <span class="category-badge ${categoryClass} product-card__category">${displayCategory}</span>
                     <h3 class="product-card__title">${product.name}</h3>
