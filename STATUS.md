@@ -67,10 +67,10 @@ Phase 6 – Responsive Polish & Accessibility
 
 ### Completed Milestones
 - ✅ Milestone 7.1 – SEO Foundation
+- ✅ Milestone 7.2 – Performance Optimization
 
-### Current
-- ⬜ Milestone 7.2 – Performance Optimization
-
+### Current Milestone
+- ⬜ Milestone 7.3 – Launch Readiness Check
 - ⬜ Phase 8 – GitHub Pages Deployment
 
 ---

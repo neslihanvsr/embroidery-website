@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const imagePath = `assets/images/gallery/${item.category}/${item.image}`;
 
         return ` 
-            <div class="gallery-card" data-item-index="${index}">
-                <img src="${imagePath}" alt="${item.name}" class="gallery-card__image" loading="lazy">
+            <div class="gallery-card" data-item-index="${index}"> 
+                <img src="${imagePath}" alt="${item.name}" class="gallery-card__image" loading="lazy" width="200" height="200">
                 <div class="gallery-card__content">
                     <span class="category-badge ${categoryClass} gallery-card__category">${categoryLabel}</span>
                     <h3 class="gallery-card__title">${item.name}</h3>
