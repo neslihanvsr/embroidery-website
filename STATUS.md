@@ -57,22 +57,20 @@ Phase 6 – Responsive Polish & Accessibility
 - ✅ Milestone 6.1 – Accessibility Foundation
 - ✅ Milestone 6.2 – Keyboard Accessibility
 - ✅ Milestone 6.3 – Responsive Polish
-- ✅ Milestone 6.4 – Accessibility Audit
 
-### Accessibility Improvements Completed
-- ✅ Verified semantic HTML structure across pages.
-- ✅ Verified skip-to-content functionality.
-- ✅ Verified `aria-current="page"` for active navigation links.
-- ✅ Verified keyboard navigation support and focus-visible styles.
-- ✅ Improved gallery lightbox accessibility with focus trapping and focus return.
-- ✅ Improved decorative social media icon handling by removing redundant alt text.
-- ✅ Fixed gallery main content skip link target.
+### Completed Milestones
+- ✅ Milestone 6.4 – Accessibility Audit
 
 ---
 
-## Upcoming Phases
+## Phase 7 – SEO & Launch Prep
 
-- ⬜ Phase 7 – SEO & Launch Prep
+### Completed Milestones
+- ✅ Milestone 7.1 – SEO Foundation
+
+### Current
+- ⬜ Milestone 7.2 – Performance Optimization
+
 - ⬜ Phase 8 – GitHub Pages Deployment
 
 ---
