@@ -138,6 +138,7 @@
 
 .product-card__button {
   width: 100%; /* Make button full width of card content */
+  margin-top: var(--space-2); /* Ensure consistent spacing from price */
 }
 
 /* --- 4. Navigation Styles --- */

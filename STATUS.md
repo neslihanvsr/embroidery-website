@@ -1,10 +1,10 @@
-# STATUS.md
-
 # HoyThreads Status
 
 ## Current Phase
 
-Phase 5 – Interactivity
+Phase 6 – Responsive Polish & Accessibility
+
+---
 
 ## Completed
 
@@ -39,46 +39,34 @@ Phase 5 – Interactivity
 - ✅ JavaScript foundation
 - ✅ Dynamic product loading
 - ✅ Responsive layout foundation
-
----
-
-## Current Task
-
-Build Phase 5 – Interactivity (Completed):
 - ✅ Mobile navigation
-- ✅ Fixed header navigation visibility issue.
-  - Root cause: .nav--mobile was not hidden by default on desktop.
-  - Solution: Added default display:none rule for .nav--mobile in assets/css/components.css.
+- ✅ Fixed header navigation visibility issue
+  - Root cause: `.nav--mobile` was not hidden by default on desktop.
+  - Solution: Added `display: none` for `.nav--mobile` in `assets/css/components.css`.
   - Verified desktop header and mobile navigation behavior.
 - ✅ Gallery filtering
 - ✅ Gallery lightbox
 - ✅ Shared utility functions
 - ✅ UI interactions
 
-## Current Task
+---
 
-Build Phase 6 – Responsive Polish & Accessibility (Milestone 6.1 – Accessibility Foundation):
-- ✅ Add a "Skip to main content" link to every page.
-- ✅ Add aria-current="page" to the active navigation link.
-- ✅ Add clear :focus-visible styles for all interactive elements.
-- ✅ Review and improve semantic HTML where needed.
-- ✅ Review and improve image alt text where needed.
+## Phase 6 – Responsive Polish & Accessibility
 
-## Current Task
+### Completed Milestones
+- ✅ Milestone 6.1 – Accessibility Foundation
+- ✅ Milestone 6.2 – Keyboard Accessibility
+- ✅ Milestone 6.3 – Responsive Polish
 
-Build Phase 6 – Responsive Polish & Accessibility (Milestone 6.2 – Keyboard Accessibility):
-- ✅ Improve keyboard navigation for the gallery lightbox.
-- ✅ Improve keyboard behavior for the mobile navigation menu.
+### Current Milestone
+- ⬜ Milestone 6.4 – Accessibility Audit
 
 ---
 
-## Upcoming Tasks
+## Upcoming Phases
 
-- ⬜ Accessibility improvements
-- ⬜ Responsive polish
-- ⬜ SEO optimization
-- ⬜ Performance optimization
-- ⬜ GitHub Pages deployment
+- ⬜ Phase 7 – SEO & Launch Prep
+- ⬜ Phase 8 – GitHub Pages Deployment
 
 ---
 
@@ -88,5 +76,7 @@ Build Phase 6 – Responsive Polish & Accessibility (Milestone 6.2 – Keyboard 
 - RULES.md
 - Folder structure
 - Design system
+
+---
 
 Wait for approval after each completed milestone.
