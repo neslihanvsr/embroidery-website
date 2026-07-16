@@ -1,0 +1,107 @@
+/**
+ * home.js
+ *
+ * Handles dynamic content loading for the homepage, including featured products
+ * and category preview cards, driven by JSON data.
+ */
+
+import { fetchData } from './utils.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const featuredProductsContainer = document.getElementById('featured-products-container');
+    const categoryPreviewContainer = document.getElementById('category-preview-container');
+
+    if (!featuredProductsContainer || !categoryPreviewContainer) {
+        console.warn('Homepage containers not found. Skipping homepage dynamic content script.');
+        return;
+    }
+
+    let allCategories = []; // To store categories for preview cards
+
+    /**
+     * Creates an HTML string for a single product card.
+     * @param {Object} product - The product data object.
+     * @returns {string} The HTML string for the product card.
+     */
+    function createProductCard(product) {
+        const categoryMeta = allCategories.find(cat => cat.id === product.category);
+        const categoryLabel = categoryMeta ? categoryMeta.label : product.category;
+        const categoryClass = `category-badge--${product.category}`;
+
+        return `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.name}" class="product-card__image" loading="lazy" width="200" height="200">
+                <div class="product-card__content">
+                    <span class="category-badge ${categoryClass} product-card__category">${categoryLabel}</span>
+                    <h3 class="product-card__title">${product.name}</h3>
+                    <p class="product-card__price">${product.price}</p>
+                    <a href="${product.shopierUrl}" target="_blank" rel="noopener noreferrer" class="btn btn--primary product-card__button">Buy on Shopier</a>
+                </div>
+            </div>
+        `;
+    }
+
+    /**
+     * Creates an HTML string for a single category preview card.
+     * @param {Object} category - The category data object.
+     * @returns {string} The HTML string for the category card.
+     */
+    function createCategoryCard(category) {
+        // Using a generic placeholder image for category previews for now
+        // User will replace these with actual category-specific images later.
+        const placeholderImage = `https://via.placeholder.com/180x180?text=${encodeURIComponent(category.label)}`;
+        return `
+            <a href="gallery.html?category=${category.id}" class="category-card">
+                <img src="${placeholderImage}" alt="${category.label} Category" class="category-card__image" loading="lazy" width="180" height="180">
+                <div class="category-card__overlay">
+                    <span class="category-card__title">${category.label}</span>
+                </div>
+            </a>
+        `;
+    }
+
+    /**
+     * Renders featured products on the homepage.
+     * @param {Array} products - All product data.
+     */
+    function renderFeaturedProducts(products) {
+        const featuredProducts = products.filter(product => product.featured);
+        featuredProductsContainer.innerHTML = ''; // Clear loading message
+        if (featuredProducts.length === 0) {
+            featuredProductsContainer.innerHTML = '<p class="text-center" style="grid-column: 1 / -1;">No featured products available.</p>';
+            return;
+        }
+        featuredProducts.forEach(product => {
+            featuredProductsContainer.insertAdjacentHTML('beforeend', createProductCard(product));
+        });
+    }
+
+    /**
+     * Renders category preview cards on the homepage.
+     * @param {Array} categories - All category data.
+     */
+    function renderCategoryPreviews(categories) {
+        categoryPreviewContainer.innerHTML = ''; // Clear loading message
+        if (categories.length === 0) {
+            categoryPreviewContainer.innerHTML = '<p class="text-center" style="grid-column: 1 / -1;">No categories available.</p>';
+            return;
+        }
+        // Display a subset of categories or all, depending on design preference.
+        // For now, let's display the first 5 or all if less than 5.
+        const categoriesToDisplay = categories.slice(0, 5);
+        categoriesToDisplay.forEach(category => {
+            categoryPreviewContainer.insertAdjacentHTML('beforeend', createCategoryCard(category));
+        });
+    }
+
+    // Initialize homepage content
+    async function initHomepage() {
+        allCategories = await fetchData('content/categories.json');
+        const products = await fetchData('content/products.json');
+
+        renderFeaturedProducts(products);
+        renderCategoryPreviews(allCategories);
+    }
+
+    initHomepage();
+});

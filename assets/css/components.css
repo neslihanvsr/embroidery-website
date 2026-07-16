@@ -72,20 +72,33 @@
 .category-badge--flowers {
   background-color: var(--color-accent-sage);
 }
-.category-badge--movie-tv {
+.category-badge--pop-culture { /* Dusty Blue */
   background-color: var(--color-accent-dusty-blue);
 }
-.category-badge--anime {
+.category-badge--anime-cartoons { /* Mustard Yellow */
   background-color: var(--color-accent-mustard);
 }
-.category-badge--custom,
-.category-badge--seasonal {
+.category-badge--flowers-nature { /* Sage Green */
+  background-color: var(--color-accent-sage);
+}
+.category-badge--animals { /* Terracotta */
+  background-color: var(--color-accent-terracotta);
+}
+.category-badge--portraits { /* Muted Plum */
   background-color: var(--color-accent-plum);
 }
-.category-badge--childrens-drawings {
-  background-color: var(--color-accent-mustard); /* Same as anime, as per categories.json */
+.category-badge--childrens-drawings { /* Mustard Yellow */
+  background-color: var(--color-accent-mustard);
 }
-
+.category-badge--original-designs { /* Terracotta */
+  background-color: var(--color-accent-terracotta);
+}
+.category-badge--text-embroidery { /* Dusty Blue */
+  background-color: var(--color-accent-dusty-blue);
+}
+.category-badge--custom-orders { /* Muted Plum */
+  background-color: var(--color-accent-plum);
+}
 /* --- 3. Product Card --- */
 .product-card {
   background-color: var(--color-white);

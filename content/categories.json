@@ -1,39 +1,56 @@
 [
   {
-    "id": "flowers",
-    "label": "Flowers",
-    "accentColor": "#8FA68E",
-    "description": "Botanical hoop art and floral embroidery pieces."
-  },
-  {
-    "id": "movie-tv",
-    "label": "Movie & TV",
+    "id": "pop-culture",
+    "label": "Pop Culture",
     "accentColor": "#7C97A8",
-    "description": "Embroidered designs inspired by favorite movies and TV shows."
+    "description": "Movie, TV series and iconic character inspired embroidery."
   },
   {
-    "id": "anime",
-    "label": "Anime",
+    "id": "anime-cartoons",
+    "label": "Anime & Cartoons",
     "accentColor": "#D9A441",
-    "description": "Anime-inspired character embroidery and portraits."
+    "description": "Anime and animated character embroidery."
   },
   {
-    "id": "custom",
-    "label": "Custom",
-    "accentColor": "#9B7E96",
-    "description": "One-of-a-kind custom embroidery commissions, including pet portraits and personalized designs."
+    "id": "flowers-nature",
+    "label": "Flowers & Nature",
+    "accentColor": "#8FA68E",
+    "description": "Floral and nature-inspired embroidery."
   },
   {
-    "id": "seasonal",
-    "label": "Seasonal",
+    "id": "animals",
+    "label": "Animals",
     "accentColor": "#D97757",
-    "description": "Limited-time seasonal and holiday-themed embroidery pieces."
-  }
-,
+    "description": "Animal themed embroidery."
+  },
+  {
+    "id": "portraits",
+    "label": "Portraits",
+    "accentColor": "#9B7E96",
+    "description": "Portrait embroidery created from customer photos."
+  },
   {
     "id": "childrens-drawings",
     "label": "Children's Drawings",
     "accentColor": "#D9A441",
-    "description": "Embroidered replicas of cherished children's artwork."
+    "description": "Embroidery recreated from children's artwork."
+  },
+  {
+    "id": "original-designs",
+    "label": "Original Designs",
+    "accentColor": "#D97757",
+    "description": "Unique original embroidery created by HoyThreads."
+  },
+  {
+    "id": "text-embroidery",
+    "label": "Text Embroidery",
+    "accentColor": "#7C97A8",
+    "description": "Quotes, names and stitched typography."
+  },
+  {
+    "id": "custom-orders",
+    "label": "Custom Orders",
+    "accentColor": "#9B7E96",
+    "description": "Personalized embroidery made to order."
   }
 ]
