@@ -33,13 +33,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     function createGalleryCard(item, index) {
         const categoryMeta = allCategories.find(cat => cat.id === item.category);
         const categoryLabel = categoryMeta ? categoryMeta.label : item.category;
-        const categoryClass = `category-badge--${item.category}`;
-        // Construct image path based on project structure
-        const imagePath = `assets/images/gallery/${item.category}/${item.image}`;
+        const categoryClass = `category-badge--${item.category}`; // This assumes item.category is always present
+        // item.imagePath now contains the full, resolved path
 
         return ` 
             <div class="gallery-card" data-item-index="${index}"> 
-                <img src="${imagePath}" alt="${item.name}" class="gallery-card__image" loading="lazy" width="200" height="200">
+                <img src="${item.imagePath}" alt="${item.name}" class="gallery-card__image" loading="lazy" width="200" height="200">
                 <div class="gallery-card__content">
                     <span class="category-badge ${categoryClass} gallery-card__category">${categoryLabel}</span>
                     <h3 class="gallery-card__title">${item.name}</h3>
@@ -130,12 +129,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update current image and caption
         currentLightboxIndex = index;
         const item = currentFilteredItems[currentLightboxIndex];
-        const imagePath = `assets/images/gallery/${item.category}/${item.image}`;
-
-        lightboxImage.src = imagePath;
+        lightboxImage.src = item.imagePath; // item.imagePath is already the full path
         lightboxImage.alt = item.name;
-        lightboxCaptionTitle.textContent = item.name;
-        lightboxCaptionDescription.textContent = item.description || '';
+        lightboxCaptionTitle.textContent = item.name; // Title for the lightbox
+        lightboxCaptionDescription.textContent = item.caption || item.description || ''; // Prioritize specific caption, then main description
 
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false'); // Make lightbox visible to AT
@@ -246,16 +243,71 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Initialize gallery
     async function initGallery() {
         allCategories = await fetchData('content/categories.json');
-        allGalleryItems = await fetchData('content/gallery-items.json');
+    const productsData = await fetchData('content/products.json');
+    const galleryItemsData = await fetchData('content/gallery-items.json');
 
-        if (allGalleryItems.length === 0) {
-            galleryGrid.innerHTML = '<p class="text-center" style="grid-column: 1 / -1; color: var(--color-accent-terracotta);">Failed to load gallery items. Please try again later.</p>';
-            return;
+    const productsMap = new Map(productsData.map(product => [product.id, product])); // For quick product lookup
+    const galleryItemsMap = new Map(); // To store gallery items by their ID for easy lookup/update
+
+    allGalleryItems = []; // This will be the final merged list of gallery items
+
+    // 1. Add all products from products.json to the gallery first
+    productsData.forEach(product => {
+        const galleryItem = {
+            id: product.id, // Use product ID as the gallery item ID for products
+            name: product.name,
+            category: product.category,
+            description: product.description,
+            caption: product.description, // Default caption from product description
+            imagePath: product.image // Directly use the full path from products.json
+        };
+        allGalleryItems.push(galleryItem);
+        galleryItemsMap.set(galleryItem.id, galleryItem); // Store for potential caption updates
+    });
+
+    // 2. Process gallery-items.json
+    galleryItemsData.forEach(item => {
+        if (item.productId) {
+            // This gallery item refers to an existing product.
+            const product = productsMap.get(item.productId);
+            if (product) {
+                // Find the already added gallery item for this product (using its product.id)
+                const existingGalleryItem = galleryItemsMap.get(product.id);
+                if (existingGalleryItem) {
+                    // If galleryItem has a specific caption, use it to override the default
+                    if (item.caption) {
+                        existingGalleryItem.caption = item.caption;
+                    }
+                    // imagePath, name, category, description are already correctly set from products.json
+                } else {
+                    console.warn(`Gallery item ${item.id} references product ${item.productId} which was not found in the initial products load. This should not happen if all products are loaded first.`);
+                }
+            } else {
+                console.warn(`Gallery item ${item.id} references missing product: ${item.productId}.`);
+            }
+        } else {
+            // This is a gallery-exclusive item (no productId).
+            // Add it as a new entry. Ensure its ID doesn't conflict with an existing product ID.
+            if (!galleryItemsMap.has(item.id)) {
+                const galleryExclusiveItem = {
+                    id: item.id,
+                    name: item.name,
+                    category: item.category,
+                    description: item.description || "",
+                    caption: item.caption || item.description || "",
+                    imagePath: `assets/images/gallery/${item.category}/${item.image}` // Path for gallery-exclusive images
+                };
+                allGalleryItems.push(galleryExclusiveItem);
+                galleryItemsMap.set(galleryExclusiveItem.id, galleryExclusiveItem);
+            } else {
+                console.warn(`Gallery exclusive item ${item.id} has an ID conflicting with an existing product ID. Skipping.`);
+            }
         }
+    });
 
-        renderFilterButtons();
-        renderGalleryItems(allGalleryItems); // Display all items initially
-    }
+    renderFilterButtons();
+    renderGalleryItems(allGalleryItems);
+}
 
     initGallery();
 });

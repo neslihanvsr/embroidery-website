@@ -1,226 +1,165 @@
 [
   {
     "id": "gallery-pop-culture-001",
-    "name": "Dwight with Pumpkin (The Office)",
-    "category": "pop-culture",
-    "image": "neslihoyy_da2244775ed3500a0a53205fe1e18dfd.jpeg",
-    "description": "A humorous hand-embroidered piece featuring Dwight Schrute from The Office, complete with a pumpkin on his head."
+    "productId": "pop-culture-001",
+    "caption": "A humorous hand-embroidered piece featuring Dwight Schrute from The Office, complete with a pumpkin on his head."
   },
   {
     "id": "gallery-pop-culture-002",
-    "name": "Little Prince",
-    "category": "original-designs",
-    "image": "neslihoyy_b741131f5a53490bdec59bd69d8b976e.jpeg",
-    "description": "A charming embroidery of the Little Prince, capturing his iconic silhouette and scarf."
+    "productId": "original-designs-001",
+    "caption": "A charming embroidery of the Little Prince, capturing his iconic silhouette and scarf."
   },
   {
     "id": "gallery-pop-culture-003",
-    "name": "Michael & Jan on Vacation",
-    "category": "pop-culture",
-    "image": "placeholder-pop-culture-003.jpeg",
-    "description": "A humorous embroidery of Michael and Jan on their infamous vacation."
+    "productId": "pop-culture-003",
+    "caption": "A humorous embroidery of Michael and Jan on their infamous vacation."
   },
   {
     "id": "gallery-pop-culture-004",
-    "name": "Rachel 'Save the Drama'",
-    "category": "pop-culture",
-    "image": "placeholder-pop-culture-004.jpeg",
-    "description": "An iconic quote from Rachel Green, 'Save the drama for your mama', embroidered."
+    "productId": "pop-culture-004",
+    "caption": "An iconic quote from Rachel Green, 'Save the drama for your mama', embroidered."
   },
   {
     "id": "gallery-pop-culture-005",
-    "name": "Baby Yoda Grogu Hoop",
-    "category": "pop-culture",
-    "image": "neslihoyy_7aef844c53632d23bd0e69ddcd11e936.jpeg",
-    "description": "An adorable hand-embroidered hoop featuring Grogu (Baby Yoda)."
+    "productId": "pop-culture-002",
+    "caption": "An adorable hand-embroidered hoop featuring Grogu (Baby Yoda)."
   },
   {
     "id": "gallery-anime-cartoons-001",
-    "name": "Totoro with Umbrella",
-    "category": "anime-cartoons",
-    "image": "neslihoyy_7aef844c53632d23bd0e69ddcd11e936.jpeg",
-    "description": "The beloved Totoro from Studio Ghibli, holding his iconic umbrella in a charming embroidered scene."
+    "productId": "anime-cartoons-001",
+    "caption": "The beloved Totoro from Studio Ghibli, holding his iconic umbrella in a charming embroidered scene."
   },
   {
     "id": "gallery-anime-cartoons-002",
-    "name": "Daria Morgendorffer Portrait",
-    "category": "anime-cartoons",
-    "image": "neslihoyy_1.jpeg",
-    "description": "A hand-embroidered portrait of the iconic Daria Morgendorffer, capturing her signature look."
+    "productId": "anime-cartoons-002",
+    "caption": "A hand-embroidered portrait of the iconic Daria Morgendorffer, capturing her signature look."
   },
   {
     "id": "gallery-anime-cartoons-003",
-    "name": "Snoopy on his Doghouse",
-    "category": "anime-cartoons",
-    "image": "placeholder-anime-cartoons-003.jpeg",
-    "description": "Snoopy relaxing on his doghouse, a classic cartoon scene."
+    "productId": "anime-cartoons-003",
+    "caption": "Snoopy relaxing on his doghouse, a classic cartoon scene."
   },
   {
     "id": "gallery-anime-cartoons-004",
-    "name": "Homer Simpson 'D'oh!'",
-    "category": "anime-cartoons",
-    "image": "placeholder-anime-cartoons-004.jpeg",
-    "description": "Homer Simpson's iconic 'D'oh!' moment captured in embroidery."
+    "productId": "anime-cartoons-004",
+    "caption": "Homer Simpson's iconic 'D'oh!' moment captured in embroidery."
   },
   {
     "id": "gallery-flowers-nature-001",
     "name": "Vibrant Wildflower Bouquet",
     "category": "flowers-nature",
-    "image": "neslihoyy_da2244775ed3500a0a53205fe1e18dfd.jpeg",
-    "description": "A lush, hand-embroidered bouquet of diverse wildflowers, bursting with color and natural beauty."
+    "image": "wildflower-bouquet.jpeg",
+    "description": "A lush, hand-embroidered bouquet of diverse wildflowers, bursting with color and natural beauty.",
+    "caption": "A vibrant piece from a personal collection, showcasing intricate floral details."
   },
   {
     "id": "gallery-flowers-nature-002",
-    "name": "Rose Garden Hoop",
-    "category": "flowers-nature",
-    "image": "placeholder-flowers-nature-002.jpeg",
-    "description": "A beautiful rose garden design, perfect for nature lovers."
+    "productId": "flowers-nature-001",
+    "caption": "A beautiful rose garden design, perfect for nature lovers."
   },
   {
     "id": "gallery-flowers-nature-003",
-    "name": "Lavender Field Hoop",
-    "category": "flowers-nature",
-    "image": "placeholder-flowers-nature-003.jpeg",
-    "description": "A serene lavender field, bringing tranquility to any space."
+    "productId": "flowers-nature-003",
+    "caption": "A serene lavender field, bringing tranquility to any space."
   },
   {
     "id": "gallery-flowers-nature-004",
-    "name": "Christmas Tree Hoop",
-    "category": "flowers-nature",
-    "image": "placeholder-flowers-nature-004.jpeg",
-    "description": "A festive Christmas tree embroidery, perfect for holiday decor."
+    "productId": "flowers-nature-004",
+    "caption": "A festive Christmas tree embroidery, perfect for holiday decor."
   },
   {
     "id": "gallery-flowers-nature-005",
-    "name": "Watermelon Slice",
-    "category": "flowers-nature",
-    "image": "placeholder-flowers-nature-005.jpeg",
-    "description": "A refreshing watermelon slice, a sweet and simple design."
+    "productId": "flowers-nature-005",
+    "caption": "A refreshing watermelon slice, a sweet and simple design."
   },
   {
     "id": "gallery-flowers-nature-006",
-    "name": "Mini Cacti Collection",
-    "category": "flowers-nature",
-    "image": "placeholder-flowers-nature-006.jpeg",
-    "description": "Four adorable mini cacti embroidered side-by-side."
+    "productId": "flowers-nature-006",
+    "caption": "Four adorable mini cacti embroidered side-by-side."
   },
   {
     "id": "gallery-animals-001",
-    "name": "Fluffy Cat Portrait",
-    "category": "animals",
-    "image": "neslihoyy_aba4c6063d9ebd5132c99f915996d173.jpeg",
-    "description": "A detailed and endearing embroidered portrait of a fluffy cat, capturing its unique charm."
+    "productId": "animals-001",
+    "caption": "A detailed and endearing embroidered portrait of a fluffy cat, capturing its unique charm."
   },
   {
     "id": "gallery-animals-002",
-    "name": "Red Thread Cat Portrait",
-    "category": "animals",
-    "image": "placeholder-animals-002.jpeg",
-    "description": "A charming cat portrait, stitched with vibrant red thread."
+    "productId": "animals-002",
+    "caption": "A charming cat portrait, stitched with vibrant red thread."
   },
   {
     "id": "gallery-animals-003",
-    "name": "Crab on the Beach",
-    "category": "animals",
-    "image": "placeholder-animals-003.jpeg",
-    "description": "A cute crab scuttling on a sandy beach, perfect for ocean lovers."
+    "productId": "animals-003",
+    "caption": "A cute crab scuttling on a sandy beach, perfect for ocean lovers."
   },
   {
     "id": "gallery-portraits-001",
-    "name": "Custom Couple Portrait",
-    "category": "portraits",
-    "image": "custom-002.jpg",
-    "description": "A unique hand-embroidered portrait of a couple, capturing their special bond. Perfect for anniversaries."
+    "productId": "portraits-001",
+    "caption": "A unique hand-embroidered portrait of a couple, capturing their special bond. Perfect for anniversaries."
   },
   {
     "id": "gallery-portraits-002",
-    "name": "Custom Human Portrait #2",
-    "category": "portraits",
-    "image": "placeholder-portraits-002.jpeg",
-    "description": "A personalized human portrait, capturing unique features and expressions."
+    "productId": "portraits-002",
+    "caption": "A personalized human portrait, capturing unique features and expressions."
   },
   {
     "id": "gallery-childrens-drawings-001",
-    "name": "Child's Robot Drawing Replica",
-    "category": "childrens-drawings",
-    "image": "children-001.jpg",
-    "description": "An embroidered replica of a child's drawing of a friendly robot, preserving their early creativity."
+    "productId": "childrens-drawings-001",
+    "caption": "An embroidered replica of a child's drawing of a friendly robot, preserving their early creativity."
   },
   {
     "id": "gallery-original-designs-001",
-    "name": "Astronaut in Space",
-    "category": "original-designs",
-    "image": "neslihoyy_b741131f5a53490bdec59bd69d8b976e.jpeg",
-    "description": "An imaginative original design featuring an astronaut floating gracefully in space, surrounded by stars."
+    "productId": "original-designs-002",
+    "caption": "An imaginative original design featuring an astronaut floating gracefully in space, surrounded by stars."
   },
   {
     "id": "gallery-original-designs-002",
-    "name": "Funny Face Abstract",
-    "category": "original-designs",
-    "image": "placeholder-original-designs-003.jpeg",
-    "description": "An abstract and humorous face design, full of character."
+    "productId": "original-designs-003",
+    "caption": "An abstract and humorous face design, full of character."
   },
   {
     "id": "gallery-original-designs-003",
-    "name": "Wine Glass Dropping",
-    "category": "original-designs",
-    "image": "placeholder-original-designs-004.jpeg",
-    "description": "An artistic representation of wine dropping into a glass."
+    "productId": "original-designs-004",
+    "caption": "An artistic representation of wine dropping into a glass."
   },
   {
     "id": "gallery-original-designs-004",
-    "name": "Girl with Flowers",
-    "category": "original-designs",
-    "image": "placeholder-original-designs-005.jpeg",
-    "description": "A delicate embroidery of a girl adorned with flowers."
+    "productId": "original-designs-005",
+    "caption": "A delicate embroidery of a girl adorned with flowers."
   },
   {
     "id": "gallery-original-designs-005",
-    "name": "Girl with Hat",
-    "category": "original-designs",
-    "image": "placeholder-original-designs-006.jpeg",
-    "description": "A stylish girl wearing a hat, an elegant original design."
+    "productId": "original-designs-006",
+    "caption": "A stylish girl wearing a hat, an elegant original design."
   },
   {
     "id": "gallery-original-designs-006",
-    "name": "Girl Reading",
-    "category": "original-designs",
-    "image": "placeholder-original-designs-007.jpeg",
-    "description": "A serene scene of a girl engrossed in a book."
+    "productId": "original-designs-007",
+    "caption": "A serene scene of a girl engrossed in a book."
   },
   {
     "id": "gallery-original-designs-007",
-    "name": "Girl with Cat",
-    "category": "original-designs",
-    "image": "placeholder-original-designs-008.jpeg",
-    "description": "A heartwarming embroidery of a girl sharing a moment with her cat."
+    "productId": "original-designs-008",
+    "caption": "A heartwarming embroidery of a girl sharing a moment with her cat."
   },
   {
     "id": "gallery-original-designs-008",
-    "name": "Medusa Head",
-    "category": "original-designs",
-    "image": "placeholder-original-designs-009.jpeg",
-    "description": "A powerful and intricate Medusa head design."
+    "productId": "original-designs-010",
+    "caption": "A powerful and intricate Medusa head design."
   },
   {
     "id": "gallery-original-designs-009",
-    "name": "Skeleton Hug",
-    "category": "original-designs",
-    "image": "placeholder-original-designs-010.jpeg",
-    "description": "A unique and touching embroidery of two skeletons embracing."
+    "productId": "original-designs-011",
+    "caption": "A unique and touching embroidery of two skeletons embracing."
   },
   {
     "id": "gallery-text-embroidery-001",
-    "name": "Inspirational Quote Hoop",
-    "category": "text-embroidery",
-    "image": "neslihoyy_da2244775ed3500a0a53205fe1e18dfd.jpeg",
-    "description": "A beautifully hand-stitched inspirational quote, designed to uplift and personalize your space."
+    "productId": "text-embroidery-001",
+    "caption": "A beautifully hand-stitched inspirational quote, designed to uplift and personalize your space."
   },
   {
     "id": "gallery-custom-orders-001",
-    "name": "Personalized Pet Portrait",
-    "category": "custom-orders",
-    "image": "neslihoyy_aba4c6063d9ebd5132c99f915996d173.jpeg",
-    "description": "Immortalize your beloved pet with a custom hand-embroidered portrait from their photo. A cherished keepsake."
+    "productId": "custom-orders-001",
+    "caption": "Immortalize your beloved pet with a custom hand-embroidered portrait from their photo. A cherished keepsake."
   }
 ]
