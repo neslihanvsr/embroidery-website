@@ -1,35 +1,84 @@
 # PROJECT.md — HoyThreads Embroidery Business Website
 
-## 1. Overview
+## 1. Project Overview
 
-A modern, minimalist static website (HTML, CSS, JavaScript only — no backend/database) to showcase a handmade embroidery business. The site serves as a **portfolio + brand website**. Actual purchases happen on the existing **Shopier** store; the website links out to Shopier via "Buy on Shopier" buttons.
+HoyThreads is a modern, minimalist portfolio and storefront website for a handmade embroidery business.
 
-Product categories include: **Flowers, Movie & TV characters, Anime-inspired designs, Custom embroidery, Seasonal items.**
+The website showcases handcrafted embroidery artwork, presents products in an organised catalogue, highlights custom embroidery services, and directs customers to the existing Shopier store for purchases.
 
-The project is intentionally structured so it can be **migrated to a Flask (Python) application later with minimal rework** (see Section 8).
+The project is intentionally built as a lightweight static website using **HTML, CSS and vanilla JavaScript**, while maintaining an architecture that can later evolve into a backend-powered application with minimal frontend changes.
 
 ---
 
-## 2. Pages
+## 2. Project Objectives
+
+The website is designed to:
+
+- Showcase handmade embroidery in a modern and visually appealing way.
+- Present products through a structured catalogue.
+- Display completed embroidery work in a dedicated gallery.
+- Explain the custom embroidery process.
+- Strengthen the HoyThreads brand identity.
+- Direct customers to Shopier for purchases.
+- Provide an accessible and responsive browsing experience.
+- Maintain a scalable codebase for future development.
+
+---
+
+## 3. Website Pages
 
 | Page | File | Purpose |
-|---|---|---|
-| Home | `index.html` | Hero section, featured products, category teasers, about teaser, call-to-action |
-| Products | `products.html` | Full shoppable catalog rendered from `content/products.json`, each item has a "Buy on Shopier" button |
-| Gallery | `gallery.html` | Artistic portfolio/lookbook, filterable by category (Flowers, Movie/TV, Anime, Custom, Seasonal); may include process shots and non-for-sale pieces |
-| About | `about.html` | Artist story, process/behind-the-scenes, brand values |
-| Custom Orders | `custom-orders.html` | Explains custom order process/steps, links to Shopier or contact for inquiries |
-| Contact | `contact.html` | Contact info, social links, FAQ |
-| 404 | `404.html` | Custom not-found page |
+|------|------|---------|
+| Home | `index.html` | Introduces the brand, featured embroidery pieces and primary calls-to-action. |
+| Products | `products.html` | Displays the product catalogue rendered from JSON data with Shopier purchase links. |
+| Gallery | `gallery.html` | Presents the embroidery portfolio with category filtering and image lightbox. |
+| About | `about.html` | Introduces the artist, creative process and brand story. |
+| Custom Orders | `custom-orders.html` | Explains personalised embroidery services and ordering workflow. |
+| Contact | `contact.html` | Provides contact information and social media links. |
+| 404 | `404.html` | Displays a custom page for unavailable routes. |
 
-**Products vs. Gallery distinction:** Products = shoppable catalog with prices and Buy buttons. Gallery = artistic showcase/portfolio (craftsmanship-focused, may not all be for sale).
+### Products vs Gallery
+
+The project intentionally separates commercial products from portfolio content.
+
+**Products**
+
+- Available for purchase
+- Display pricing
+- Include Shopier purchase links
+
+**Gallery**
+
+- Portfolio-focused
+- Demonstrates craftsmanship
+- May include commissions or artwork not currently for sale
 
 ---
 
-## 3. Folder Structure
+## 4. Information Architecture
+
+The website is organised around a simple navigation structure:
+
+- Home
+- Products
+- Gallery
+- About
+- Custom Orders
+- Contact
+
+Navigation must remain consistent across all pages.
+
+Desktop devices use a horizontal navigation bar.
+
+Mobile devices use a responsive hamburger navigation.
+
+---
+
+## 5. Folder Structure
 
 ```
 embroidery-website/
+│
 ├── index.html
 ├── products.html
 ├── gallery.html
@@ -37,171 +86,287 @@ embroidery-website/
 ├── custom-orders.html
 ├── contact.html
 ├── 404.html
+│
 ├── PROJECT.md
 ├── README.md
 ├── RULES.md
-├── robots.txt          (future task — placeholder near launch)
-├── sitemap.xml         (future task — placeholder near launch)
+├── STATUS.md
+│
 ├── assets/
 │   ├── css/
-│   │   ├── base.css        (reset, CSS variables, typography)
-│   │   ├── layout.css      (header, footer, grid, containers)
-│   │   ├── components.css  (buttons, cards, nav, modals, tags)
-│   │   └── pages/           (page-specific overrides if needed)
+│   │   ├── base.css
+│   │   ├── layout.css
+│   │   ├── components.css
+│   │   └── pages/
+│   │
 │   ├── js/
-│   │   ├── main.js          (nav toggle, shared interactions)
-│   │   ├── products.js      (renders products.json, Buy on Shopier links)
-│   │   ├── gallery.js       (category filtering, lightbox)
-│   │   └── utils.js         (shared helper functions, e.g., JSON fetch)
-│   ├── images/
-│   │   ├── gallery/
-│   │   │   ├── flowers/
-│   │   │   ├── movie-tv/
-│   │   │   ├── anime/
-│   │   │   ├── custom/
-│   │   │   └── seasonal/
-│   │   ├── products/
-│   │   ├── icons/
-│   │   └── branding/        (logo, favicon source files)
-│   └── fonts/                (self-hosted fonts, if used)
+│   │   ├── main.js
+│   │   ├── products.js
+│   │   ├── gallery.js
+│   │   └── utils.js
+│   │
+│   └── images/
+│       ├── branding/
+│       ├── gallery/
+│       ├── products/
+│       └── icons/
+│
 └── content/
-    ├── products.json         (product data: id, name, category, price, image, shopierUrl)
-    └── categories.json       (category list/metadata)
+    ├── products.json
+    └── categories.json
 ```
 
+The project structure should remain modular and easy to extend.
+
 ---
 
-## 4. Design System
+## 6. Content Model
 
-### 4.1 Design Style
-Modern minimalist with a creative, handmade feel. Generous white space, clean layout, product-first presentation. The design should feel modern, welcoming, and artistic — not luxurious or rustic — and should flexibly support many product styles (flowers, pop-culture characters, anime, custom, seasonal).
+The website separates content from presentation.
 
-### 4.2 Color Palette
+### Products
 
-**Base / Neutral:**
+Product information is stored in:
+
+```
+content/products.json
+```
+
+Each product should contain:
+
+- id
+- name
+- category
+- description
+- price
+- image
+- shopierUrl
+- featured
+
+### Categories
+
+Category information is stored in:
+
+```
+content/categories.json
+```
+
+Current categories include:
+
+- Pop Culture
+- Anime & Cartoons
+- Flowers & Nature
+- Animals
+- Portraits
+- Children's Drawings
+- Original Designs
+- Text Embroidery
+- Custom Orders
+
+The JSON files act as the single source of truth for website content.
+
+---
+
+## 7. Design System
+
+### 7.1 Design Philosophy
+
+HoyThreads follows a modern minimalist design language that places the embroidery itself at the centre of the user experience.
+
+The interface should feel:
+
+- Modern
+- Warm
+- Creative
+- Clean
+- Handmade
+- Professional
+
+The website should never feel cluttered or overly decorative. White space is considered a design element and should be used generously to improve readability and visual balance.
+
+---
+
+### 7.2 Colour Palette
+
+#### Base Colours
+
 | Name | Hex | Usage |
-|---|---|---|
+|------|------|------|
 | White | `#FFFFFF` | Primary background |
-| Cream | `#FAF6F0` | Secondary background, section alternation |
-| Light Gray | `#E8E4DE` | Borders, dividers, subtle backgrounds |
+| Cream | `#FAF6F0` | Alternate sections |
+| Light Gray | `#E8E4DE` | Borders and subtle backgrounds |
 | Charcoal | `#2B2B2B` | Primary text |
-| Soft Gray | `#6E6A65` | Secondary text, captions |
+| Soft Gray | `#6E6A65` | Secondary text |
 
-**Thread-Inspired Accents** (used sparingly, e.g., category tags, hover states, buttons):
-| Name | Hex | Suggested Use |
-|---|---|---|
-| Terracotta/Coral | `#D97757` | Primary accent / CTA buttons |
-| Sage Green | `#8FA68E` | Flowers category tag |
-| Dusty Blue | `#7C97A8` | Movie/TV category tag |
-| Mustard Yellow | `#D9A441` | Anime category tag |
-| Muted Plum | `#9B7E96` | Custom/Seasonal category tag |
+#### Accent Colours
 
-Accent colors rotate per category badge/tag to visually differentiate product types while keeping the overall palette calm and neutral.
+| Colour | Usage |
+|---------|------|
+| Terracotta | Primary actions and buttons |
+| Sage Green | Nature-related categories |
+| Dusty Blue | Pop Culture categories |
+| Mustard Yellow | Anime & Cartoons |
+| Muted Plum | Portraits and Custom Orders |
 
-### 4.3 Typography
-
-- **Headings:** A clean serif or hand-crafted display font for artistic warmth — e.g., **"Fraunces"** or **"Playfair Display"**.
-- **Body:** A neutral, highly readable sans-serif — e.g., **"Inter"** or **"Work Sans"**.
-
-**Type Scale (approximate, mobile-first, to be defined precisely in CSS variables):**
-| Token | Size | Usage |
-|---|---|---|
-| `--fs-display` | 2.5–3.5rem | Hero headline |
-| `--fs-h1` | 2rem | Page titles |
-| `--fs-h2` | 1.5rem | Section titles |
-| `--fs-h3` | 1.25rem | Card/product titles |
-| `--fs-body` | 1rem | Paragraph text |
-| `--fs-small` | 0.875rem | Captions, meta info |
-
-**Weights:** Regular (400) for body, Medium/Semibold (500–600) for headings and emphasis.
-**Line-height:** ~1.5 for body text, ~1.2 for headings.
-
-### 4.4 Spacing & Grid
-- **Base spacing unit:** 8px (`--space-1: 8px`, `--space-2: 16px`, `--space-3: 24px`, etc.)
-- **Breakpoints (mobile-first):**
-  - Mobile: `< 600px`
-  - Tablet: `600px – 900px`
-  - Desktop: `> 900px`
-- **Layout:** CSS Grid/Flexbox based responsive product/gallery grids (2 columns tablet, 3–4 columns desktop, 1 column mobile).
-
-### 4.5 Components (documented, built in Phase 2)
-- Navigation bar (with mobile hamburger menu)
-- Footer (social links, quick nav, copyright)
-- Product card (image, title, category tag, price, "Buy on Shopier" button)
-- Gallery item card (image, category tag, optional caption)
-- Category filter chips
-- Buttons (primary, secondary, outline — default/hover/active/focus states)
-- Lightbox/modal for enlarged gallery images
-- FAQ accordion (Contact page)
+Accent colours should be used sparingly to maintain a clean visual hierarchy.
 
 ---
 
-## 5. SEO Planning
+### 7.3 Typography
 
-- **Semantic HTML5** structure across all pages: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`.
-- **Meta tags** per page: unique `<title>`, `<meta name="description">`, relevant keywords.
-- **Open Graph & Twitter Card tags** for rich social sharing previews (title, description, image).
-- **Favicon set:** multiple sizes + `apple-touch-icon`.
-- **Descriptive `alt` text** convention for all images (especially product/gallery images).
-- **Clean, readable URLs** — already satisfied via static, descriptive filenames.
-- **Future tasks (near launch):** `robots.txt` and `sitemap.xml` generation.
+#### Heading Font
 
----
+Fraunces
 
-## 6. Shopier Integration
+#### Body Font
 
-- Each product entry in `content/products.json` includes a `shopierUrl` field.
-- `products.js` renders product cards with a **"Buy on Shopier"** button linking to that product's specific Shopier page (opens in new tab).
-- The Custom Orders page also links to the Shopier store and/or the Contact page for custom inquiries.
+Inter
 
----
+Typography priorities:
 
-## 7. Future Features (not built yet, documented for roadmap)
+- readability
+- consistency
+- clear hierarchy
+- generous spacing
+- responsive scaling
 
-- Contact/order inquiry form (e.g., via Formspree, no backend needed)
-- Instagram feed embed
-- Blog/journal for behind-the-scenes posts
-- Dark mode toggle
-- Newsletter signup
-- Reviews/testimonials section
-- Multi-language support
-- Full Flask-based e-commerce backend (see migration notes below)
+Approximate scale:
+
+| Token | Usage |
+|------|------|
+| Display | Hero headings |
+| H1 | Page titles |
+| H2 | Section titles |
+| H3 | Card titles |
+| Body | Paragraphs |
+| Small | Metadata and captions |
 
 ---
 
-## 8. Future Flask Migration Notes
+### 7.4 Layout
 
-The static site is structured to minimize rework if migrated to Flask later:
+The website follows a mobile-first responsive layout.
 
-- `content/products.json` and `content/categories.json` act as the single source of truth for product/category data now; in Flask, these can seed a database (SQLite/Postgres) or continue to be loaded as config.
-- HTML markup uses consistent, componentized/repeating patterns (product cards, gallery items) that map cleanly onto Jinja2 templates and `{% for %}` loops.
-- JavaScript fetches and renders JSON data client-side now — this mirrors how Flask/Jinja2 will render the same data server-side later, so the rendering logic/structure carries over conceptually.
-- `assets/` folder (css/js/images) maps directly to Flask's conventional `/static/` folder.
-- Page files (`index.html`, `products.html`, etc.) map directly to Flask's `/templates/` folder structure.
-- Detailed mapping guide is maintained in `README.md` under "Future Flask Migration."
+Breakpoints:
 
----
+- Mobile: under 600px
+- Tablet: 600px–900px
+- Desktop: above 900px
 
-## 9. Development Phases
+Layout is built using CSS Grid and Flexbox.
 
-1. **Phase 1 – Planning & Setup:** `PROJECT.md`, `README.md`, `RULES.md`, folder scaffolding, placeholder `content/products.json` & `content/categories.json`. *(Current phase)*
-2. **Phase 2 – Design System Foundation:** CSS variables, reset, typography, base components.
-3. **Phase 3 – Core Pages:** Home, Products, Gallery.
-4. **Phase 4 – Secondary Pages:** About, Custom Orders, Contact, 404.
-5. **Phase 5 – Interactivity:** JSON-driven rendering, category filtering, lightbox, mobile nav.
-6. **Phase 6 – Responsive Polish & Accessibility:** Cross-device testing, ARIA labels, performance checks.
-7. **Phase 7 – SEO & Launch Prep:** Meta tags, Open Graph tags, favicon set; `robots.txt`/`sitemap.xml` as follow-up.
-8. **Phase 8 – Deploy:** Publish via GitHub Pages.
-9. **Phase 9 – Future Enhancements:** Roadmap items from Section 7 + Flask migration path.
+Content is displayed inside centred containers with consistent spacing.
 
 ---
 
-## 10. Content Categories
+## 8. Component Library
 
-- Flowers
-- Movie & TV Characters
-- Anime-Inspired
-- Custom Embroidery
-- Seasonal
+The project uses reusable UI components.
 
-(Full metadata for each category is stored in `content/categories.json`.)
+### Navigation
+
+- Desktop navigation
+- Mobile hamburger navigation
+- Active page indicator
+- Sticky header
+
+### Buttons
+
+- Primary button
+- Secondary button
+
+Buttons should provide consistent hover, focus and active states.
+
+### Product Cards
+
+Each product card includes:
+
+- image
+- category badge
+- title
+- price
+- Shopier button
+
+### Gallery Cards
+
+Each gallery card includes:
+
+- image
+- category
+- title
+- description
+
+Gallery cards support lightbox interaction.
+
+### Category Filters
+
+Gallery categories are filtered through reusable filter buttons.
+
+### Footer
+
+The footer includes:
+
+- copyright
+- social media links
+- secondary navigation (where applicable)
+
+---
+
+## 9. Responsive Strategy
+
+The website is designed using a mobile-first approach.
+
+Responsive behaviour includes:
+
+- flexible layouts
+- responsive navigation
+- scalable typography
+- responsive images
+- adaptable spacing
+- consistent card layouts
+
+Desktop, tablet and mobile experiences should remain visually consistent while adapting to available screen space.
+
+---
+
+## 10. Accessibility Requirements
+
+Accessibility is considered a core project requirement.
+
+The website should follow modern accessibility practices including:
+
+- semantic HTML5
+- keyboard accessibility
+- visible focus indicators
+- descriptive alternative text
+- ARIA attributes where appropriate
+- accessible navigation
+- sufficient colour contrast
+- logical heading hierarchy
+- skip navigation link
+- responsive interaction targets
+
+Accessibility improvements should coninue throughout future development.
+
+---
+
+## 11. SEO Requirements
+
+The website should follow modern SEO best practices.
+
+Requirements include:
+
+- semantic HTML structure
+- unique page titles
+- descriptive meta descriptions
+- descriptive image alt text
+- clean URLs
+- Open Graph metadata
+- Twitter Card metadata
+- favicon support
+- robots.txt
+- sitemap.xml
+
+SEO should remain lightweight and suitable for a static website while allowing future backend expansion.
+
+---
