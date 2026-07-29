@@ -97,6 +97,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    renderHeader(); // Call renderHeader on DOMContentLoaded
+    // Function to dynamically update the copyright year
+    function updateCopyrightYear() {
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            const currentYear = new Date().getFullYear();
+            currentYearSpan.textContent = currentYear;
+        }
+    }
+
+    // Call functions on DOMContentLoaded
+    renderHeader();
+    updateCopyrightYear();
 });
            
