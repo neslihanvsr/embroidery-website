@@ -44,15 +44,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     /**
      * Creates an HTML string for a single category preview card.
      * @param {Object} category - The category data object.
+     * @param {Array} products - All product data to find a matching image.
      * @returns {string} The HTML string for the category card.
      */
-    function createCategoryCard(category) {
-        // Using a generic placeholder image for category previews for now
-        // User will replace these with actual category-specific images later.
-        const placeholderImage = `https://via.placeholder.com/180x180?text=${encodeURIComponent(category.label)}`;
+    function createCategoryCard(category, products) {
+        // Find the first product that belongs to this category to use its image
+        const matchingProduct = products.find(product => product.category === category.id);
+        let categoryImageSrc = '';
+
+        if (matchingProduct && matchingProduct.image) {
+            categoryImageSrc = matchingProduct.image;
+        } else {
+            // Fallback to a generic placeholder if no matching product image is found
+            categoryImageSrc = `https://via.placeholder.com/180x180?text=${encodeURIComponent(category.label)}`;
+        }
         return `
             <a href="gallery.html?category=${category.id}" class="category-card">
-                <img src="${placeholderImage}" alt="${category.label} Category" class="category-card__image" loading="lazy" width="180" height="180">
+                <img src="${categoryImageSrc}" alt="${category.label} Category" class="category-card__image" loading="lazy" width="180" height="180">
                 <div class="category-card__overlay">
                     <span class="category-card__title">${category.label}</span>
                 </div>
@@ -78,19 +86,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     /**
      * Renders category preview cards on the homepage.
-     * @param {Array} categories - All category data.
+     * @param {Array} categories - All category data. 
+     * @param {Array} products - All product data.
      */
-    function renderCategoryPreviews(categories) {
+    function renderCategoryPreviews(categories, products) {
         categoryPreviewContainer.innerHTML = ''; // Clear loading message
         if (categories.length === 0) {
             categoryPreviewContainer.innerHTML = '<p class="text-center" style="grid-column: 1 / -1;">No categories available.</p>';
             return;
         }
         // Display a subset of categories or all, depending on design preference.
-        // For now, let's display the first 5 or all if less than 5.
+        // Display the first 5 or all if less than 5.
         const categoriesToDisplay = categories.slice(0, 5);
         categoriesToDisplay.forEach(category => {
-            categoryPreviewContainer.insertAdjacentHTML('beforeend', createCategoryCard(category));
+            categoryPreviewContainer.insertAdjacentHTML('beforeend', createCategoryCard(category, products));
         });
     }
 
@@ -100,7 +109,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const products = await fetchData('content/products.json');
 
         renderFeaturedProducts(products);
-        renderCategoryPreviews(allCategories);
+        renderCategoryPreviews(allCategories, products);
     }
 
     initHomepage();

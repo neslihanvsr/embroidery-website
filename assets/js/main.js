@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="container">
                     <div class="header-content">
                         <a href="index.html" class="site-logo">
-                            <img src="https://via.placeholder.com/150x40?text=HoyThreads" alt="HoyThreads Embroidery Logo" width="150" height="40">
+                            <img src="assets/images/branding/1.jpg" alt="HoyThreads Embroidery Logo - Stylized Animal Figures" width="150" height="40">
                         </a>
                         <!-- Desktop Navigation -->
                         <nav class="nav--desktop">

@@ -71,9 +71,13 @@
 }
 
 .header-content {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
   align-items: center;
+}
+
+.nav--desktop {
+  justify-self: center;
 }
 
 .site-logo img {
@@ -101,7 +105,8 @@
     text-align: left;
   }
   .hero-content {
-    flex: 1;
+    flex: 2; /* Give more space to text content */
+    padding-right: var(--space-4); /* Add spacing between text and image */
   }
   .hero-image {
     flex: 1;
@@ -122,6 +127,10 @@
 }
 
 .hero-image img {
+  width: 100%; /* Ensure image fills its container */
+  aspect-ratio: 3 / 2; /* Maintain original 600x400 aspect ratio */
+  object-fit: contain; /* Prevent cropping, show full image */
+  object-position: center; /* Center the image within its aspect-ratio box */
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-md);
 }

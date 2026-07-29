@@ -45,14 +45,6 @@
     "caption": "Homer Simpson's iconic 'D'oh!' moment captured in embroidery."
   },
   {
-    "id": "gallery-flowers-nature-001",
-    "name": "Vibrant Wildflower Bouquet",
-    "category": "flowers-nature",
-    "image": "wildflower-bouquet.jpeg",
-    "description": "A lush, hand-embroidered bouquet of diverse wildflowers, bursting with color and natural beauty.",
-    "caption": "A vibrant piece from a personal collection, showcasing intricate floral details."
-  },
-  {
     "id": "gallery-flowers-nature-002",
     "productId": "flowers-nature-001",
     "caption": "A beautiful rose garden design, perfect for nature lovers."
