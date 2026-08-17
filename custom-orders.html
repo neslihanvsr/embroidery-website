@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/custom-orders.css"> <!-- Page-specific overrides -->
     <!-- Google Fonts for Fraunces and Inter (placeholder, will be self-hosted later if needed) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,34 +41,128 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <div id="header-root"></div>
     <main role="main" id="main-content">
-        <section class="custom-orders-section">
+        <!-- 1. Hero / Intro Section -->
+        <section class="hero-section custom-orders-hero-section">
             <div class="container">
-                <h1 class="section-title">Custom Embroidery Orders</h1>
-                <p class="text-center" style="max-width: 800px; margin: 0 auto var(--space-5) auto;">
-                    Have a unique idea you'd like to see brought to life in thread? HoyThreads specializes in creating personalized, one-of-a-kind embroidery pieces tailored to your vision. Whether it's a pet portrait, a special quote, or a design inspired by your favorite character, we're here to stitch your dreams into reality.
-                </p>
-                <h2 class="section-title">How It Works</h2>
-                <div class="grid grid--1-col grid--2-col-tablet grid--3-col-desktop" style="max-width: 900px; margin: 0 auto;">
-                    <div style="padding: var(--space-3); border: 1px solid var(--color-light-gray); border-radius: var(--border-radius-sm);">
+                <div class="hero-content text-center">
+                    <h1 class="hero-title">Custom Embroidery, Made Just for You</h1>
+                    <p class="hero-subtitle">Turn your photo, drawing, favorite character, or idea into a handmade embroidery piece.</p>
+                    <a href="contact.html" class="btn btn--primary">Start a Custom Order</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. What Can I Customize? Section -->
+        <section class="custom-orders-section text-center">
+            <div class="container">
+                <h2 class="section-title">What Can I Customize?</h2>
+                <div class="grid grid--1-col grid--2-col-tablet grid--3-col-desktop" style="max-width: 1000px; margin: 0 auto;">
+                    <div class="custom-feature-card">
+                        <img src="assets/images/products/portraits/portrait-1-1.jpg" alt="Embroidered portrait of a couple" class="custom-feature-card__image" loading="lazy">
+                        <div class="custom-feature-card__content">
+                            <h3 class="custom-feature-card__title">Portraits</h3>
+                            <p class="custom-feature-card__description">Turn your favorite people and memories into handmade embroidery.</p>
+                        </div>
+                    </div>
+                    <div class="custom-feature-card">
+                        <img src="assets/images/products/animals/cat-1.jpg" alt="Embroidered pet portrait of a cat" class="custom-feature-card__image" loading="lazy">
+                        <div class="custom-feature-card__content">
+                            <h3 class="custom-feature-card__title">Pet Portraits</h3>
+                            <p class="custom-feature-card__description">Transform your pet's photo into a handmade embroidered keepsake.</p>
+                        </div>
+                    </div>
+                    <div class="custom-feature-card">
+                        <img src="assets/images/products/childrens-drawings/drawing-1-1.jpg" alt="Embroidered child's drawing of a robot" class="custom-feature-card__image" loading="lazy">
+                        <div class="custom-feature-card__content">
+                            <h3 class="custom-feature-card__title">Children's Drawings</h3>
+                            <p class="custom-feature-card__description">Preserve a child's drawing as a unique handmade keepsake.</p>
+                        </div>
+                    </div>
+                    <div class="custom-feature-card">
+                        <img src="assets/images/products/text-embroidery/text-1.jpg" alt="Embroidered text 'Be Kind'" class="custom-feature-card__image" loading="lazy">
+                        <div class="custom-feature-card__content">
+                            <h3 class="custom-feature-card__title">Custom Quotes</h3>
+                            <p class="custom-feature-card__description">Turn names, handwriting, quotes or meaningful words into embroidery.</p>
+                        </div>
+                    </div>
+                    <div class="custom-feature-card">
+                        <img src="assets/images/products/original-designs/astronaut.jpg" alt="Embroidered astronaut in space" class="custom-feature-card__image" loading="lazy">
+                        <div class="custom-feature-card__content">
+                            <h3 class="custom-feature-card__title">Custom Designs</h3>
+                            <p class="custom-feature-card__description">Have a specific design in mind? I can turn your idea into a handmade piece.</p>
+                        </div>
+                    </div>
+                    <div class="custom-feature-card">
+                        <img src="assets/images/products/anime-cartoons/homer-1.jpg" alt="Embroidered cat portrait, representing a custom idea" class="custom-feature-card__image" loading="lazy">
+                        <div class="custom-feature-card__content">
+                            <h3 class="custom-feature-card__title">Your Own Idea</h3>
+                            <p class="custom-feature-card__description">Have something else in mind? Tell me your idea and let's create something unique together.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. How It Works Section -->
+        <section class="custom-orders-section text-center">
+            <div class="container">
+                <h2 class="section-title">How It Works?</h2>
+                <div class="grid grid--1-col grid--2-col-tablet grid--4-col-desktop" style="max-width: 1200px; margin: 0 auto;">
+                    <div class="custom-order-step-card">
                         <h3 class="fs-h3">1. Share Your Idea</h3>
-                        <p>Tell us about your concept, preferred colors, size, and any reference images you have. The more details, the better!</p>
+                        <p>Send your photo, drawing, favorite character, text or design idea.</p>
                     </div>
-                    <div style="padding: var(--space-3); border: 1px solid var(--color-light-gray); border-radius: var(--border-radius-sm);">
+                    <div class="custom-order-step-card">
                         <h3 class="fs-h3">2. Get a Quote & Design</h3>
-                        <p>We'll provide a personalized quote and work with you on a preliminary design sketch. Your feedback is crucial!</p>
+                        <p>I review your request and confirm the size, details, price and estimated completion time.</p>
                     </div>
-                    <div style="padding: var(--space-3); border: 1px solid var(--color-light-gray); border-radius: var(--border-radius-sm);">
+                    <div class="custom-order-step-card">
                         <h3 class="fs-h3">3. Stitching Begins</h3>
-                        <p>Once approved, we'll begin the meticulous hand-stitching process, keeping you updated on progress.</p>
+                        <p>Once the design is approved and payment is completed, I start creating your piece by hand.</p>
                     </div>
-                    <div style="padding: var(--space-3); border: 1px solid var(--color-light-gray); border-radius: var(--border-radius-sm);">
+                    <div class="custom-order-step-card">
                         <h3 class="fs-h3">4. Delivery</h3>
                         <p>Your unique, handcrafted embroidery piece will be carefully packaged and shipped to you.</p>
                     </div>
                 </div>
-                <div class="text-center" style="margin-top: var(--space-5);">
-                    <a href="contact.html" class="btn btn--primary">Inquire About a Custom Order</a>
-                </div>
+            </div>
+        </section>
+
+        <!-- 4. What Determines the Price? Section -->
+        <section class="custom-orders-section text-center">
+            <div class="container">
+                <h2 class="section-title">What Determines the Price?</h2>
+                <p class="text-center" style="max-width: 800px; margin: 0 auto;">
+                    Custom embroidery pricing depends on the size, number of subjects, level of detail and overall design complexity.
+                </p>
+                <p class="text-center" style="max-width: 800px; margin: 0 auto;">
+                    Every request is reviewed individually before the final price is confirmed.
+                </p>
+            </div>
+        </section>
+
+        <!-- 5. What I Need From You Section -->
+        <section class="custom-orders-section text-center">
+            <div class="container">
+                <h2 class="section-title">What I Need From You?</h2>
+                <ul class="custom-order-list">
+                    <li>A clear photo or reference image</li>
+                    <li>Preferred size, if known</li>
+                    <li>Number of people, pets or subjects</li>
+                    <li>Any text or special details</li>
+                    <li>Your preferred style or idea</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 6. Final CTA Section -->
+        <section class="custom-orders-section text-center">
+            <div class="container">
+                <h2 class="section-title">Ready to Create Something Personal?</h2>
+                <p class="text-center" style="max-width: 700px; margin: 0 auto;">
+                    Tell me what you have in mind and I'll get back to you with a quote.
+                </p>
+                <a href="contact.html" class="btn btn--primary">Start a Custom Order</a>
             </div>
         </section>
     </main>
@@ -78,7 +173,7 @@
                 <div class="footer__social-links" role="contentinfo" aria-label="Social media links">
                     <a href="https://instagram.com/astronaut_on" aria-label="Instagram"><img src="assets/images/icons/instagram.png" alt="" width="24" height="24"></a>
                     <a href="https://pinterest.com/hoythreads" aria-label="Pinterest"><img src="assets/images/icons/pinterest.png" alt="" width="24" height="24"></a>
-                    <a href="https://www.shopier.com/neslihoyy" aria-label="Etsy"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
+                    <a href="https://www.shopier.com/hoythreads/" aria-label="Etsy"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
                 </div>
                 <p class="footer__copyright">&copy; 2026 HoyThreads. All rights reserved.</p>
             </div>

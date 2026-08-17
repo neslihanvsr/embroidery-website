@@ -100,16 +100,29 @@
 }
 
 @media (min-width: 900px) {
-  .hero-section .container {
+  /* Home page hero */
+  .hero-section:not(.custom-orders-hero-section) .container {
     flex-direction: row;
-    text-align: left;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+    text-align: center;
   }
-  .hero-content {
-    flex: 2; /* Give more space to text content */
-    padding-right: var(--space-4); /* Add spacing between text and image */
+
+  .hero-section:not(.custom-orders-hero-section) .hero-content {
+    flex: 1 1 0;
+    max-width: 650px;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
-  .hero-image {
-    flex: 1;
+
+  .hero-section:not(.custom-orders-hero-section) .hero-image {
+    flex: 0 1 380px;
+    max-width: 380px;
   }
 }
 
@@ -119,11 +132,25 @@
   margin-bottom: var(--space-2);
 }
 
+.hero-section:not(.custom-orders-hero-section) .hero-title {
+  line-height: 1.05;
+  max-width: 650px;
+  margin: 0 auto var(--space-2);
+  text-align: center;
+}
+
 .hero-subtitle {
   font-size: var(--fs-h3);
   color: var(--color-soft-gray);
   margin-bottom: var(--space-4);
-  max-width: 600px;
+  max-width:620px;
+}
+
+.hero-section:not(.custom-orders-hero-section) .hero-subtitle {
+  max-width: 650px;
+  margin: 0 auto var(--space-4);
+  line-height: 1.5;
+  text-align: center;
 }
 
 .hero-image img {
@@ -139,8 +166,8 @@
 .section-title {
   font-size: var(--fs-h1);
   text-align: center;
-  margin-bottom: var(--space-5);
-  margin-top: var(--space-6);
+  margin-bottom: var(--space-4);
+  margin-top: 0;
 }
 
 /* --- 7. Call to Action for All Products --- */
@@ -148,6 +175,24 @@
   text-align: center;
   margin-top: var(--space-5);
   margin-bottom: var(--space-6);
+}
+
+/* --- 7b. Featured Products Section --- */
+.featured-products-section {
+  padding: var(--space-6) 0;
+  background-color: var(--color-white);
+}
+
+/* --- 7c. Categories Preview Section --- */
+.categories-preview-section {
+  padding: var(--space-6) 0;
+  background-color: var(--color-cream);
+}
+
+/* --- 7d. Custom Orders CTA Section --- */
+.custom-orders-cta-section {
+  padding: var(--space-5) 0;
+  background-color: var(--color-white);
 }
 
 /* --- 8. Site Footer --- */

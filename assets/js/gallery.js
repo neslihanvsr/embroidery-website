@@ -306,7 +306,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     renderFilterButtons();
-    renderGalleryItems(allGalleryItems);
+    
+    // Check for URL category parameter and filter accordingly
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    
+    if (categoryParam) {
+        // Filter by the requested category and activate the corresponding filter button
+        filterGallery(categoryParam);
+        // Set the filter button as active
+        setTimeout(() => {
+            const filterButton = galleryFiltersContainer.querySelector('[data-category="' + categoryParam + '"]');
+            if (filterButton) {
+                galleryFiltersContainer.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+                filterButton.classList.add('active');
+            }
+        }, 0);
+    } else {
+        renderGalleryItems(allGalleryItems);
+    }
 }
 
     initGallery();

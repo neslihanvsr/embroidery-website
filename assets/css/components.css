@@ -408,12 +408,90 @@
   object-position: center; /* Center the image within its container */
 }
 
-/* Homepage Category Card Image - already optimized, keep as is */
+/* --- 6b. Homepage Category Cards (New) --- */
+.category-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-ease);
+  text-decoration: none;
+  height: 100%;
+}
+
+.category-card:hover,
+.category-card:focus {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
 .category-card__image {
-  /* Inherits width: 100%; display: block; from shared styles */
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 180px;
+  display: block;
   object-fit: contain;
   object-position: center;
+  background-color: var(--color-cream);
+}
+
+@media (max-width: 599px) {
+  .category-card__image {
+    height: 160px;
+  }
+}
+
+.category-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--space-3);
+  opacity: 0;
+  transition: opacity var(--transition-ease);
+}
+
+.category-card:hover .category-card__overlay,
+.category-card:focus .category-card__overlay {
+  opacity: 1;
+}
+
+.category-card__content {
+  text-align: center;
+  width: 100%;
+}
+
+.category-card__title {
+  font-size: var(--fs-h3);
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+
+.category-card__link {
+  display: inline-block;
+  color: var(--color-white);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  border: 2px solid var(--color-white);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-1) var(--space-3);
+  text-decoration: none;
+  transition: var(--transition-ease);
+}
+
+.category-card__link:hover,
+.category-card__link:focus {
+  background-color: var(--color-white);
+  color: var(--color-charcoal);
+  outline: 2px solid var(--color-accent-terracotta);
+  outline-offset: 2px;
 }
 
 /* --- 7. Lightbox (New) --- */
@@ -595,4 +673,143 @@
   transform: none; /* Remove any centering transform */
   outline: 2px solid var(--color-white); /* Clear focus indicator */
   outline-offset: 2px;
+}
+
+/* --- Custom Orders Page Specific Components --- */
+/* Default vertical padding for all sections on this page */
+.custom-orders-section {
+  padding: var(--space-5) 0; /* Reduced from var(--space-6) for tighter rhythm */
+}
+
+/* Adjustments for the Hero section on the Custom Orders page */
+.custom-orders-hero-section .hero-title {
+  font-size: var(--fs-h1); /* Slightly smaller than global hero-title for directness */
+  margin-bottom: var(--space-2);
+}
+
+.custom-orders-hero-section .hero-subtitle {
+  font-size: var(--fs-body); /* Body text size for supporting text */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-3); /* Reduced from var(--space-4) for tighter hero CTA */
+}
+
+/* Reduce margin-bottom for section titles within custom orders page */
+.custom-orders-section .section-title {
+  margin-bottom: var(--space-3); /* Tighter spacing between heading and content */
+}
+
+/* Specific adjustment for the first content section after the hero ("What Can I Customize?") */
+.custom-orders-section:first-of-type {
+    padding-top: var(--space-4); /* Make it more compact after the hero */
+}
+
+/* Specific adjustment for "What Determines the Price?" section after "How It Works" */
+.custom-orders-section:nth-of-type(3) {
+    padding-top: var(--space-4); /* Make it more compact */
+}
+
+/* Specific adjustment for "What I Need From You" section after "What Determines the Price?" */
+.custom-orders-section:nth-of-type(4) {
+    padding-top: var(--space-4); /* Make it more compact */
+}
+
+/* Paragraph in the Final CTA section */
+.custom-orders-section:last-of-type p {
+    margin-bottom: var(--space-4); /* Reduced from var(--space-5) for tighter CTA */
+}
+
+/* Custom Feature Cards (What Can I Customize?) */
+.custom-feature-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-ease);
+  text-align: center; /* Center text within the card */
+  height: 100%; /* Ensure cards in a row have equal height */
+}
+
+.custom-feature-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.custom-feature-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Fixed aspect ratio for visual consistency */
+  object-fit: cover; /* Cover the area, cropping if necessary but maintaining aspect ratio, fills the 4:3 area */
+  object-position: center;
+  display: block;
+}
+
+.custom-feature-card__content {
+  padding: var(--space-3);
+  flex-grow: 1; /* Allows content to expand and push title/description */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content if space allows */
+}
+
+.custom-feature-card__title {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-1);
+  color: var(--color-charcoal);
+}
+
+.custom-feature-card__description {
+  font-size: var(--fs-body);
+  color: var(--color-soft-gray);
+}
+
+/* Custom Order Step Cards (How It Works) */
+.custom-order-step-card {
+  padding: var(--space-3);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--border-radius-sm);
+  text-align: center;
+  height: 100%; /* Ensure cards in a row have equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+}
+
+.custom-order-step-card h3 {
+  margin-bottom: var(--space-1);
+  color: var(--color-charcoal);
+}
+
+.custom-order-step-card p {
+  font-size: var(--fs-body);
+  color: var(--color-soft-gray);
+  flex-grow: 1; /* Allows description to take up available space */
+}
+
+/* Custom Order List (What I Need From You) */
+.custom-order-list {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px; /* Keep list readable */
+  text-align: left; /* Align list items to the left */
+}
+
+.custom-order-list li {
+  font-size: var(--fs-body);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-3); /* Indent for custom bullet */
+  position: relative;
+}
+
+.custom-order-list li::before {
+  content: '•'; /* Custom bullet point */
+  color: var(--color-accent-terracotta); /* Accent color for bullet */
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }

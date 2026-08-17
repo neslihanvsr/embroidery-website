@@ -1,0 +1,90 @@
+/*
+ * custom-orders.css
+ *
+ * Page-specific styles for the Custom Orders page, primarily for vertical rhythm.
+ * Overrides general component and layout styles where necessary for this page only.
+ * Loaded last to ensure highest specificity.
+ */
+
+/* --- 1. Hero Section Spacing --- */
+.custom-orders-hero-section {
+    /* Override layout.css .hero-section padding */
+    padding-top: var(--space-4); /* 32px */
+    padding-bottom: var(--space-3); /* 24px */
+}
+
+.custom-orders-hero-section .hero-title {
+    /* Override components.css rule, or ensure it's set */
+    margin-bottom: var(--space-1); /* 8px */
+}
+
+.custom-orders-hero-section .hero-subtitle {
+    /* Override components.css rule, or ensure it's set */
+    margin-bottom: var(--space-2); /* 16px */
+}
+
+/* --- 2. General Section Spacing --- */
+.custom-orders-section {
+    /* Override components.css .custom-orders-section padding */
+    padding-top: var(--space-3); /* 24px */
+    padding-bottom: var(--space-3); /* 24px */
+}
+
+/* --- 3. Section Title Spacing --- */
+.custom-orders-section .section-title {
+    /* Override components.css rule, or ensure it's set */
+    margin-top: 0; /* Ensure no extra top margin */
+    margin-bottom: var(--space-2); /* 16px - Tighter spacing between heading and content */
+}
+
+/* --- 4. Specific Section Transitions --- */
+
+/* Reduce the gap specifically between hero and first content section ("What Can I Customize?") */
+.custom-orders-hero-section + .custom-orders-section {
+    padding-top: var(--space-2); /* 16px - Very compact transition */
+}
+
+/* Keep consecutive content sections compact */
+.custom-orders-section + .custom-orders-section {
+    padding-top: var(--space-2); /* 16px */
+}
+
+/* --- 5. Content Block Spacing --- */
+
+/* Ensure grids don't have extra top margin if not needed */
+.custom-orders-section .grid {
+    margin-top: 0;
+}
+
+/* Pricing paragraphs should behave as one compact block */
+/* This targets paragraphs directly within .custom-orders-section, not within cards */
+.custom-orders-section > p { /* Use direct child selector to avoid affecting card descriptions */
+    margin-bottom: var(--space-1); /* 8px */
+}
+
+/* Ensure the last paragraph in the pricing section doesn't have a bottom margin */
+.custom-orders-section > p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* --- 6. Final CTA Section Spacing --- */
+.custom-orders-section:last-of-type {
+    /* Override general .custom-orders-section padding for the final CTA */
+    padding-top: var(--space-3); /* 24px */
+    padding-bottom: var(--space-3); /* 24px */
+}
+
+/* Paragraph in the Final CTA section */
+.custom-orders-section:last-of-type p {
+    /* Override previous components.css rule */
+    margin-bottom: var(--space-3); /* 24px - Tighter spacing to button */
+}
+
+/* --- 7. List Spacing --- */
+.custom-order-list {
+    margin-top: var(--space-2); /* Add a small top margin to separate from heading */
+    margin-bottom: var(--space-3); /* Add a bottom margin to separate from next section */
+}
+.custom-order-list li:last-child {
+    margin-bottom: 0; /* Remove bottom margin from last list item */
+}

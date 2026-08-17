@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HoyThreads Embroidery - Contact Us</title>
-    <meta name="description" content="Get in touch with HoyThreads Embroidery for inquiries, custom orders, or support. Find our social links and FAQ.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>HoyThreads Embroidery - Contact</title>
+    <meta name="description" content="Get in touch with HoyThreads Embroidery for inquiries, custom embroidery orders, or general questions about handmade embroidery.">
     <meta name="author" content="HoyThreads">
     <meta name="robots" content="index,follow">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://github.com/neslihanvsr/embroidery-website/contact.html">
-    <meta property="og:title" content="HoyThreads Embroidery - Contact Us">
-    <meta property="og:description" content="We'd love to hear from you! Reach out for questions, custom orders, or just to say hello.">
+    <meta property="og:url" content="https://github.com/neslihanvsr/embroidery-website/contact.html"> 
+    <meta property="og:title" content="HoyThreads Embroidery - Contact">
+    <meta property="og:description" content="I'd love to hear from you! Reach out for questions, custom orders, or just to say hello about handmade embroidery.">
     <meta property="og:image" content="assets/images/branding/product-photo-2.jpg">
 
     <!-- Twitter -->
@@ -19,8 +19,8 @@
     <meta property="twitter:url" content="https://www.hoythreads.com/contact.html"> <!-- Placeholder URL -->
     <meta property="twitter:title" content="HoyThreads Embroidery - Contact Us">
     <meta property="twitter:description" content="We'd love to hear from you! Reach out for questions, custom orders, or just to say hello.">
-    <meta property="twitter:image" content="assets/images/branding/product-photo-2.jpg"> <!-- Updated to use branding cat photo -->
-    
+    <meta property="twitter:image" content="assets/images/branding/product-photo-2.jpg"> <!-- Updated to use branding cat photo --> 
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
     <link rel="icon" type="image/png" href="assets/images/icons/favicon.png">
@@ -30,49 +30,69 @@
 
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/components.css"> 
+    <link rel="stylesheet" href="assets/css/contact.css"> <!-- Page-specific overrides -->
     <!-- Google Fonts for Fraunces and Inter (placeholder, will be self-hosted later if needed) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-</head> 
+</head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <div id="header-root"></div>
     <main role="main" id="main-content">
         <section class="contact-section">
             <div class="container">
+                <!-- 1. Contact Intro -->
                 <h1 class="section-title">Get in Touch</h1>
-                <p class="text-center" style="max-width: 800px; margin: 0 auto var(--space-5) auto;">
-                    We'd love to hear from you! Whether you have a question about our products, want to discuss a custom order, or just want to say hello, feel free to reach out.
+                <p class="text-center contact-intro-text">
+                    Have a question, want to discuss a custom order, or simply want to say hello? I'd love to hear from you.
                 </p>
-                <div class="grid grid--1-col grid--2-col-tablet" style="max-width: 700px; margin: 0 auto;">
-                    <div style="padding: var(--space-3); border: 1px solid var(--color-light-gray); border-radius: var(--border-radius-sm); text-align: center;">
-                        <h3 class="fs-h3">Email Us</h3>
-                        <p><a href="mailto:neslihannavsar@gmail.com">neslihannavsar@gmail.com</a></p>
+                <div class="grid grid--1-col grid--2-col-tablet contact-options-grid">
+                    <div class="contact-option-card contact-option-card--email">
+                        <h3 class="fs-h3">Email Me</h3> 
+                        <p><a href="mailto:hoythreads@gmail.com">hoythreads@gmail.com</a></p>
                     </div>
-                    <div style="padding: var(--space-3); border: 1px solid var(--color-light-gray); border-radius: var(--border-radius-sm); text-align: center;">
-                        <h3 class="fs-h3">Follow Us</h3>
+                    <div class="contact-option-card contact-option-card--social">
+                        <h3 class="fs-h3">Follow HoyThreads</h3>
                         <div class="footer__social-links" style="justify-content: center;">
                             <a href="https://instagram.com/astronaut_on" aria-label="Instagram"><img src="assets/images/icons/instagram.png" alt="" width="24" height="24"></a>
                             <a href="https://pinterest.com/hoythreads" aria-label="Pinterest"><img src="assets/images/icons/pinterest.png" alt="" width="24" height="24"></a>
-                            <a href="https://www.shopier.com/neslihoyy" aria-label="Etsy"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
+                            <a href="https://www.shopier.com/hoythreads/" aria-label="Shopier"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
                         </div>
                     </div>
                 </div>
-                <h2 class="section-title" style="margin-top: var(--space-6);">Frequently Asked Questions</h2>
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <div style="margin-bottom: var(--space-3); padding: var(--space-3); border: 1px solid var(--color-light-gray); border-radius: var(--border-radius-sm);">
-                        <h3 class="fs-h3" style="margin-bottom: var(--space-1);">What is your shipping policy?</h3>
-                        <p>We ship worldwide! Shipping costs and times vary by destination. You can find detailed information on our Shopier store.</p>
+
+                <!-- 4. Custom Order Inquiry -->
+                <h2 class="section-title">Planning a Custom Order?</h2>
+                <p class="text-center custom-order-inquiry-text">
+                    To help me understand your idea and prepare a quote, please include the following in your message:
+                </p>
+                <ul class="custom-order-inquiry-list">
+                    <li>A clear photo or reference image</li>
+                    <li>What you'd like embroidered</li>
+                    <li>Preferred size, if known</li>
+                    <li>Number of people, pets or other subjects</li>
+                    <li>Any text or special details</li>
+                </ul>
+                <div class="text-center contact-cta-wrapper">
+                    <a href="mailto:hoythreads@gmail.com" class="btn btn--primary">Email Me About a Custom Order</a>
+                </div>
+
+                <!-- 5. FAQ -->
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3 class="fs-h3">1. Where do you currently ship?</h3>
+                        <p>I currently ship within Türkiye. Shipping details are provided on the Shopier product page.</p>
                     </div>
-                    <div style="margin-bottom: var(--space-3); padding: var(--space-3); border: 1px solid var(--color-light-gray); border-radius: var(--border-radius-sm);">
-                        <h3 class="fs-h3" style="margin-bottom: var(--space-1);">Do you accept returns?</h3>
-                        <p>Due to the handmade and often custom nature of our products, we generally do not accept returns. However, if there's an issue with your order, please contact us!</p>
+                    <div class="faq-item">
+                        <h3 class="fs-h3">2. How do I start a custom order?</h3>
+                        <p>Send me an email with your reference image, what you'd like embroidered, your preferred size if known, and any special details. I'll review your request and get back to you with a quote.</p>
                     </div>
-                    <div style="margin-bottom: var(--space-3); padding: var(--space-3); border: 1px solid var(--color-light-gray); border-radius: var(--border-radius-sm);">
-                        <h3 class="fs-h3" style="margin-bottom: var(--space-1);">How long do custom orders take?</h3>
-                        <p>Custom order timelines vary depending on complexity and current workload, typically ranging from 2-4 weeks. We'll provide an estimated completion date with your quote.</p>
+                    <div class="faq-item">
+                        <h3 class="fs-h3">3. How long do custom orders take?</h3>
+                        <p>Timing depends on the size, complexity and current workload. I'll provide an estimated completion time when I review your request.</p>
                     </div>
                 </div>
             </div>
@@ -85,7 +105,7 @@
                 <div class="footer__social-links" role="contentinfo" aria-label="Social media links">
                     <a href="https://instagram.com/astronaut_on" aria-label="Instagram"><img src="assets/images/icons/instagram.png" alt="" width="24" height="24"></a>
                     <a href="https://pinterest.com/hoythreads" aria-label="Pinterest"><img src="assets/images/icons/pinterest.png" alt="" width="24" height="24"></a>
-                    <a href="https://www.shopier.com/neslihoyy" aria-label="Etsy"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
+                    <a href="https://www.shopier.com/hoythreads/" aria-label="Etsy"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
                 </div>
                 <p class="footer__copyright">&copy; 2026 HoyThreads. All rights reserved.</p>
             </div>

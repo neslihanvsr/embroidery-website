@@ -1,0 +1,112 @@
+/*
+ * contact.css
+ *
+ * Page-specific styles for the Contact page, primarily for vertical rhythm and layout.
+ * Overrides general component and layout styles where necessary for this page only.
+ * Loaded last to ensure highest specificity.
+ */
+
+/* --- 1. General Section Spacing --- */
+.contact-section {
+    padding: var(--space-3) 0; /* Reduced from space-4 for a more compact base */
+}
+
+/* --- 2. Section Title Spacing --- */
+.contact-section .section-title {
+    /* Override layout.css .section-title margin-bottom */
+    margin-bottom: var(--space-3); /* Tighter spacing between heading and content */
+}
+
+/* --- 3. Contact Intro --- */
+.contact-intro-text {
+    max-width: 820px;
+    margin: 0 auto var(--space-3) auto; /* Reduced from space-4 for tighter intro */
+}
+
+/* --- 4. Contact Options Grid --- */
+.contact-options-grid {
+    max-width: 760px; /* Adjusted width */
+    margin: 0 auto var(--space-4) auto; /* Reduced from space-5 for moderate transition to next section */
+}
+
+.contact-option-card {
+    padding: var(--space-2); /* Reduced from space-3 for more compact cards */
+    border: 1px solid var(--color-light-gray);
+    border-radius: var(--border-radius-sm);
+    text-align: center; /* Ensure content is centered */
+    display: flex; /* Use flexbox for internal alignment */
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    height: 100%; /* Ensure equal height in grid */
+    min-height: 120px; /* Ensure a consistent, compact height */
+}
+
+.contact-option-card h3 {
+    margin-bottom: var(--space-1);
+}
+
+.contact-option-card p {
+    margin-bottom: 0; /* Remove default paragraph margin */
+}
+
+/* --- 5. Custom Order Inquiry Section --- */
+.custom-order-inquiry-text {
+    max-width: 760px;
+    margin: 0 auto var(--space-3) auto; /* Spacing below supporting text */
+}
+
+.custom-order-inquiry-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0 auto var(--space-5) auto; /* Spacing below list */
+    max-width: 600px; /* Keep list readable */
+    text-align: left; /* Align list items to the left */
+}
+
+.custom-order-inquiry-list li {
+    font-size: var(--fs-body);
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-2);
+    padding-left: var(--space-3); /* Indent for custom bullet */
+    position: relative;
+}
+
+.custom-order-inquiry-list li::before {
+    content: '•'; /* Custom bullet point */
+    color: var(--color-accent-terracotta); /* Accent color for bullet */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Custom Order CTA Button Wrapper */
+.contact-cta-wrapper {
+    margin-top: 0; /* Ensure no extra top margin */
+    margin-bottom: var(--space-4); /* Moderate gap to FAQ heading */
+}
+
+/* --- 6. FAQ Section --- */
+.faq-grid {
+    max-width: 820px; /* Adjusted width */
+    margin: 0 auto var(--space-4) auto; /* Center the FAQ grid and add moderate bottom margin to footer */
+}
+
+.faq-item {
+    margin-bottom: var(--space-2); /* Reduced from space-3 for tighter FAQ items */
+    padding: var(--space-2); /* Reduced from space-3 for more compact FAQ cards */
+    border: 1px solid var(--color-light-gray);
+    border-radius: var(--border-radius-sm);
+    display: flex; /* Use flex for internal layout */
+    flex-direction: column;
+}
+
+.faq-item h3 {
+    font-weight: 600; /* Stronger emphasis for questions */
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-1); /* Tighter to answer */
+}
+
+.faq-item p {
+    margin-bottom: 0; /* Remove default paragraph margin */
+    line-height: 1.6; /* Comfortable line-height for answers */
+}

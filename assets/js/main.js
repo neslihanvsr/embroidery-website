@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <nav class="nav--desktop">
                             <ul class="nav__list">
                                 <li class="nav__item"><a href="index.html">Home</a></li>
-                                <li class="nav__item"><a href="products.html">Products</a></li>
+                                <li class="nav__item"><a href="products.html">Shop</a></li>
                                 <li class="nav__item"><a href="gallery.html">Gallery</a></li>
                                 <li class="nav__item"><a href="about.html">About</a></li>
                                 <li class="nav__item"><a href="custom-orders.html">Custom Orders</a></li>
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <nav class="nav--mobile" aria-label="Mobile navigation">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="index.html">Home</a></li>
-                        <li class="nav__item"><a href="products.html">Products</a></li>
+                        <li class="nav__item"><a href="products.html">Shop</a></li>
                         <li class="nav__item"><a href="gallery.html">Gallery</a></li>
                         <li class="nav__item"><a href="about.html">About</a></li>
                         <li class="nav__item"><a href="custom-orders.html">Custom Orders</a></li>

@@ -59,12 +59,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             categoryImageSrc = `https://via.placeholder.com/180x180?text=${encodeURIComponent(category.label)}`;
         }
         return `
-            <a href="gallery.html?category=${category.id}" class="category-card">
-                <img src="${categoryImageSrc}" alt="${category.label} Category" class="category-card__image" loading="lazy" width="180" height="180">
+            <div class="category-card">
+                <img src="${categoryImageSrc}" alt="${category.label} Category" class="category-card__image" loading="lazy">
                 <div class="category-card__overlay">
-                    <span class="category-card__title">${category.label}</span>
+                    <div class="category-card__content">
+                        <h3 class="category-card__title">${category.label}</h3>
+                        <a href="gallery.html?category=${category.id}" class="category-card__link">Explore →</a>
+                    </div>
                 </div>
-            </a>
+            </div>
         `;
     }
 
@@ -95,10 +98,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             categoryPreviewContainer.innerHTML = '<p class="text-center" style="grid-column: 1 / -1;">No categories available.</p>';
             return;
         }
-        // Display a subset of categories or all, depending on design preference.
-        // Display the first 5 or all if less than 5.
-        const categoriesToDisplay = categories.slice(0, 5);
-        categoriesToDisplay.forEach(category => {
+        // Display all categories
+        categories.forEach(category => {
             categoryPreviewContainer.insertAdjacentHTML('beforeend', createCategoryCard(category, products));
         });
     }

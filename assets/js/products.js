@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <span class="category-badge ${categoryClass} product-card__category">${categoryLabel}</span>
                     <h3 class="product-card__title">${product.name}</h3>
                     <p class="product-card__price">${product.price}</p> 
-                    <a href="${product.shopierUrl}" target="_blank" rel="noopener noreferrer" class="btn btn--primary product-card__button">Buy on Shopier</a>
+                    <a href="${product.shopierUrl}" target="_blank" rel="noopener noreferrer" class="btn btn--primary product-card__button">Shop on Shopier</a>
                 </div>
             </div>
         `;

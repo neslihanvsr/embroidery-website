@@ -1,0 +1,60 @@
+/*
+ * about.css
+ *
+ * Page-specific styles for the About page, primarily for vertical rhythm and layout.
+ * Overrides general component and layout styles where necessary for this page only.
+ * Loaded last to ensure highest specificity.
+ */
+
+/* --- 1. General Section Spacing --- */
+.about-section {
+    /* Override layout.css .about-preview-section padding */
+    padding: var(--space-5) 0; /* Consistent vertical padding for sections on this page */
+}
+
+/* --- 2. Section Title Spacing --- */
+.about-section .section-title {
+    /* Override layout.css .section-title margin-bottom */
+    margin-bottom: var(--space-3); /* Tighter spacing between heading and content */
+}
+
+/* --- 3. Main Story Section Layout --- */
+.about-content-block {
+    max-width: 800px; /* Readable text width */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3); /* Spacing between paragraphs and image */
+}
+
+.about-content-block p {
+    margin-bottom: 0; /* Remove default paragraph margin-bottom */
+}
+
+.about-main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin: var(--space-2) 0; /* Add some vertical margin around the image */
+}
+
+/* --- 4. Narrow Text Blocks --- */
+.about-text-narrow {
+    max-width: 700px; /* Slightly narrower for these specific paragraphs */
+    margin: 0 auto;
+}
+
+/* --- 5. CTA Section Spacing --- */
+.about-cta-section {
+    padding-top: var(--space-4); /* Slightly more compact top padding for CTA */
+}
+
+.about-cta-section .section-title {
+    margin-bottom: var(--space-2); /* Tighter heading to supporting text */
+}
+
+.about-cta-section p {
+    margin-bottom: var(--space-4); /* Spacing between text and button */
+}
