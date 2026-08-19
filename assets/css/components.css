@@ -1,30 +1,39 @@
 /*
  * components.css
  *
- * Defines base styles for reusable UI components like buttons, cards, and tags.
+ * Defines base styles for reusable UI components like buttons,
+ * cards, navigation, gallery, lightbox and custom order components.
  */
 
-/* --- 1. Buttons --- */
+
+/* =========================================================
+   1. BUTTONS
+   ========================================================= */
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-2) var(--space-4); /* 16px vertical, 32px horizontal */
-  border: 2px solid transparent; /* Border color will be overridden by specific button styles */
+
+  padding: var(--space-2) var(--space-4);
+
+  border: 2px solid transparent;
   border-radius: var(--border-radius-sm);
+
   font-family: var(--font-family-body);
   font-size: var(--fs-body);
-  font-weight: 600; /* Semibold */
+  font-weight: 600;
   line-height: 1;
+
   cursor: pointer;
   transition: var(--transition-ease);
-  text-decoration: none; /* Ensure no underline */
+
+  text-decoration: none;
 }
 
-/* Focus-visible styles for interactive elements */
 .btn:focus-visible,
 .filter-button:focus-visible,
-.nav-toggle:focus-visible { /* Added nav-toggle */
+.nav-toggle:focus-visible {
   outline: 2px solid var(--color-accent-terracotta);
   outline-offset: 2px;
 }
@@ -37,7 +46,7 @@
 
 .btn--primary:hover,
 .btn--primary:focus {
-  background-color: #C26A4D; /* Slightly darker terracotta */
+  background-color: #C26A4D;
   border-color: #C26A4D;
 }
 
@@ -53,88 +62,124 @@
   border-color: var(--color-soft-gray);
 }
 
-/* --- 2. Category Tags --- */
-.tag, .category-badge {
+
+/* =========================================================
+   2. CATEGORY TAGS
+   ========================================================= */
+
+.tag,
+.category-badge {
   display: inline-block;
+
   padding: var(--space-1) var(--space-2);
-  border-radius: var(--border-radius-pill); /* Pill shape */
+
+  border-radius: var(--border-radius-pill);
+
   font-size: var(--fs-small);
   font-weight: 500;
+
   text-transform: uppercase;
-  color: var(--color-white); /* Default tag text color */
   letter-spacing: 0.05em;
-  white-space: nowrap; /* Prevent wrapping */
-  margin-right: var(--space-1); /* For multiple tags */
-  margin-bottom: var(--space-1); /* For multiple tags */
+
+  color: var(--color-white);
+
+  white-space: nowrap;
+
+  margin-right: var(--space-1);
+  margin-bottom: var(--space-1);
 }
 
-/* Specific category badge colors */
+
+/* Category badge colors */
+
 .category-badge--flowers {
   background-color: var(--color-accent-sage);
 }
-.category-badge--pop-culture { /* Dusty Blue */
+
+.category-badge--pop-culture {
   background-color: var(--color-accent-dusty-blue);
 }
-.category-badge--anime-cartoons { /* Mustard Yellow */
+
+.category-badge--anime-cartoons {
   background-color: var(--color-accent-mustard);
 }
-.category-badge--flowers-nature { /* Sage Green */
+
+.category-badge--flowers-nature {
   background-color: var(--color-accent-sage);
 }
-.category-badge--animals { /* Terracotta */
+
+.category-badge--animals {
   background-color: var(--color-accent-terracotta);
 }
-.category-badge--portraits { /* Muted Plum */
+
+.category-badge--portraits {
   background-color: var(--color-accent-plum);
 }
-.category-badge--childrens-drawings { /* Mustard Yellow */
+
+.category-badge--childrens-drawings {
   background-color: var(--color-accent-mustard);
 }
-.category-badge--original-designs { /* Terracotta */
+
+.category-badge--original-designs {
   background-color: var(--color-accent-terracotta);
 }
-.category-badge--text-embroidery { /* Dusty Blue */
+
+.category-badge--text-embroidery {
   background-color: var(--color-accent-dusty-blue);
 }
-.category-badge--custom-orders { /* Muted Plum */
+
+.category-badge--custom-orders {
   background-color: var(--color-accent-plum);
 }
-/* --- 3. Product Card --- */
+
+
+/* =========================================================
+   3. PRODUCT CARD
+   ========================================================= */
+
 .product-card {
   background-color: var(--color-white);
+
   border: 1px solid var(--color-light-gray);
   border-radius: var(--border-radius-md);
-  overflow: hidden; /* Ensures image corners are rounded */
+
+  overflow: hidden;
+
   display: flex;
   flex-direction: column;
+
   box-shadow: var(--shadow-sm);
+
   transition: var(--transition-ease);
-  text-align: left; /* Align text within the card */
+
+  text-align: left;
 }
 
 .product-card:hover,
-.gallery-card:hover { /* Apply hover effect to gallery cards as well for consistency */
+.gallery-card:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px); /* Subtle lift effect */
+  transform: translateY(-2px);
 }
 
 .product-card__image,
 .gallery-card__image,
 .category-card__image {
   width: 100%;
-  display: block; /* Remove extra space below image */
+  display: block;
 }
 
 .product-card__image {
-  height: 200px; /* Fixed height for consistent card appearance */
-  object-fit: cover; /* Cover the area, crop if necessary */
+  height: 200px;
+  object-fit: cover;
 }
 
 .product-card__content {
   padding: var(--space-3);
+
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Allows content to push price/button to bottom */
+
+  flex-grow: 1;
 }
 
 .product-card__category {
@@ -143,36 +188,48 @@
 
 .product-card__title {
   font-size: var(--fs-h3);
+
   margin-bottom: var(--space-1);
+
   color: var(--color-charcoal);
 }
 
 .product-card__price {
   font-size: var(--fs-body);
   font-weight: 600;
+
   color: var(--color-accent-terracotta);
-  margin-top: auto; /* Pushes price and button to the bottom */
+
+  margin-top: auto;
   margin-bottom: var(--space-2);
 }
 
 .product-card__button {
-  width: 100%; /* Make button full width of card content */
-  margin-top: var(--space-2); /* Ensure consistent spacing from price */
+  width: 100%;
+  margin-top: var(--space-2);
 }
 
-/* --- 4. Navigation Styles --- */
 
-/* Mobile Navigation Toggle (Hamburger Icon) */
+/* =========================================================
+   4. NAVIGATION
+   ========================================================= */
+
 .nav-toggle {
   background: none;
   border: none;
+
   cursor: pointer;
+
   padding: 0;
-  display: none; /* hidden on desktop */
+
+  display: none;
+
   align-items: center;
   justify-content: center;
+
   position: relative;
   z-index: 101;
+
   width: 48px;
   height: 48px;
 }
@@ -182,9 +239,13 @@
 .hamburger-icon::after {
   width: 24px;
   height: 2px;
+
   background-color: var(--color-charcoal);
+
   display: block;
+
   position: absolute;
+
   transition: 0.3s ease;
 }
 
@@ -203,19 +264,26 @@
 
 .nav__list {
   list-style: none;
+
   margin: 0;
   padding: 0;
+
   display: flex;
-  gap: var(--space-4); /* Spacing between nav items */
+
+  gap: var(--space-4);
 }
 
 .nav__item a {
   font-family: var(--font-family-body);
   font-size: var(--fs-body);
   font-weight: 500;
+
   color: var(--color-charcoal);
+
   padding: var(--space-1) 0;
+
   position: relative;
+
   transition: var(--transition-ease);
 }
 
@@ -224,96 +292,125 @@
   color: var(--color-accent-terracotta);
 }
 
-.nav__item a::after { /* Underline effect on hover/active */
+.nav__item a::after {
   content: '';
+
   position: absolute;
+
   left: 0;
   bottom: 0;
+
   width: 0;
   height: 2px;
+
   background-color: var(--color-accent-terracotta);
+
   transition: width 0.2s ease;
 }
 
 .nav__item a:hover::after,
-.nav__item a.active::after { /* .active class for current page */
+.nav__item a.active::after {
   width: 100%;
 }
 
-/* Hide mobile navigation by default */
 .nav--mobile {
   display: none;
 }
 
-/* Mobile navigation specific styles (will be toggled by JS) */
-/* These styles assume a mobile menu that expands vertically */
-@media (max-width: 899px) { /* Applies to mobile and tablet screens */
+
+/* Mobile navigation */
+
+@media (max-width: 899px) {
+
   .nav--desktop {
-    display: none; /* Hide desktop nav on smaller screens */
+    display: none;
   }
 
   .nav-toggle {
-    display: flex; /* Show hamburger button on smaller screens (flex properties are now in base) */
+    display: flex;
   }
 
-  /* Animation for hamburger icon when mobile nav is open */
   .nav-toggle[aria-expanded="true"] .hamburger-icon {
-    background-color: transparent; /* Hide middle bar */
+    background-color: transparent;
   }
+
   .nav-toggle[aria-expanded="true"] .hamburger-icon::before {
     transform: rotate(45deg);
     top: 0;
   }
+
   .nav-toggle[aria-expanded="true"] .hamburger-icon::after {
     transform: rotate(-45deg);
     bottom: 0;
   }
+
   .nav--mobile {
-    display: none; /* Hidden by default, JS will toggle 'is-open' class */
+    display: none;
+
     position: absolute;
-    top: 100%; /* Position below the header */
+
+    top: 100%;
     left: 0;
+
     width: 100%;
+
     background-color: var(--color-white);
+
     border-top: 1px solid var(--color-light-gray);
+
     box-shadow: var(--shadow-md);
-    z-index: 100; /* Ensure it's above other content */
+
+    z-index: 100;
   }
 
   .nav--mobile.is-open {
-    display: block; /* Show when JS adds 'is-open' class */
+    display: block;
   }
 
   .nav--mobile .nav__list {
     flex-direction: column;
+
     padding: var(--space-3);
+
     gap: var(--space-2);
   }
 
   .nav--mobile .nav__item a {
     display: block;
+
     padding: var(--space-2) 0;
+
     text-align: center;
+
     border-bottom: 1px solid var(--color-light-gray);
   }
 
   .nav--mobile .nav__item:last-child a {
-    border-bottom: none; /* No border on the last item */
+    border-bottom: none;
   }
 }
 
-/* --- 5. Footer Styles --- */
+
+/* =========================================================
+   5. FOOTER
+   ========================================================= */
+
 .footer__social-links {
   display: flex;
+
   justify-content: center;
+
   gap: var(--space-3);
+
   margin-top: var(--space-3);
   margin-bottom: var(--space-3);
 }
 
 .footer__social-links a {
-  font-size: 1.5rem; /* Example size for social icons */
+  font-size: 1.5rem;
+
   color: var(--color-light-gray);
+
   transition: var(--transition-ease);
 }
 
@@ -323,64 +420,147 @@
 
 .footer__copyright {
   font-size: var(--fs-small);
+
   color: var(--color-soft-gray);
 }
 
-/* --- 6. Gallery Filtering & Cards (New) --- */
+
+/* =========================================================
+   6. GALLERY FILTERING
+   ========================================================= */
+
 .category-filters {
   display: flex;
+
   flex-wrap: wrap;
+
   justify-content: center;
-  gap: var(--space-2); /* Spacing between filter buttons */
-  margin-bottom: var(--space-5); /* Space below filters, above gallery grid */
+
+  gap: var(--space-2);
+
+  margin-bottom: var(--space-5);
 }
 
 .filter-button {
-  /* Inherits .tag styles */
   cursor: pointer;
-  border: 1px solid var(--color-light-gray); /* Subtle border */
-  background-color: var(--color-white); /* Default background */
-  color: var(--color-charcoal); /* Default text color */
-  transition: var(--transition-ease);
-  /* Ensure padding is consistent with .tag */
+
+  border: 1px solid var(--color-light-gray);
+
+  background-color: var(--color-white);
+
+  color: var(--color-charcoal);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
   padding: var(--space-1) var(--space-2);
+
   border-radius: var(--border-radius-pill);
+
   font-size: var(--fs-small);
   font-weight: 500;
+
   text-transform: uppercase;
+
   letter-spacing: 0.05em;
+
   white-space: nowrap;
 }
 
 .filter-button:hover:not(.active) {
   background-color: var(--color-light-gray);
   border-color: var(--color-soft-gray);
+
+  transform: translateY(-1px);
 }
 
 .filter-button.active {
-  background-color: var(--color-accent-terracotta); /* Active state accent */
+  background-color: var(--color-accent-terracotta);
+
   border-color: var(--color-accent-terracotta);
+
   color: var(--color-white);
-  font-weight: 600; /* Make active button stand out */
+
+  font-weight: 600;
 }
 
-/* Gallery Card */
+
+/* =========================================================
+   6A. GALLERY CARD
+   ========================================================= */
+
 .gallery-card {
   background-color: var(--color-white);
+
   border: 1px solid var(--color-light-gray);
+
   border-radius: var(--border-radius-md);
+
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
+
   box-shadow: var(--shadow-sm);
+
   transition: var(--transition-ease);
+
   text-align: left;
+
+  cursor: pointer;
 }
+
+.gallery-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 28px rgba(70, 60, 55, 0.12);
+
+  border-color: rgba(170, 130, 110, 0.35);
+}
+
+.gallery-card:focus-visible {
+  outline: 2px solid var(--color-accent-terracotta);
+  outline-offset: 3px;
+}
+
+
+/* Gallery image */
+
+.gallery-card__image {
+  aspect-ratio: 1 / 1;
+
+  width: 100%;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  display: block;
+
+  background-color: var(--color-cream);
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.gallery-card:hover .gallery-card__image {
+  transform: scale(1.025);
+}
+
+
+/* Gallery content */
 
 .gallery-card__content {
   padding: var(--space-3);
+
   display: flex;
   flex-direction: column;
+
   flex-grow: 1;
 }
 
@@ -390,70 +570,92 @@
 
 .gallery-card__title {
   font-size: var(--fs-h3);
+
   margin-bottom: var(--space-1);
+
   color: var(--color-charcoal);
 }
 
 .gallery-card__description {
   font-size: var(--fs-body);
+
   color: var(--color-soft-gray);
+
   margin-top: var(--space-1);
-  flex-grow: 1; /* Allows description to push content down if needed */
+
+  flex-grow: 1;
 }
 
-.gallery-card__image {
-  /* Inherits width: 100%; display: block; from shared styles */
-  aspect-ratio: 1 / 1; /* Consistent square image area, responsive */
-  object-fit: contain; /* Ensure entire image is visible, no cropping */
-  object-position: center; /* Center the image within its container */
-}
 
-/* --- 6b. Homepage Category Cards (New) --- */
+/* =========================================================
+   6B. HOMEPAGE CATEGORY CARDS
+   ========================================================= */
+
 .category-card {
   display: block;
+
   position: relative;
+
   overflow: hidden;
+
   border-radius: var(--border-radius-md);
+
   background-color: var(--color-white);
+
   box-shadow: var(--shadow-sm);
+
   transition: var(--transition-ease);
+
   text-decoration: none;
+
   height: 100%;
 }
 
 .category-card:hover,
 .category-card:focus {
   box-shadow: var(--shadow-md);
+
   transform: translateY(-2px);
 }
 
 .category-card__image {
   width: 100%;
+
   height: 180px;
+
   display: block;
+
   object-fit: contain;
+
   object-position: center;
+
   background-color: var(--color-cream);
 }
 
 @media (max-width: 599px) {
+
   .category-card__image {
     height: 160px;
   }
+
 }
 
 .category-card__overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+  inset: 0;
+
   background-color: rgba(0, 0, 0, 0.4);
+
   display: flex;
+
   align-items: flex-end;
   justify-content: center;
+
   padding: var(--space-3);
+
   opacity: 0;
+
   transition: opacity var(--transition-ease);
 }
 
@@ -464,352 +666,798 @@
 
 .category-card__content {
   text-align: center;
+
   width: 100%;
 }
 
 .category-card__title {
   font-size: var(--fs-h3);
+
   color: var(--color-white);
+
   margin-bottom: var(--space-2);
+
   font-weight: 600;
 }
 
 .category-card__link {
   display: inline-block;
+
   color: var(--color-white);
+
   font-size: var(--fs-body);
   font-weight: 600;
+
   border: 2px solid var(--color-white);
+
   border-radius: var(--border-radius-sm);
+
   padding: var(--space-1) var(--space-3);
+
   text-decoration: none;
+
   transition: var(--transition-ease);
 }
 
 .category-card__link:hover,
 .category-card__link:focus {
   background-color: var(--color-white);
+
   color: var(--color-charcoal);
+
   outline: 2px solid var(--color-accent-terracotta);
+
   outline-offset: 2px;
 }
 
-/* --- 7. Lightbox (New) --- */
+
+/* =========================================================
+   7. LIGHTBOX
+   ========================================================= */
+
+/*
+ * Design direction:
+ *
+ * Soft / elegant / boutique gallery.
+ *
+ * The page remains subtly visible behind the lightbox.
+ * Instead of pure black, a warm charcoal overlay is used.
+ */
+
 .lightbox {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+
+  inset: 0;
+
+  z-index: 1000;
+
   display: flex;
-  justify-content: center;
+
   align-items: center;
-  z-index: 1000; /* Ensure it's on top of everything */
-  visibility: hidden; /* Hidden by default */
+  justify-content: center;
+
+  padding: clamp(16px, 3vw, 40px);
+
+  background:
+    rgba(48, 43, 39, 0.78);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
   opacity: 0;
-  transition: visibility 0s, opacity 0.3s ease;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.28s ease,
+    visibility 0.28s ease;
 }
 
 .lightbox.is-open {
-  visibility: visible;
   opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
 }
+
+
+/* =========================================================
+   LIGHTBOX CONTENT
+   ========================================================= */
 
 .lightbox__content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+
   display: flex;
-  justify-content: center;
+
   align-items: center;
+  justify-content: center;
+
+  width: auto;
+  height: auto;
+
+  max-width: 92vw;
+  max-height: 90vh;
+
+  margin: 0 auto;
 }
+
+
+/* =========================================================
+   LIGHTBOX IMAGE
+   ========================================================= */
 
 .lightbox__image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
   display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: 92vw;
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  border-radius: 8px;
+
+  background-color: var(--color-white);
+
+  box-shadow:
+    0 24px 70px rgba(20, 17, 15, 0.35);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.25s ease;
 }
 
-.lightbox__close,
-.lightbox__prev,
-.lightbox__next {
+
+/* =========================================================
+   LIGHTBOX CAPTION
+   ========================================================= */
+
+.lightbox__caption {
   position: absolute;
-  background: none;
-  border: none;
-  color: var(--color-white);
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding:
+    90px
+    clamp(20px, 4vw, 40px)
+    clamp(20px, 3vw, 32px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  text-align: center;
+
+  color: #fff;
+
+  /*
+   * Warm transparent gradient.
+   * This is intentionally subtle so the embroidery
+   * remains the visual focus.
+   */
+  background:
+    linear-gradient(
+      to top,
+      rgba(38, 33, 30, 0.72) 0%,
+      rgba(38, 33, 30, 0.42) 38%,
+      rgba(38, 33, 30, 0.12) 70%,
+      rgba(38, 33, 30, 0) 100%
+    );
+
+  border-radius:
+    0 0
+    8px
+    8px;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LIGHTBOX TITLE
+   ========================================================= */
+
+.lightbox__caption-title {
+  margin: 0 0 var(--space-2);
+
+  max-width: 85%;
+
+  color: #fff;
+
+  font-size: var(--text-xl);
+
+  font-weight: 600;
+
+  line-height: 1.3;
+
+  text-align: center;
+
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================================
+   LIGHTBOX DESCRIPTION
+   ========================================================= */
+
+.lightbox__caption-description {
+  margin: 0;
+
+  max-width: 700px;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: var(--text-sm);
+
+  line-height: 1.55;
+
+  text-align: center;
+
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.4);
+
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   LIGHTBOX CLOSE BUTTON
+   ========================================================= */
+
+.lightbox__close {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  z-index: 10;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.90);
+
+  color: #403a36;
+
   cursor: pointer;
-  padding: var(--space-2);
-  z-index: 1010;
-  transition: color 0.2s ease;
+
+  font-size: 1.35rem;
+
+  box-shadow:
+    0 5px 18px rgba(20, 17, 15, 0.18);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .lightbox__close:hover,
-.lightbox__prev:hover,
-.lightbox__next:hover {
-  color: var(--color-accent-terracotta);
+.lightbox__close:focus-visible {
+  background: #fff;
+
+  transform: scale(1.05);
+
+  box-shadow:
+    0 7px 22px rgba(20, 17, 15, 0.24);
 }
 
-.lightbox__close {
-  top: var(--space-2);
-  right: var(--space-2);
+.lightbox__close:focus-visible {
+  outline: 2px solid var(--color-white);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   LIGHTBOX PREVIOUS / NEXT
+   ========================================================= */
+
+.lightbox__prev,
+.lightbox__next {
+  position: fixed;
+
+  top: 50%;
+
+  z-index: 1001;
+
+  transform: translateY(-50%);
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.30);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.90);
+
+  color: #403a36;
+
+  cursor: pointer;
+
+  font-size: 1.3rem;
+
+  box-shadow:
+    0 5px 18px rgba(20, 17, 15, 0.18);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .lightbox__prev {
-  left: var(--space-2);
-  top: 50%;
-  transform: translateY(-50%);
+  left: clamp(12px, 2vw, 28px);
 }
 
 .lightbox__next {
-  right: var(--space-2);
-  top: 50%;
-  transform: translateY(-50%);
+  right: clamp(12px, 2vw, 28px);
 }
 
-.lightbox__close svg,
-.lightbox__prev svg,
-.lightbox__next svg {
-    width: 32px; /* Larger icons for better usability */
-    height: 32px;
-    stroke-width: 2.5; /* Thicker stroke for visibility */
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  background: #fff;
+
+  transform:
+    translateY(-50%)
+    scale(1.06);
+
+  box-shadow:
+    0 7px 22px rgba(20, 17, 15, 0.24);
 }
 
-.lightbox__caption {
-    position: absolute;
-    bottom: var(--space-2);
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: var(--color-white);
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--border-radius-sm);
-    font-size: var(--fs-body);
-    max-width: 80%;
-    text-align: center;
-    opacity: 0; /* Hidden by default, shown when image is loaded */
-    transition: opacity 0.3s ease;
+.lightbox__prev:focus-visible,
+.lightbox__next:focus-visible {
+  outline: 2px solid var(--color-white);
+
+  outline-offset: 3px;
 }
 
-.lightbox.is-open .lightbox__caption {
-    opacity: 1;
-}
 
-.lightbox__caption-title {
-    font-size: var(--fs-h3);
-    margin-bottom: var(--space-1);
-}
+/* Hidden navigation */
 
-.lightbox__caption-description {
-    font-size: var(--fs-small);
-    color: var(--color-light-gray);
-}
-
-/* Hide navigation buttons if only one image or at ends */
 .lightbox__prev.is-hidden,
 .lightbox__next.is-hidden {
-    display: none;
+  display: none;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 600px) {
-    .lightbox__close, .lightbox__prev, .lightbox__next {
-        padding: var(--space-1);
-    }
-    .lightbox__close svg, .lightbox__prev svg, .lightbox__next svg {
-        width: 24px;
-        height: 24px;
-        stroke-width: 2;
-    }
-    .lightbox__caption {
-        font-size: var(--fs-small);
-        padding: var(--space-1);
-    }
-    .lightbox__caption-title {
-        font-size: var(--fs-body);
-    }
+
+/* =========================================================
+   LIGHTBOX TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .lightbox {
+    padding: var(--space-3);
+
+    background:
+      rgba(48, 43, 39, 0.82);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+
+  .lightbox__content {
+    max-width: 94vw;
+
+    max-height: 88vh;
+  }
+
+  .lightbox__image {
+    max-width: 94vw;
+
+    max-height: 88vh;
+  }
+
+  .lightbox__caption {
+    padding:
+      70px
+      var(--space-4)
+      var(--space-4);
+  }
+
+  .lightbox__caption-title {
+    font-size: var(--text-lg);
+
+    max-width: 90%;
+  }
+
+  .lightbox__caption-description {
+    font-size: var(--text-sm);
+
+    line-height: 1.45;
+
+    max-width: 90%;
+  }
+
+  .lightbox__prev,
+  .lightbox__next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox__prev {
+    left: 8px;
+  }
+
+  .lightbox__next {
+    right: 8px;
+  }
 }
 
-/* --- 8. Skip Link (Accessibility) --- */
+
+/* =========================================================
+   LIGHTBOX MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .lightbox {
+    padding: var(--space-2);
+
+    background:
+      rgba(48, 43, 39, 0.84);
+  }
+
+  .lightbox__content {
+    max-width: 96vw;
+
+    max-height: 86vh;
+  }
+
+  .lightbox__image {
+    max-width: 96vw;
+
+    max-height: 86vh;
+
+    border-radius: 6px;
+  }
+
+  .lightbox__caption {
+    padding:
+      65px
+      var(--space-3)
+      var(--space-3);
+
+    border-radius:
+      0 0
+      6px
+      6px;
+  }
+
+  .lightbox__caption-title {
+    font-size: 1rem;
+
+    margin-bottom: var(--space-1);
+
+    max-width: 92%;
+  }
+
+  .lightbox__caption-description {
+    font-size: 0.8rem;
+
+    line-height: 1.4;
+
+    max-width: 92%;
+  }
+
+  .lightbox__close {
+    top: 8px;
+    right: 8px;
+
+    width: 38px;
+    height: 38px;
+  }
+
+  .lightbox__prev,
+  .lightbox__next {
+    width: 36px;
+    height: 36px;
+  }
+
+  .lightbox__prev {
+    left: 5px;
+  }
+
+  .lightbox__next {
+    right: 5px;
+  }
+}
+
+
+/* =========================================================
+   8. SKIP LINK
+   ========================================================= */
+
 .skip-link {
-  position: fixed; /* Changed from absolute to fixed to position relative to the viewport */
-  /* Visually hide off-screen by default */
+  position: fixed;
+
   left: -9999px;
-  top: -9999px; /* Ensure it's off-screen vertically too when hidden */
+  top: -9999px;
+
   width: 1px;
   height: 1px;
+
   overflow: hidden;
-  clip: rect(0, 0, 0, 0); /* For older browsers/AT */
+
+  clip: rect(0, 0, 0, 0);
+
   border: 0;
+
   padding: 0;
+
   margin: -1px;
-  opacity: 0; /* For smooth fade-in/out */
 
-  /* Styling for when it becomes visible */
-  z-index: 9999; /* Ensure it's above all other content */
+  opacity: 0;
+
+  z-index: 9999;
+
   background-color: var(--color-accent-terracotta);
-  color: var(--color-white);
-  border-radius: var(--border-radius-sm);
-  text-decoration: none;
-  font-family: var(--font-family-body);
-  font-size: var(--fs-body);
-  font-weight: 600;
-  line-height: 1;
-  padding: var(--space-2) var(--space-3); /* Adequate padding */
 
-  transition: opacity 0.3s ease; /* Only transition opacity for smooth fade */
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-sm);
+
+  text-decoration: none;
+
+  font-family: var(--font-family-body);
+
+  font-size: var(--fs-body);
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  transition: opacity 0.3s ease;
 }
 
 .skip-link:focus {
-  left: var(--space-2); /* Position in top-left corner with padding */
-  top: var(--space-2);  /* Position in top-left corner with padding */
+  left: var(--space-2);
+
+  top: var(--space-2);
+
   width: auto;
+
   height: auto;
+
   overflow: visible;
+
   clip: auto;
-  margin: 0; /* Reset margin from -1px */
+
+  margin: 0;
+
   opacity: 1;
-  transform: none; /* Remove any centering transform */
-  outline: 2px solid var(--color-white); /* Clear focus indicator */
+
+  transform: none;
+
+  outline: 2px solid var(--color-white);
+
   outline-offset: 2px;
+
+  padding: var(--space-2) var(--space-3);
 }
 
-/* --- Custom Orders Page Specific Components --- */
-/* Default vertical padding for all sections on this page */
+
+/* =========================================================
+   9. CUSTOM ORDERS PAGE
+   ========================================================= */
+
 .custom-orders-section {
-  padding: var(--space-5) 0; /* Reduced from var(--space-6) for tighter rhythm */
+  padding: var(--space-5) 0;
 }
 
-/* Adjustments for the Hero section on the Custom Orders page */
 .custom-orders-hero-section .hero-title {
-  font-size: var(--fs-h1); /* Slightly smaller than global hero-title for directness */
+  font-size: var(--fs-h1);
+
   margin-bottom: var(--space-2);
 }
 
 .custom-orders-hero-section .hero-subtitle {
-  font-size: var(--fs-body); /* Body text size for supporting text */
+  font-size: var(--fs-body);
+
   max-width: 700px;
+
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: var(--space-3); /* Reduced from var(--space-4) for tighter hero CTA */
+
+  margin-bottom: var(--space-3);
 }
 
-/* Reduce margin-bottom for section titles within custom orders page */
 .custom-orders-section .section-title {
-  margin-bottom: var(--space-3); /* Tighter spacing between heading and content */
+  margin-bottom: var(--space-3);
 }
 
-/* Specific adjustment for the first content section after the hero ("What Can I Customize?") */
 .custom-orders-section:first-of-type {
-    padding-top: var(--space-4); /* Make it more compact after the hero */
+  padding-top: var(--space-4);
 }
 
-/* Specific adjustment for "What Determines the Price?" section after "How It Works" */
 .custom-orders-section:nth-of-type(3) {
-    padding-top: var(--space-4); /* Make it more compact */
+  padding-top: var(--space-4);
 }
 
-/* Specific adjustment for "What I Need From You" section after "What Determines the Price?" */
 .custom-orders-section:nth-of-type(4) {
-    padding-top: var(--space-4); /* Make it more compact */
+  padding-top: var(--space-4);
 }
 
-/* Paragraph in the Final CTA section */
 .custom-orders-section:last-of-type p {
-    margin-bottom: var(--space-4); /* Reduced from var(--space-5) for tighter CTA */
+  margin-bottom: var(--space-4);
 }
 
-/* Custom Feature Cards (What Can I Customize?) */
+
+/* =========================================================
+   10. CUSTOM FEATURE CARDS
+   ========================================================= */
+
 .custom-feature-card {
   background-color: var(--color-white);
+
   border: 1px solid var(--color-light-gray);
+
   border-radius: var(--border-radius-md);
+
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
+
   box-shadow: var(--shadow-sm);
+
   transition: var(--transition-ease);
-  text-align: center; /* Center text within the card */
-  height: 100%; /* Ensure cards in a row have equal height */
+
+  text-align: center;
+
+  height: 100%;
 }
 
 .custom-feature-card:hover {
   box-shadow: var(--shadow-md);
+
   transform: translateY(-2px);
 }
 
 .custom-feature-card__image {
   width: 100%;
-  aspect-ratio: 4 / 3; /* Fixed aspect ratio for visual consistency */
-  object-fit: cover; /* Cover the area, cropping if necessary but maintaining aspect ratio, fills the 4:3 area */
+
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+
   object-position: center;
+
   display: block;
 }
 
 .custom-feature-card__content {
   padding: var(--space-3);
-  flex-grow: 1; /* Allows content to expand and push title/description */
+
+  flex-grow: 1;
+
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically center content if space allows */
+
+  justify-content: center;
 }
 
 .custom-feature-card__title {
   font-size: var(--fs-h3);
+
   margin-bottom: var(--space-1);
+
   color: var(--color-charcoal);
 }
 
 .custom-feature-card__description {
   font-size: var(--fs-body);
+
   color: var(--color-soft-gray);
 }
 
-/* Custom Order Step Cards (How It Works) */
+
+/* =========================================================
+   11. CUSTOM ORDER STEP CARDS
+   ========================================================= */
+
 .custom-order-step-card {
   padding: var(--space-3);
+
   border: 1px solid var(--color-light-gray);
+
   border-radius: var(--border-radius-sm);
+
   text-align: center;
-  height: 100%; /* Ensure cards in a row have equal height */
+
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content to the top */
+
+  justify-content: flex-start;
 }
 
 .custom-order-step-card h3 {
   margin-bottom: var(--space-1);
+
   color: var(--color-charcoal);
 }
 
 .custom-order-step-card p {
   font-size: var(--fs-body);
+
   color: var(--color-soft-gray);
-  flex-grow: 1; /* Allows description to take up available space */
+
+  flex-grow: 1;
 }
 
-/* Custom Order List (What I Need From You) */
+
+/* =========================================================
+   12. CUSTOM ORDER LIST
+   ========================================================= */
+
 .custom-order-list {
-  list-style: none; /* Remove default bullet points */
+  list-style: none;
+
   padding: 0;
+
   margin: 0 auto;
-  max-width: 600px; /* Keep list readable */
-  text-align: left; /* Align list items to the left */
+
+  max-width: 600px;
+
+  text-align: left;
 }
 
 .custom-order-list li {
   font-size: var(--fs-body);
+
   color: var(--color-charcoal);
+
   margin-bottom: var(--space-2);
-  padding-left: var(--space-3); /* Indent for custom bullet */
+
+  padding-left: var(--space-3);
+
   position: relative;
 }
 
 .custom-order-list li::before {
-  content: '•'; /* Custom bullet point */
-  color: var(--color-accent-terracotta); /* Accent color for bullet */
+  content: '•';
+
+  color: var(--color-accent-terracotta);
+
   position: absolute;
+
   left: 0;
+
   font-weight: bold;
 }

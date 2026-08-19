@@ -2,156 +2,349 @@
   {
     "id": "gallery-pop-culture-001",
     "productId": "pop-culture-001",
+    "image": "assets/images/products/pop-culture/dwight-2.jpg",
     "caption": "A fun design featuring Dwight Schrute from The Office with a pumpkin on his head. A playful piece for fans of the series."
   },
   {
+    "id": "gallery-pop-culture-001-2",
+    "productId": "pop-culture-001",
+    "image": "assets/images/products/pop-culture/dwight-1.jpeg",
+    "caption": "Dwight with Pumpkin."
+  },
+  {
     "id": "gallery-pop-culture-002",
-    "productId": "original-designs-001",
+    "productId": "pop-culture-005",
+    "image": "assets/images/products/pop-culture/little-prince.jpg",
     "caption": "A charming embroidery of the Little Prince, capturing his iconic silhouette and scarf."
   },
   {
     "id": "gallery-pop-culture-003",
     "productId": "pop-culture-003",
+    "image": "assets/images/products/pop-culture/michael-jan-1.jpg",
+    "caption": "A humorous design featuring Michael and Jan from The Office during their unforgettable vacation."
+  },
+    {
+    "id": "gallery-pop-culture-003",
+    "productId": "pop-culture-003",
+    "image": "assets/images/products/pop-culture/michael-jan-2.jpg",
+    "caption": "A humorous design featuring Michael and Jan from The Office during their unforgettable vacation."
+  },
+    {
+    "id": "gallery-pop-culture-003",
+    "productId": "pop-culture-003",
+    "image": "assets/images/products/pop-culture/michael-jan-3.jpg",
     "caption": "A humorous design featuring Michael and Jan from The Office during their unforgettable vacation."
   },
   {
     "id": "gallery-pop-culture-004",
     "productId": "pop-culture-004",
+    "image": "assets/images/products/pop-culture/rachel-tshirt-1.jpg",
+    "caption": "A fun design inspired by Rachel Green's iconic “Save the drama for your mama” quote from Friends."
+  },
+    {
+    "id": "gallery-pop-culture-004",
+    "productId": "pop-culture-004",
+    "image": "assets/images/products/pop-culture/rachel-tshirt-2.jpg",
     "caption": "A fun design inspired by Rachel Green's iconic “Save the drama for your mama” quote from Friends."
   },
   {
     "id": "gallery-pop-culture-005",
     "productId": "pop-culture-002",
+    "image": "assets/images/products/pop-culture/baby-yoda-1.jpg",
+    "caption": "A cute design featuring Grogu (Baby Yoda) from the Star Wars universe. A fun piece for Star Wars fans."
+  },
+    {
+    "id": "gallery-pop-culture-005",
+    "productId": "pop-culture-002",
+    "image": "assets/images/products/pop-culture/yoda4.jpeg",
     "caption": "A cute design featuring Grogu (Baby Yoda) from the Star Wars universe. A fun piece for Star Wars fans."
   },
   {
     "id": "gallery-anime-cartoons-001",
     "productId": "anime-cartoons-001",
+    "image": "assets/images/products/anime-cartoons/totoro-1.jpg",
+    "caption": "A charming design featuring the beloved Studio Ghibli character Totoro. A lovely piece for Ghibli fans."
+  },
+    {
+    "id": "gallery-anime-cartoons-001",
+    "productId": "anime-cartoons-001",
+    "image": "assets/images/products/anime-cartoons/totoro-2.png",
+    "caption": "A charming design featuring the beloved Studio Ghibli character Totoro. A lovely piece for Ghibli fans."
+  },
+    {
+    "id": "gallery-anime-cartoons-001",
+    "productId": "anime-cartoons-001",
+    "image": "assets/images/products/anime-cartoons/totoro-3.png",
     "caption": "A charming design featuring the beloved Studio Ghibli character Totoro. A lovely piece for Ghibli fans."
   },
   {
     "id": "gallery-anime-cartoons-002",
     "productId": "anime-cartoons-002",
+    "image": "assets/images/products/anime-cartoons/daria1.jpg",
+    "caption": "A hand-embroidered portrait of the iconic Daria Morgendorffer, capturing her signature look."
+  },
+    {
+    "id": "gallery-anime-cartoons-002",
+    "productId": "anime-cartoons-002",
+    "image": "assets/images/products/anime-cartoons/daria4.jpg",
     "caption": "A hand-embroidered portrait of the iconic Daria Morgendorffer, capturing her signature look."
   },
   {
     "id": "gallery-anime-cartoons-003",
     "productId": "anime-cartoons-003",
+    "image": "assets/images/products/anime-cartoons/snoopy-1.jpeg",
+    "caption": "A simple and classic depiction of Snoopy. A lovely piece for fans of the character and nostalgic designs."
+  },
+    {
+    "id": "gallery-anime-cartoons-003",
+    "productId": "anime-cartoons-003",
+    "image": "assets/images/products/anime-cartoons/snoopy-2.png",
     "caption": "A simple and classic depiction of Snoopy. A lovely piece for fans of the character and nostalgic designs."
   },
   {
     "id": "gallery-anime-cartoons-004",
     "productId": "anime-cartoons-004",
+    "image": "assets/images/products/anime-cartoons/homer-1.jpg",
     "caption": "A fun design inspired by Homer Simpson's iconic “D’oh!” expression from The Simpsons."
   },
   {
     "id": "gallery-flowers-nature-002",
     "productId": "flowers-nature-001",
+    "image": "assets/images/products/flowers-nature/flower1-1.jpg",
+    "caption": "A delicate flower embroidered using the French knot technique. A simple yet eye-catching piece with a natural feel."
+  },
+    {
+    "id": "gallery-flowers-nature-002",
+    "productId": "flowers-nature-001",
+    "image": "assets/images/products/flowers-nature/flower1-2.jpg",
+    "caption": "A delicate flower embroidered using the French knot technique. A simple yet eye-catching piece with a natural feel."
+  },
+      {
+    "id": "gallery-flowers-nature-002",
+    "productId": "flowers-nature-001",
+    "image": "assets/images/products/flowers-nature/flower1-3.jpg",
     "caption": "A delicate flower embroidered using the French knot technique. A simple yet eye-catching piece with a natural feel."
   },
   {
     "id": "gallery-flowers-nature-003",
     "productId": "flowers-nature-003",
+    "image": "assets/images/products/flowers-nature/flower2-4.jpg",
+    "caption": "A delicate flower in soft lavender tones. Its simple design and gentle colors make it a lovely decorative piece."
+  },
+    {
+    "id": "gallery-flowers-nature-003",
+    "productId": "flowers-nature-003",
+    "image": "assets/images/products/flowers-nature/flower2-2.jpg",
+    "caption": "A delicate flower in soft lavender tones. Its simple design and gentle colors make it a lovely decorative piece."
+  },
+    {
+    "id": "gallery-flowers-nature-003",
+    "productId": "flowers-nature-003",
+    "image": "assets/images/products/flowers-nature/flower2-3.jpg",
     "caption": "A delicate flower in soft lavender tones. Its simple design and gentle colors make it a lovely decorative piece."
   },
   {
     "id": "gallery-flowers-nature-004",
     "productId": "flowers-nature-004",
+    "image": "assets/images/products/flowers-nature/tree-1.jpg",
+    "caption": "A handmade Christmas tree design with a festive feel. A lovely choice for holiday decor or as a seasonal gift."
+  },
+    {
+    "id": "gallery-flowers-nature-004",
+    "productId": "flowers-nature-004",
+    "image": "assets/images/products/flowers-nature/tree-2.jpg",
+    "caption": "A handmade Christmas tree design with a festive feel. A lovely choice for holiday decor or as a seasonal gift."
+  },
+    {
+    "id": "gallery-flowers-nature-004",
+    "productId": "flowers-nature-004",
+    "image": "assets/images/products/flowers-nature/tree-3.jpg",
     "caption": "A handmade Christmas tree design with a festive feel. A lovely choice for holiday decor or as a seasonal gift."
   },
   {
     "id": "gallery-flowers-nature-005",
     "productId": "flowers-nature-005",
+    "image": "assets/images/products/flowers-nature/watermelon-1.jpg",
+    "caption": "A simple and colorful watermelon slice inspired by the feeling of summer. A small and playful piece for lovers of summer-inspired designs."
+  },
+    {
+    "id": "gallery-flowers-nature-005",
+    "productId": "flowers-nature-005",
+    "image": "assets/images/products/flowers-nature/watermelon-2.jpg",
     "caption": "A simple and colorful watermelon slice inspired by the feeling of summer. A small and playful piece for lovers of summer-inspired designs."
   },
   {
     "id": "gallery-flowers-nature-006",
     "productId": "flowers-nature-006",
+    "image": "assets/images/products/flowers-nature/cactus-1.jpg",
+    "caption": "Four adorable mini cacti embroidered side by side. A playful and charming piece for plant lovers."
+  },
+    {
+    "id": "gallery-flowers-nature-006",
+    "productId": "flowers-nature-006",
+    "image": "assets/images/products/flowers-nature/cactus-2.jpg",
+    "caption": "Four adorable mini cacti embroidered side by side. A playful and charming piece for plant lovers."
+  },
+    {
+    "id": "gallery-flowers-nature-006",
+    "productId": "flowers-nature-006",
+    "image": "assets/images/products/flowers-nature/cactus-3.jpg",
     "caption": "Four adorable mini cacti embroidered side by side. A playful and charming piece for plant lovers."
   },
   {
     "id": "gallery-animals-001",
     "productId": "animals-001",
+    "image": "assets/images/products/animals/cat-1.jpg",
+    "caption": "A hand-embroidered portrait featuring the head of a fluffy cat. It can also be customized based on your own pet's photo."
+  },
+    {
+    "id": "gallery-animals-001",
+    "productId": "animals-001",
+    "image": "assets/images/products/animals/cat-2.jpeg",
+    "caption": "A hand-embroidered portrait featuring the head of a fluffy cat. It can also be customized based on your own pet's photo."
+  },
+    {
+    "id": "gallery-animals-001",
+    "productId": "animals-001",
+    "image": "assets/images/products/animals/cat-3.jpg",
     "caption": "A hand-embroidered portrait featuring the head of a fluffy cat. It can also be customized based on your own pet's photo."
   },
   {
     "id": "gallery-animals-002",
     "productId": "animals-002",
+    "image": "assets/images/products/animals/cat-2-1.jpg",
     "caption": "A unique cat portrait embroidered with red thread. Its monochrome look makes it simple yet striking."
   },
   {
     "id": "gallery-animals-003",
     "productId": "animals-003",
+    "image": "assets/images/products/animals/crab-1.jpg",
+    "caption": "A handmade design featuring a cute crab. A playful piece for lovers of the sea, summer and unique animal designs."
+  },
+    {
+    "id": "gallery-animals-003",
+    "productId": "animals-003",
+    "image": "assets/images/products/animals/crab-2.jpg",
     "caption": "A handmade design featuring a cute crab. A playful piece for lovers of the sea, summer and unique animal designs."
   },
   {
     "id": "gallery-portraits-001",
     "productId": "portraits-001",
+    "image": "assets/images/products/portraits/portrait-1-1.jpg",
+    "caption": "This piece is an example of a custom portrait embroidery. To have your own photo turned into a personalized portrait, please contact me after placing your order."
+  },
+    {
+    "id": "gallery-portraits-001",
+    "productId": "portraits-001",
+    "image": "assets/images/products/portraits/portrait-1-2.jpg",
+    "caption": "This piece is an example of a custom portrait embroidery. To have your own photo turned into a personalized portrait, please contact me after placing your order."
+  },
+    {
+    "id": "gallery-portraits-001",
+    "productId": "portraits-001",
+    "image": "assets/images/products/portraits/portrait-1-3.jpeg",
     "caption": "This piece is an example of a custom portrait embroidery. To have your own photo turned into a personalized portrait, please contact me after placing your order."
   },
   {
     "id": "gallery-portraits-002",
     "productId": "portraits-002",
+    "image": "assets/images/products/portraits/portrait-2-1.jpg",
+    "caption": "This piece is an example of a custom portrait embroidery. To have your own photo turned into a personalized portrait, please contact me after placing your order."
+  },
+    {
+    "id": "gallery-portraits-002",
+    "productId": "portraits-002",
+    "image": "assets/images/products/portraits/portrait-2-2.jpg",
     "caption": "This piece is an example of a custom portrait embroidery. To have your own photo turned into a personalized portrait, please contact me after placing your order."
   },
   {
     "id": "gallery-childrens-drawings-001",
     "productId": "childrens-drawings-001",
+    "image": "assets/images/products/childrens-drawings/drawing-1-1.jpg",
+    "caption": "Turn your child's own drawing into a handmade piece. A personal way to preserve childhood memories and create a lasting keepsake."
+  },
+    {
+    "id": "gallery-childrens-drawings-001",
+    "productId": "childrens-drawings-001",
+    "image": "assets/images/products/childrens-drawings/drawing-1-3.jpg",
     "caption": "Turn your child's own drawing into a handmade piece. A personal way to preserve childhood memories and create a lasting keepsake."
   },
   {
     "id": "gallery-original-designs-001",
     "productId": "original-designs-002",
+    "image": "assets/images/products/original-designs/astronaut.jpg",
     "caption": "An original design featuring an astronaut floating in space. A simple yet striking piece for lovers of space-inspired designs."
   },
   {
     "id": "gallery-original-designs-002",
     "productId": "original-designs-003",
+    "image": "assets/images/products/original-designs/funny-face.jpg",
     "caption": "An abstract face design with a playful and distinctive expression. Its simple lines make it a great choice for lovers of unconventional decor."
   },
   {
     "id": "gallery-original-designs-003",
     "productId": "original-designs-004",
+    "image": "assets/images/products/original-designs/glass-1.jpg",
+    "caption": "An original design inspired by the movement of wine being poured into a glass. A simple yet distinctive piece for lovers of minimal and unusual designs."
+  },
+    {
+    "id": "gallery-original-designs-003",
+    "productId": "original-designs-004",
+    "image": "assets/images/products/original-designs/glass-2.jpeg",
+    "caption": "An original design inspired by the movement of wine being poured into a glass. A simple yet distinctive piece for lovers of minimal and unusual designs."
+  },
+    {
+    "id": "gallery-original-designs-003",
+    "productId": "original-designs-004",
+    "image": "assets/images/products/original-designs/glass-3.jpg",
     "caption": "An original design inspired by the movement of wine being poured into a glass. A simple yet distinctive piece for lovers of minimal and unusual designs."
   },
   {
     "id": "gallery-original-designs-004",
     "productId": "original-designs-005",
+    "image": "assets/images/products/original-designs/girl-with-flower-1.jpg",
     "caption": "An original design featuring a half-face, abstract interpretation of a woman's portrait with a flower detail on the side. A delicate and modern piece."
   },
   {
     "id": "gallery-original-designs-005",
     "productId": "original-designs-006",
+    "image": "assets/images/products/original-designs/girl-with-swim-1.jpg",
     "caption": "An original design capturing the relaxed and carefree mood of a summer day."
   },
   {
     "id": "gallery-original-designs-006",
     "productId": "original-designs-007",
+    "image": "assets/images/products/original-designs/lonely-girl-1.jpg",
     "caption": "An abstract interpretation of a simple and graceful female silhouette."
   },
   {
     "id": "gallery-original-designs-007",
     "productId": "original-designs-008",
+    "image": "assets/images/products/original-designs/girl-sleeping-1.jpg",
     "caption": "An abstract and minimal design capturing a quiet, intimate moment."
   },
   {
     "id": "gallery-original-designs-008",
     "productId": "original-designs-010",
+    "image": "assets/images/products/original-designs/medusa-1.jpg",
     "caption": "A detailed and original design featuring Medusa, one of the most recognizable figures of mythology. A striking piece for lovers of bold designs."
   },
   {
     "id": "gallery-original-designs-009",
     "productId": "original-designs-011",
+    "image": "assets/images/products/original-designs/skeleton-2.jpg",
     "caption": "An original design featuring two skeletons embracing. A distinctive piece for those who enjoy unusual and symbolic designs."
   },
   {
     "id": "gallery-text-embroidery-001",
     "productId": "text-embroidery-001",
+    "image": "assets/images/products/text-embroidery/text-1.jpg",
     "caption": "Turn a meaningful word, quote or phrase into a handmade embroidery piece. Choose your own text to create a personal decoration or a thoughtful gift."
   },
   {
     "id": "gallery-custom-orders-001",
     "productId": "custom-orders-001",
+    "image": "assets/images/products/custom-orders/custom-orders-1.jpg",
     "caption": "Turn your beloved pet's photo into a personalized hand-embroidered portrait. Send us your photo to create a unique and lasting keepsake."
   }
 ]
