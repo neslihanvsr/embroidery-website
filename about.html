@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>HoyThreads Embroidery - About</title>
+    <title data-i18n="about.pageTitle">HoyThreads Embroidery - About</title>
     <meta name="description" content="Learn about the artist behind HoyThreads Embroidery, my story, creative process, and passion for handmade embroidery.">
     <meta name="author" content="HoyThreads">
     <meta name="robots" content="index,follow">
@@ -38,21 +38,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link" data-i18n="skipLink.text">Skip to main content</a>
     <div id="header-root"></div>
     <main role="main" id="main-content">
         <section class="about-section">
             <div class="container">
                 <!-- 1. Main Story Section -->
-                <h1 class="section-title">The Story Behind HoyThreads</h1>
+                <h1 class="section-title" data-i18n="about.section1Title">The Story Behind HoyThreads</h1>
                 <div class="about-content-block">
-                    <p class="text-center">
+                    <p class="text-center" data-i18n="about.section1P1">
                         I have been doing embroidery for some time, initially as a hobby. Over time, it became something I genuinely enjoyed and something that started attracting people's attention.
                     </p>
                     <div class="about-image-wrapper">
-                        <img src="assets/images/products/portraits/portrait-1-1.jpg" alt="Embroidered portrait of a woman with a flower in her hair" loading="lazy" class="about-main-image">
+                        <img src="assets/images/products/portraits/portrait-1-1.jpg" alt="Embroidered portrait of a woman with a flower in her hair" data-i18n-alt="about.section1ImageAlt" loading="lazy" class="about-main-image">
                     </div>
-                    <p class="text-center">
+                    <p class="text-center" data-i18n="about.section1P2">
                         What I especially enjoy is turning drawings and ideas that I like into embroidery. I am particularly drawn to pop culture and anime, but I also really enjoy creating custom designs based on people's ideas. One of the things I love most is seeing people enjoy the finished pieces visually and knowing that something I made by hand can become a keepsake, a meaningful memory, or a thoughtful gift.
                     </p>
                 </div>
@@ -62,8 +62,8 @@
         <!-- 2. Why I Embroider Section -->
         <section class="about-section">
             <div class="container">
-                <h2 class="section-title">Why I Embroider?</h2>
-                <p class="text-center about-text-narrow">
+                <h2 class="section-title" data-i18n="about.section2Title">Why I Embroider?</h2>
+                <p class="text-center about-text-narrow" data-i18n="about.section2P">
                     I enjoy the process of taking a simple drawing, character, or idea and giving it a physical form through thread and stitch. Every piece takes time and attention, and that is part of what makes handmade embroidery special to me.
                 </p>
             </div>
@@ -72,12 +72,12 @@
         <!-- 3. Custom Orders CTA -->
         <section class="about-section about-cta-section">
             <div class="container">
-                <h2 class="section-title">Have an Idea in Mind?</h2>
-                <p class="text-center about-text-narrow">
+                <h2 class="section-title" data-i18n="about.section3Title">Have an Idea in Mind?</h2>
+                <p class="text-center about-text-narrow" data-i18n="about.section3P">
                     If there is something you'd love to see turned into embroidery, I'd love to hear about it.
                 </p>
                 <div class="text-center">
-                    <a href="custom-orders.html" class="btn btn--primary">Start a Custom Order</a>
+                    <a href="custom-orders.html" class="btn btn--primary" data-i18n="about.section3Button">Start a Custom Order</a>
                 </div>
             </div>
         </section>
@@ -86,16 +86,16 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer__social-links" role="contentinfo" aria-label="Social media links">
-                    <a href="https://instagram.com/astronaut_on" aria-label="Instagram"><img src="assets/images/icons/instagram.png" alt="" width="24" height="24"></a>
-                    <a href="https://pinterest.com/hoythreads" aria-label="Pinterest"><img src="assets/images/icons/pinterest.png" alt="" width="24" height="24"></a>
-                    <a href="https://www.shopier.com/hoythreads/" aria-label="Etsy"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
+                <div class="footer__social-links" role="contentinfo" aria-label="Social media links" data-i18n-aria-label="footer.socialLinksAriaLabel">
+                    <a href="https://instagram.com/astronaut_on" aria-label="Instagram" data-i18n-aria-label="contact.instagramAriaLabel"><img src="assets/images/icons/instagram.png" alt="" width="24" height="24"></a>
+                    <a href="https://pinterest.com/hoythreads" aria-label="Pinterest" data-i18n-aria-label="contact.pinterestAriaLabel"><img src="assets/images/icons/pinterest.png" alt="" width="24" height="24"></a>
+                    <a href="https://www.shopier.com/hoythreads/" aria-label="Etsy" data-i18n-aria-label="contact.shopierAriaLabel"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
                 </div>
-                <p class="footer__copyright">&copy; 2026 HoyThreads. All rights reserved.</p>
+                <p class="footer__copyright">&copy; <span id="current-year"></span> <span data-i18n="footer.copyright">HoyThreads. All rights reserved.</span></p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

@@ -311,6 +311,12 @@
     "image": "assets/images/products/original-designs/girl-with-swim-1.jpg",
     "caption": "An original design capturing the relaxed and carefree mood of a summer day."
   },
+    {
+    "id": "gallery-original-designs-005",
+    "productId": "original-designs-006",
+    "image": "assets/images/products/original-designs/girl-with-swim-2.jpg",
+    "caption": "An original design capturing the relaxed and carefree mood of a summer day."
+  },
   {
     "id": "gallery-original-designs-006",
     "productId": "original-designs-007",
@@ -323,10 +329,28 @@
     "image": "assets/images/products/original-designs/girl-sleeping-1.jpg",
     "caption": "An abstract and minimal design capturing a quiet, intimate moment."
   },
+    {
+    "id": "gallery-original-designs-007",
+    "productId": "original-designs-008",
+    "image": "assets/images/products/original-designs/girl-sleeping-2.jpg",
+    "caption": "An abstract and minimal design capturing a quiet, intimate moment."
+  },
   {
     "id": "gallery-original-designs-008",
     "productId": "original-designs-010",
     "image": "assets/images/products/original-designs/medusa-1.jpg",
+    "caption": "A detailed and original design featuring Medusa, one of the most recognizable figures of mythology. A striking piece for lovers of bold designs."
+  },
+    {
+    "id": "gallery-original-designs-008",
+    "productId": "original-designs-010",
+    "image": "assets/images/products/original-designs/medusa-2.jpg",
+    "caption": "A detailed and original design featuring Medusa, one of the most recognizable figures of mythology. A striking piece for lovers of bold designs."
+  },
+    {
+    "id": "gallery-original-designs-008",
+    "productId": "original-designs-010",
+    "image": "assets/images/products/original-designs/medusa-3.jpg",
     "caption": "A detailed and original design featuring Medusa, one of the most recognizable figures of mythology. A striking piece for lovers of bold designs."
   },
   {
@@ -339,6 +363,12 @@
     "id": "gallery-text-embroidery-001",
     "productId": "text-embroidery-001",
     "image": "assets/images/products/text-embroidery/text-1.jpg",
+    "caption": "Turn a meaningful word, quote or phrase into a handmade embroidery piece. Choose your own text to create a personal decoration or a thoughtful gift."
+  },
+    {
+    "id": "gallery-text-embroidery-001",
+    "productId": "text-embroidery-001",
+    "image": "assets/images/products/text-embroidery/text-2.png",
     "caption": "Turn a meaningful word, quote or phrase into a handmade embroidery piece. Choose your own text to create a personal decoration or a thoughtful gift."
   },
   {

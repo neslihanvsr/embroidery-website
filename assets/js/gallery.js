@@ -1,8 +1,25 @@
-import { fetchData } from './utils.js';
+import {
+    fetchData,
+    getTranslation,
+    getStoredLanguage,
+    loadTranslations
+} from './utils.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const galleryGrid = document.getElementById('gallery-grid');
-    const galleryFiltersContainer = document.getElementById('gallery-filters');
+
+    // ------------------------------------------------------------
+    // Load current language before rendering gallery
+    // ------------------------------------------------------------
+
+    await loadTranslations(
+        getStoredLanguage()
+    );
+
+    const galleryGrid =
+        document.getElementById('gallery-grid');
+
+    const galleryFiltersContainer =
+        document.getElementById('gallery-filters');
 
     let allGalleryItems = [];
     let allCategories = [];
@@ -11,13 +28,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Lightbox elements
     // ------------------------------------------------------------
 
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.querySelector('.lightbox__image');
-    const lightboxCaptionTitle = document.querySelector('.lightbox__caption-title');
-    const lightboxCaptionDescription = document.querySelector('.lightbox__caption-description');
-    const lightboxClose = document.querySelector('.lightbox__close');
-    const lightboxPrev = document.querySelector('.lightbox__prev');
-    const lightboxNext = document.querySelector('.lightbox__next');
+    const lightbox =
+        document.getElementById('lightbox');
+
+    const lightboxImage =
+        document.querySelector('.lightbox__image');
+
+    const lightboxCaptionTitle =
+        document.querySelector(
+            '.lightbox__caption-title'
+        );
+
+    const lightboxCaptionDescription =
+        document.querySelector(
+            '.lightbox__caption-description'
+        );
+
+    const lightboxClose =
+        document.querySelector('.lightbox__close');
+
+    const lightboxPrev =
+        document.querySelector('.lightbox__prev');
+
+    const lightboxNext =
+        document.querySelector('.lightbox__next');
 
     let currentFilteredItems = [];
     let currentProductIndex = 0;
@@ -26,27 +60,82 @@ document.addEventListener('DOMContentLoaded', async () => {
     let previouslyFocusedElement = null;
     let focusableElementsInLightbox = [];
 
-    if (!galleryGrid || !galleryFiltersContainer || !lightbox) {
-        console.warn('Gallery elements not found.');
+    if (
+        !galleryGrid ||
+        !galleryFiltersContainer ||
+        !lightbox
+    ) {
+        console.warn(
+            'Gallery elements not found.'
+        );
         return;
+    }
+
+    // ------------------------------------------------------------
+    // Localization helper
+    // ------------------------------------------------------------
+
+    function t(key, fallback = '') {
+        return getTranslation(
+            key,
+            fallback
+        );
     }
 
     // ------------------------------------------------------------
     // Gallery card
     // ------------------------------------------------------------
 
-    function createGalleryCard(item, productIndex) {
-        const categoryMeta = allCategories.find(
-            category => category.id === item.category
-        );
+    function createGalleryCard(
+        item,
+        productIndex
+    ) {
 
-        const categoryLabel = categoryMeta
-            ? categoryMeta.label
-            : item.category || '';
+        const categoryMeta =
+            allCategories.find(
+                category =>
+                    category.id ===
+                    item.category
+            );
 
-        const categoryClass = item.category
-            ? `category-badge--${item.category}`
-            : '';
+        const categoryLabel =
+            categoryMeta
+                ? getTranslation(
+                    `category.label.${categoryMeta.id}`,
+                    categoryMeta.label
+                )
+                : item.category || '';
+
+        const categoryClass =
+            item.category
+                ? `category-badge--${item.category}`
+                : '';
+
+        // --------------------------------------------------------
+        // Localized product name
+        // --------------------------------------------------------
+
+        const localizedName =
+            getTranslation(
+                `product.name.${item.id}`,
+                item.name || ''
+            );
+
+        // --------------------------------------------------------
+        // Localized gallery description
+        // --------------------------------------------------------
+
+        const localizedDescription =
+            item.galleryLocalizationKey
+                ? getTranslation(
+                    `gallery.caption.${item.galleryLocalizationKey}`,
+                    item.description || ''
+                )
+                : item.description || '';
+
+        // --------------------------------------------------------
+        // Thumbnail
+        // --------------------------------------------------------
 
         const thumbnailImage =
             item.galleryImages &&
@@ -54,7 +143,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 ? item.galleryImages[0].src
                 : 'assets/images/placeholder.jpg';
 
-        const altText = item.name || 'Gallery item';
+        const altText =
+            localizedName ||
+            t(
+                'gallery.galleryItem',
+                'Gallery item'
+            );
 
         return `
             <div
@@ -63,7 +157,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 data-image-index="0"
                 tabindex="0"
                 role="button"
-                aria-label="View ${altText}"
+                aria-label="${t(
+                    'gallery.view',
+                    'View'
+                )} ${altText}"
             >
 
                 <img
@@ -80,7 +177,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     ${
                         categoryLabel
                             ? `
-                                <span class="category-badge ${categoryClass} gallery-card__category">
+                                <span
+                                    class="category-badge ${categoryClass} gallery-card__category"
+                                >
                                     ${categoryLabel}
                                 </span>
                             `
@@ -88,14 +187,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
 
                     <h3 class="gallery-card__title">
-                        ${item.name || ''}
+                        ${localizedName}
                     </h3>
 
                     ${
-                        item.description
+                        localizedDescription
                             ? `
                                 <p class="gallery-card__description">
-                                    ${item.description}
+                                    ${localizedDescription}
                                 </p>
                             `
                             : ''
@@ -110,121 +209,184 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Render gallery
     // ------------------------------------------------------------
 
-    function renderGalleryItems(itemsToRender) {
-        currentFilteredItems = itemsToRender;
+    function renderGalleryItems(
+        itemsToRender
+    ) {
+
+        currentFilteredItems =
+            itemsToRender;
 
         galleryGrid.innerHTML = '';
 
-        if (itemsToRender.length === 0) {
+        if (
+            itemsToRender.length === 0
+        ) {
+
             galleryGrid.innerHTML = `
-                <p class="text-center" style="grid-column: 1 / -1;">
-                    No items found for this category.
+                <p
+                    class="text-center"
+                    style="grid-column: 1 / -1;"
+                >
+                    ${t(
+                        'gallery.noItems',
+                        'No items found for this category.'
+                    )}
                 </p>
             `;
+
             return;
         }
 
-        itemsToRender.forEach((item, productIndex) => {
-            galleryGrid.insertAdjacentHTML(
-                'beforeend',
-                createGalleryCard(item, productIndex)
-            );
-        });
+        itemsToRender.forEach(
+            (item, productIndex) => {
+
+                galleryGrid.insertAdjacentHTML(
+                    'beforeend',
+                    createGalleryCard(
+                        item,
+                        productIndex
+                    )
+                );
+            }
+        );
 
         // --------------------------------------------------------
         // Thumbnail error handling
         // --------------------------------------------------------
 
         galleryGrid
-            .querySelectorAll('.gallery-card__image')
+            .querySelectorAll(
+                '.gallery-card__image'
+            )
             .forEach(image => {
-                image.addEventListener('error', () => {
 
-                    if (image.src.includes('placeholder.jpg')) {
-                        return;
+                image.addEventListener(
+                    'error',
+                    () => {
+
+                        if (
+                            image.src.includes(
+                                'placeholder.jpg'
+                            )
+                        ) {
+                            return;
+                        }
+
+                        image.src =
+                            'assets/images/placeholder.jpg';
+
+                    },
+                    {
+                        once: true
                     }
-
-                    image.src = 'assets/images/placeholder.jpg';
-
-                }, { once: true });
+                );
             });
     }
 
     // ------------------------------------------------------------
     // Gallery card click
-    //
-    // IMPORTANT:
-    // One listener on galleryGrid.
-    // This prevents the "after closing I cannot click again"
-    // problem caused by recreating cards.
     // ------------------------------------------------------------
 
-    galleryGrid.addEventListener('click', event => {
+    galleryGrid.addEventListener(
+        'click',
+        event => {
 
-        const card = event.target.closest('.gallery-card');
+            const card =
+                event.target.closest(
+                    '.gallery-card'
+                );
 
-        if (!card || !galleryGrid.contains(card)) {
-            return;
+            if (
+                !card ||
+                !galleryGrid.contains(card)
+            ) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const productIndex =
+                Number(
+                    card.dataset.productIndex
+                );
+
+            const imageIndex =
+                Number(
+                    card.dataset.imageIndex || 0
+                );
+
+            if (
+                Number.isNaN(
+                    productIndex
+                )
+            ) {
+                return;
+            }
+
+            openLightbox(
+                productIndex,
+                Number.isNaN(imageIndex)
+                    ? 0
+                    : imageIndex
+            );
         }
-
-        event.preventDefault();
-
-        const productIndex = Number(
-            card.dataset.productIndex
-        );
-
-        const imageIndex = Number(
-            card.dataset.imageIndex || 0
-        );
-
-        if (Number.isNaN(productIndex)) {
-            return;
-        }
-
-        openLightbox(
-            productIndex,
-            Number.isNaN(imageIndex) ? 0 : imageIndex
-        );
-    });
+    );
 
     // ------------------------------------------------------------
     // Gallery keyboard interaction
     // ------------------------------------------------------------
 
-    galleryGrid.addEventListener('keydown', event => {
+    galleryGrid.addEventListener(
+        'keydown',
+        event => {
 
-        const card = event.target.closest('.gallery-card');
+            const card =
+                event.target.closest(
+                    '.gallery-card'
+                );
 
-        if (!card || !galleryGrid.contains(card)) {
-            return;
+            if (
+                !card ||
+                !galleryGrid.contains(card)
+            ) {
+                return;
+            }
+
+            if (
+                event.key !== 'Enter' &&
+                event.key !== ' '
+            ) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const productIndex =
+                Number(
+                    card.dataset.productIndex
+                );
+
+            const imageIndex =
+                Number(
+                    card.dataset.imageIndex || 0
+                );
+
+            if (
+                Number.isNaN(
+                    productIndex
+                )
+            ) {
+                return;
+            }
+
+            openLightbox(
+                productIndex,
+                Number.isNaN(imageIndex)
+                    ? 0
+                    : imageIndex
+            );
         }
-
-        if (
-            event.key !== 'Enter' &&
-            event.key !== ' '
-        ) {
-            return;
-        }
-
-        event.preventDefault();
-
-        const productIndex = Number(
-            card.dataset.productIndex
-        );
-
-        const imageIndex = Number(
-            card.dataset.imageIndex || 0
-        );
-
-        if (Number.isNaN(productIndex)) {
-            return;
-        }
-
-        openLightbox(
-            productIndex,
-            Number.isNaN(imageIndex) ? 0 : imageIndex
-        );
-    });
+    );
 
     // ------------------------------------------------------------
     // Filter buttons
@@ -232,9 +394,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderFilterButtons() {
 
-        galleryFiltersContainer.innerHTML = '';
+        galleryFiltersContainer.innerHTML =
+            '';
 
-        const allButton = document.createElement('button');
+        // --------------------------------------------------------
+        // All button
+        // --------------------------------------------------------
+
+        const allButton =
+            document.createElement(
+                'button'
+            );
 
         allButton.classList.add(
             'tag',
@@ -242,26 +412,51 @@ document.addEventListener('DOMContentLoaded', async () => {
             'active'
         );
 
-        allButton.textContent = 'All';
-        allButton.dataset.category = 'all';
-
-        galleryFiltersContainer.appendChild(allButton);
-
-        allCategories.forEach(category => {
-
-            const button = document.createElement('button');
-
-            button.classList.add(
-                'tag',
-                'filter-button',
-                `category-badge--${category.id}`
+        allButton.textContent =
+            getTranslation(
+                'gallery.filterAll',
+                'All'
             );
 
-            button.textContent = category.label;
-            button.dataset.category = category.id;
+        allButton.dataset.category =
+            'all';
 
-            galleryFiltersContainer.appendChild(button);
-        });
+        galleryFiltersContainer.appendChild(
+            allButton
+        );
+
+        // --------------------------------------------------------
+        // Category buttons
+        // --------------------------------------------------------
+
+        allCategories.forEach(
+            category => {
+
+                const button =
+                    document.createElement(
+                        'button'
+                    );
+
+                button.classList.add(
+                    'tag',
+                    'filter-button',
+                    `category-badge--${category.id}`
+                );
+
+                button.textContent =
+                    getTranslation(
+                        `category.label.${category.id}`,
+                        category.label
+                    );
+
+                button.dataset.category =
+                    category.id;
+
+                galleryFiltersContainer.appendChild(
+                    button
+                );
+            }
+        );
     }
 
     // ------------------------------------------------------------
@@ -273,21 +468,32 @@ document.addEventListener('DOMContentLoaded', async () => {
         event => {
 
             const target =
-                event.target.closest('.filter-button');
+                event.target.closest(
+                    '.filter-button'
+                );
 
             if (!target) {
                 return;
             }
 
             galleryFiltersContainer
-                .querySelectorAll('.filter-button')
+                .querySelectorAll(
+                    '.filter-button'
+                )
                 .forEach(button => {
-                    button.classList.remove('active');
+
+                    button.classList.remove(
+                        'active'
+                    );
                 });
 
-            target.classList.add('active');
+            target.classList.add(
+                'active'
+            );
 
-            filterGallery(target.dataset.category);
+            filterGallery(
+                target.dataset.category
+            );
         }
     );
 
@@ -295,16 +501,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Filtering
     // ------------------------------------------------------------
 
-    function filterGallery(categoryId) {
+    function filterGallery(
+        categoryId
+    ) {
 
         const filteredItems =
             categoryId === 'all'
                 ? allGalleryItems
                 : allGalleryItems.filter(
-                    item => item.category === categoryId
+                    item =>
+                        item.category ===
+                        categoryId
                 );
 
-        renderGalleryItems(filteredItems);
+        renderGalleryItems(
+            filteredItems
+        );
     }
 
     // ------------------------------------------------------------
@@ -318,13 +530,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (
             productIndex < 0 ||
-            productIndex >= currentFilteredItems.length
+            productIndex >=
+                currentFilteredItems.length
         ) {
             return;
         }
 
         const item =
-            currentFilteredItems[productIndex];
+            currentFilteredItems[
+                productIndex
+            ];
 
         if (
             !item ||
@@ -336,7 +551,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (
             imageIndex < 0 ||
-            imageIndex >= item.galleryImages.length
+            imageIndex >=
+                item.galleryImages.length
         ) {
             imageIndex = 0;
         }
@@ -344,12 +560,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         previouslyFocusedElement =
             document.activeElement;
 
-        currentProductIndex = productIndex;
-        currentImageIndex = imageIndex;
+        currentProductIndex =
+            productIndex;
+
+        currentImageIndex =
+            imageIndex;
 
         updateLightboxContent();
 
-        lightbox.classList.add('is-open');
+        lightbox.classList.add(
+            'is-open'
+        );
 
         lightbox.setAttribute(
             'aria-hidden',
@@ -386,31 +607,76 @@ document.addEventListener('DOMContentLoaded', async () => {
     function updateLightboxContent() {
 
         const item =
-            currentFilteredItems[currentProductIndex];
+            currentFilteredItems[
+                currentProductIndex
+            ];
 
         if (
             !item ||
             !item.galleryImages ||
-            !item.galleryImages[currentImageIndex]
+            !item.galleryImages[
+                currentImageIndex
+            ]
         ) {
             return;
         }
 
         const currentImage =
-            item.galleryImages[currentImageIndex];
+            item.galleryImages[
+                currentImageIndex
+            ];
 
-        lightboxImage.src = currentImage.src;
+        // --------------------------------------------------------
+        // Localized product name
+        // --------------------------------------------------------
+
+        const localizedName =
+            getTranslation(
+                `product.name.${item.id}`,
+                item.name || ''
+            );
+
+        // --------------------------------------------------------
+        // Localized gallery caption
+        // --------------------------------------------------------
+
+        const localizedCaption =
+            item.galleryLocalizationKey
+                ? getTranslation(
+                    `gallery.caption.${item.galleryLocalizationKey}`,
+                    currentImage.caption ||
+                    item.description ||
+                    ''
+                )
+                : (
+                    currentImage.caption ||
+                    item.description ||
+                    ''
+                );
+
+        // --------------------------------------------------------
+        // Image
+        // --------------------------------------------------------
+
+        lightboxImage.src =
+            currentImage.src;
 
         lightboxImage.alt =
-            item.name || 'Gallery image';
+            localizedName ||
+            t(
+                'gallery.galleryImage',
+                'Gallery image'
+            );
+
+        // --------------------------------------------------------
+        // Caption
+        // --------------------------------------------------------
 
         lightboxCaptionTitle.textContent =
-            item.name || '';
+            localizedName;
 
         lightboxCaptionDescription.textContent =
-            currentImage.caption ||
-            item.description ||
-            '';
+            localizedCaption;
     }
 
     // ------------------------------------------------------------
@@ -422,22 +688,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         () => {
 
             const item =
-                currentFilteredItems[currentProductIndex];
+                currentFilteredItems[
+                    currentProductIndex
+                ];
 
             if (
                 !item ||
                 !item.galleryImages ||
-                !item.galleryImages[currentImageIndex]
+                !item.galleryImages[
+                    currentImageIndex
+                ]
             ) {
                 return;
             }
 
             const failedImage =
-                item.galleryImages[currentImageIndex];
+                item.galleryImages[
+                    currentImageIndex
+                ];
 
             if (
                 failedImage.src &&
-                failedImage.src.includes('placeholder.jpg')
+                failedImage.src.includes(
+                    'placeholder.jpg'
+                )
             ) {
                 return;
             }
@@ -450,7 +724,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (
                 item.galleryImages.length === 0
             ) {
+
                 closeLightbox();
+
                 return;
             }
 
@@ -458,13 +734,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 currentImageIndex >=
                 item.galleryImages.length
             ) {
+
                 currentImageIndex =
                     item.galleryImages.length - 1;
             }
 
             updateLightboxContent();
             updateLightboxNavButtons();
-
         }
     );
 
@@ -488,7 +764,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 element =>
                     element.offsetWidth > 0 ||
                     element.offsetHeight > 0 ||
-                    element.getClientRects().length > 0
+                    element.getClientRects()
+                        .length > 0
             );
     }
 
@@ -496,7 +773,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Focus trap
     // ------------------------------------------------------------
 
-    function trapLightboxFocus(event) {
+    function trapLightboxFocus(
+        event
+    ) {
 
         if (
             event.key !== 'Tab' ||
@@ -515,7 +794,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (
             event.shiftKey &&
-            document.activeElement === firstFocusable
+            document.activeElement ===
+                firstFocusable
         ) {
 
             event.preventDefault();
@@ -524,7 +804,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         } else if (
             !event.shiftKey &&
-            document.activeElement === lastFocusable
+            document.activeElement ===
+                lastFocusable
         ) {
 
             event.preventDefault();
@@ -539,7 +820,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function closeLightbox() {
 
-        lightbox.classList.remove('is-open');
+        lightbox.classList.remove(
+            'is-open'
+        );
 
         lightbox.setAttribute(
             'aria-hidden',
@@ -550,22 +833,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lightbox-open'
         );
 
-        /*
-         * Do NOT remove or recreate gallery cards here.
-         *
-         * This is important.
-         *
-         * The gallery click listener is attached to
-         * galleryGrid and therefore remains active.
-         */
-
-        lightboxImage.removeAttribute('src');
+        lightboxImage.removeAttribute(
+            'src'
+        );
 
         lightboxImage.alt = '';
 
-        lightboxCaptionTitle.textContent = '';
+        lightboxCaptionTitle.textContent =
+            '';
 
-        lightboxCaptionDescription.textContent = '';
+        lightboxCaptionDescription.textContent =
+            '';
 
         lightbox.removeEventListener(
             'keydown',
@@ -579,7 +857,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         ) {
 
             previouslyFocusedElement.focus();
-
         }
 
         previouslyFocusedElement = null;
@@ -592,7 +869,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     function showNextImage() {
 
         const item =
-            currentFilteredItems[currentProductIndex];
+            currentFilteredItems[
+                currentProductIndex
+            ];
 
         if (!item) {
             return;
@@ -618,13 +897,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     function showPrevImage() {
 
         const item =
-            currentFilteredItems[currentProductIndex];
+            currentFilteredItems[
+                currentProductIndex
+            ];
 
         if (!item) {
             return;
         }
 
-        if (currentImageIndex > 0) {
+        if (
+            currentImageIndex > 0
+        ) {
 
             currentImageIndex--;
 
@@ -641,7 +924,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     function updateLightboxNavButtons() {
 
         const item =
-            currentFilteredItems[currentProductIndex];
+            currentFilteredItems[
+                currentProductIndex
+            ];
 
         if (!item) {
             return;
@@ -742,7 +1027,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
-            if (event.key === 'Escape') {
+            if (
+                event.key === 'Escape'
+            ) {
 
                 event.preventDefault();
 
@@ -751,7 +1038,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
-            if (event.key === 'ArrowLeft') {
+            if (
+                event.key === 'ArrowLeft'
+            ) {
 
                 event.preventDefault();
 
@@ -760,11 +1049,40 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
-            if (event.key === 'ArrowRight') {
+            if (
+                event.key === 'ArrowRight'
+            ) {
 
                 event.preventDefault();
 
                 showNextImage();
+            }
+        }
+    );
+
+    // ------------------------------------------------------------
+    // Re-render when language changes
+    // ------------------------------------------------------------
+
+    document.addEventListener(
+        'languageChanged',
+        () => {
+
+            renderFilterButtons();
+
+            renderGalleryItems(
+                currentFilteredItems
+            );
+
+            if (
+                lightbox.classList.contains(
+                    'is-open'
+                )
+            ) {
+
+                updateLightboxContent();
+
+                updateLightboxNavButtons();
             }
         }
     );
@@ -792,30 +1110,38 @@ document.addEventListener('DOMContentLoaded', async () => {
                     'content/gallery-items.json'
                 );
 
-            const productGroups = new Map();
+            const productGroups =
+                new Map();
 
             // ----------------------------------------------------
             // Create product groups
             // ----------------------------------------------------
 
-            productsData.forEach(product => {
+            productsData.forEach(
+                product => {
 
-                productGroups.set(
-                    product.id,
-                    {
-                        id: product.id,
+                    productGroups.set(
+                        product.id,
+                        {
+                            id: product.id,
 
-                        name: product.name,
+                            name: product.name,
 
-                        category: product.category,
+                            category:
+                                product.category,
 
-                        description:
-                            product.description || '',
+                            description:
+                                product.description ||
+                                '',
 
-                        galleryImages: []
-                    }
-                );
-            });
+                            galleryLocalizationKey:
+                                null,
+
+                            galleryImages: []
+                        }
+                    );
+                }
+            );
 
             // ----------------------------------------------------
             // Add gallery images
@@ -829,13 +1155,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                     if (
                         productId &&
-                        productGroups.has(productId)
+                        productGroups.has(
+                            productId
+                        )
                     ) {
 
                         const productGroup =
                             productGroups.get(
                                 productId
                             );
+
+                        // ------------------------------------------------
+                        // Store localization key
+                        // ------------------------------------------------
+
+                        if (
+                            !productGroup.galleryLocalizationKey &&
+                            galleryItem.id
+                        ) {
+
+                            productGroup.galleryLocalizationKey =
+                                galleryItem.id;
+                        }
 
                         const product =
                             productsData.find(
@@ -856,11 +1197,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                                     imageSrc
                             );
 
-                        if (!alreadyExists) {
+                        if (
+                            !alreadyExists
+                        ) {
 
                             productGroup.galleryImages.push(
                                 {
-                                    src: imageSrc,
+                                    src:
+                                        imageSrc,
 
                                     caption:
                                         galleryItem.caption ||
@@ -893,7 +1237,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                         productGroups.set(
                             standaloneId,
                             {
-                                id: standaloneId,
+                                id:
+                                    standaloneId,
 
                                 name:
                                     galleryItem.name ||
@@ -907,6 +1252,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                                     galleryItem.description ||
                                     galleryItem.caption ||
                                     '',
+
+                                galleryLocalizationKey:
+                                    galleryItem.id ||
+                                    null,
 
                                 galleryImages: [
                                     {
@@ -932,52 +1281,54 @@ document.addEventListener('DOMContentLoaded', async () => {
             allGalleryItems =
                 Array.from(
                     productGroups.values()
-                ).map(product => {
-
-                    if (
-                        product.galleryImages.length ===
-                        0
-                    ) {
-
-                        const sourceProduct =
-                            productsData.find(
-                                item =>
-                                    item.id ===
-                                    product.id
-                            );
+                ).map(
+                    product => {
 
                         if (
-                            sourceProduct?.image
+                            product.galleryImages
+                                .length === 0
                         ) {
 
-                            product.galleryImages.push(
-                                {
-                                    src:
-                                        sourceProduct.image,
+                            const sourceProduct =
+                                productsData.find(
+                                    item =>
+                                        item.id ===
+                                        product.id
+                                );
 
-                                    caption:
-                                        product.description ||
-                                        ''
-                                }
-                            );
+                            if (
+                                sourceProduct?.image
+                            ) {
 
-                        } else {
+                                product.galleryImages.push(
+                                    {
+                                        src:
+                                            sourceProduct.image,
 
-                            product.galleryImages.push(
-                                {
-                                    src:
-                                        'assets/images/placeholder.jpg',
+                                        caption:
+                                            product.description ||
+                                            ''
+                                    }
+                                );
 
-                                    caption:
-                                        product.description ||
-                                        ''
-                                }
-                            );
+                            } else {
+
+                                product.galleryImages.push(
+                                    {
+                                        src:
+                                            'assets/images/placeholder.jpg',
+
+                                        caption:
+                                            product.description ||
+                                            ''
+                                    }
+                                );
+                            }
                         }
-                    }
 
-                    return product;
-                });
+                        return product;
+                    }
+                );
 
             // ----------------------------------------------------
             // Render filters
@@ -995,7 +1346,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 );
 
             const categoryParam =
-                urlParams.get('category');
+                urlParams.get(
+                    'category'
+                );
 
             if (categoryParam) {
 
@@ -1014,12 +1367,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                         .querySelectorAll(
                             '.filter-button'
                         )
-                        .forEach(button => {
+                        .forEach(
+                            button => {
 
-                            button.classList.remove(
-                                'active'
-                            );
-                        });
+                                button.classList.remove(
+                                    'active'
+                                );
+                            }
+                        );
 
                     filterButton.classList.add(
                         'active'
@@ -1045,7 +1400,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     class="text-center"
                     style="grid-column: 1 / -1;"
                 >
-                    Unable to load gallery items.
+                    ${t(
+                        'gallery.loadError',
+                        'Unable to load gallery items.'
+                    )}
                 </p>
             `;
         }

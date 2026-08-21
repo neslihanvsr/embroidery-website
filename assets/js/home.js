@@ -5,7 +5,7 @@
  * and category preview cards, driven by JSON data.
  */
 
-import { fetchData } from './utils.js';
+import { fetchData, getTranslation } from './utils.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const featuredProductsContainer = document.getElementById('featured-products-container');
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     let allCategories = []; // To store categories for preview cards
+    let allProducts = [];   // To store all products for re-rendering on language change
 
     /**
      * Creates an HTML string for a single product card.
@@ -25,17 +26,20 @@ document.addEventListener('DOMContentLoaded', async () => {
      */
     function createProductCard(product) {
         const categoryMeta = allCategories.find(cat => cat.id === product.category);
-        const categoryLabel = categoryMeta ? categoryMeta.label : product.category;
+        const defaultCategoryLabel = categoryMeta ? categoryMeta.label : product.category;
+        const categoryLabel = getTranslation(`category.label.${product.category}`, defaultCategoryLabel);
         const categoryClass = `category-badge--${product.category}`;
+        const productName = getTranslation(`product.name.${product.id}`, product.name);
+        const buyButtonText = getTranslation('productCard.buyButton', 'Buy on Shopier');
 
         return `
             <div class="product-card">
-                <img src="${product.image}" alt="${product.name}" class="product-card__image" loading="lazy" width="200" height="200">
+                <img src="${product.image}" alt="${productName}" class="product-card__image" loading="lazy" width="200" height="200">
                 <div class="product-card__content">
                     <span class="category-badge ${categoryClass} product-card__category">${categoryLabel}</span>
-                    <h3 class="product-card__title">${product.name}</h3>
+                    <h3 class="product-card__title">${productName}</h3>
                     <p class="product-card__price">${product.price}</p>
-                    <a href="${product.shopierUrl}" target="_blank" rel="noopener noreferrer" class="btn btn--primary product-card__button">Buy on Shopier</a>
+                    <a href="${product.shopierUrl}" target="_blank" rel="noopener noreferrer" class="btn btn--primary product-card__button">${buyButtonText}</a>
                 </div>
             </div>
         `;
@@ -48,6 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
      * @returns {string} The HTML string for the category card.
      */
     function createCategoryCard(category, products) {
+        const categoryLabel = getTranslation(`category.label.${category.id}`, category.label);
         // Find the first product that belongs to this category to use its image
         const matchingProduct = products.find(product => product.category === category.id);
         let categoryImageSrc = '';
@@ -56,14 +61,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             categoryImageSrc = matchingProduct.image;
         } else {
             // Fallback to a generic placeholder if no matching product image is found
-            categoryImageSrc = `https://via.placeholder.com/180x180?text=${encodeURIComponent(category.label)}`;
+            categoryImageSrc = `https://via.placeholder.com/180x180?text=${encodeURIComponent(categoryLabel)}`;
         }
         return `
             <div class="category-card">
-                <img src="${categoryImageSrc}" alt="${category.label} Category" class="category-card__image" loading="lazy">
+                <img src="${categoryImageSrc}" alt="${categoryLabel}" class="category-card__image" loading="lazy">
                 <div class="category-card__overlay">
                     <div class="category-card__content">
-                        <h3 class="category-card__title">${category.label}</h3>
+                        <h3 class="category-card__title">${categoryLabel}</h3>
                         <a href="gallery.html?category=${category.id}" class="category-card__link">Explore →</a>
                     </div>
                 </div>
@@ -104,13 +109,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    // Re-render immediately whenever language changes without full page reload
+    document.addEventListener('languageChanged', () => {
+        if (allProducts.length > 0) {
+            renderFeaturedProducts(allProducts);
+            renderCategoryPreviews(allCategories, allProducts);
+        }
+    });
+
     // Initialize homepage content
     async function initHomepage() {
-        allCategories = await fetchData('content/categories.json');
-        const products = await fetchData('content/products.json');
+        try {
+            allCategories = await fetchData('content/categories.json');
+            allProducts = await fetchData('content/products.json');
 
-        renderFeaturedProducts(products);
-        renderCategoryPreviews(allCategories, products);
+            renderFeaturedProducts(allProducts);
+            renderCategoryPreviews(allCategories, allProducts);
+        } catch (err) {
+            console.error('Failed to initialize homepage dynamic content:', err);
+        }
     }
 
     initHomepage();

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HoyThreads Embroidery - Gallery & Portfolio</title>
+    <title data-i18n="gallery.pageMetaTitle">HoyThreads Embroidery - Gallery & Portfolio</title>
     <meta name="description" content="Explore the artistic portfolio of HoyThreads Embroidery. View unique handmade pieces, filterable by category.">
     <meta name="author" content="HoyThreads">
     <meta name="robots" content="index,follow">
@@ -37,22 +37,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head> 
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link" data-i18n="skipLink.text">Skip to main content</a>
     <div id="header-root"></div> 
     <main role="main" id="main-content">
         <section class="gallery-section">
             <div class="container">
-                <h1 class="section-title">Our Artistic Portfolio</h1>
-                <p class="text-center" style="margin-bottom: var(--space-5);">
+                <h1 class="section-title" data-i18n="gallery.pageTitle">Our Artistic Portfolio</h1>
+                <p class="text-center" style="margin-bottom: var(--space-5);" data-i18n="gallery.pageSubtitle">
                     Explore a curated collection of our handmade embroidery art, showcasing craftsmanship and diverse designs.
                 </p>
                 <!-- Gallery filtering controls will be dynamically loaded here by gallery.js -->
                 <div id="gallery-filters" class="category-filters">
-                    <p class="text-center" style="grid-column: 1 / -1;">Loading filters...</p>
+                    <p class="text-center" style="grid-column: 1 / -1;" data-i18n="gallery.loadingFilters">Loading filters...</p>
                 </div>
                 <!-- Gallery items will be dynamically loaded here by gallery.js -->
                 <div id="gallery-grid" class="grid grid--2-col-tablet grid--3-col-desktop">
-                    <p class="text-center" style="grid-column: 1 / -1;">Loading gallery items...</p>
+                    <p class="text-center" style="grid-column: 1 / -1;" data-i18n="gallery.loadingItems">Loading gallery items...</p>
                 </div>
             </div>
         </section> 
@@ -62,10 +62,10 @@
     <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="lightbox__content">
             <!-- Navigation buttons and close button are outside lightbox__main-content -->
-            <button class="lightbox__close" aria-label="Close lightbox">
+            <button class="lightbox__close" aria-label="Close lightbox" data-i18n-aria-label="lightbox.closeAriaLabel">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
-            <button class="lightbox__prev" aria-label="Previous image">
+            <button class="lightbox__prev" aria-label="Previous image" data-i18n-aria-label="lightbox.prevAriaLabel">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </button>
             <div class="lightbox__main-content"> <!-- New container for image and caption -->
@@ -75,7 +75,7 @@
                     <p class="lightbox__caption-description"></p>
                 </div>
             </div>
-            <button class="lightbox__next" aria-label="Next image">
+            <button class="lightbox__next" aria-label="Next image" data-i18n-aria-label="lightbox.nextAriaLabel">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
         </div>
@@ -85,17 +85,17 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer__social-links" role="contentinfo" aria-label="Social media links">
-                    <a href="https://instagram.com/astronaut_on" aria-label="Instagram"><img src="assets/images/icons/instagram.png" alt="" width="24" height="24"></a>
-                    <a href="https://pinterest.com/hoythreads" aria-label="Pinterest"><img src="assets/images/icons/pinterest.png" alt="" width="24" height="24"></a>
-                    <a href="https://www.shopier.com/hoythreads/" aria-label="Etsy"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
+                <div class="footer__social-links" role="contentinfo" aria-label="Social media links" data-i18n-aria-label="footer.socialLinksAriaLabel">
+                    <a href="https://instagram.com/astronaut_on" aria-label="Instagram" data-i18n-aria-label="contact.instagramAriaLabel"><img src="assets/images/icons/instagram.png" alt="" width="24" height="24"></a>
+                    <a href="https://pinterest.com/hoythreads" aria-label="Pinterest" data-i18n-aria-label="contact.pinterestAriaLabel"><img src="assets/images/icons/pinterest.png" alt="" width="24" height="24"></a>
+                    <a href="https://www.shopier.com/hoythreads/" aria-label="Etsy" data-i18n-aria-label="contact.shopierAriaLabel"><img src="assets/images/icons/etsy.png" alt="" width="24" height="24"></a>
                 </div>
-                <p class="footer__copyright">&copy; 2026 HoyThreads. All rights reserved.</p>
+                <p class="footer__copyright">&copy; <span id="current-year"></span> <span data-i18n="footer.copyright">HoyThreads. All rights reserved.</span></p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
     <script type="module" src="assets/js/gallery.js"></script> <!-- This script will load and render gallery items -->
 </body>
 </html>

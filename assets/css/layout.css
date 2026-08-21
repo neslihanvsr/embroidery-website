@@ -76,8 +76,21 @@
   align-items: center;
 }
 
+@media (max-width: 899px) {
+  .header-content {
+    grid-template-columns: auto 1fr auto;
+  }
+}
+
 .nav--desktop {
   justify-self: center;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
 }
 
 .site-logo img {
